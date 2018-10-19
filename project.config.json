@@ -1,0 +1,79 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wxa17994c398e1201f",
+	"projectname": "jjapp10-19",
+	"libVersion": "2.2.5",
+	"compileType": "miniprogram",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 6,
+			"list": [
+				{
+					"id": -1,
+					"name": "住宅列表",
+					"pathName": "pages/estate/estate",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "住宅首页",
+					"pathName": "pages/estateHome/estateHome",
+					"query": "id=1"
+				},
+				{
+					"id": 3,
+					"name": "户型列表",
+					"pathName": "pages/houses/houses",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "户型详情",
+					"pathName": "pages/housePage/housePage",
+					"query": "id=1"
+				},
+				{
+					"id": 5,
+					"name": "商业列表",
+					"pathName": "pages/business/business",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "商业文章列表",
+					"pathName": "pages/businessList/businessList",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "商业文章",
+					"pathName": "pages/businessArticle/businessArticle",
+					"query": "id=1"
+				}
+			]
+		}
+	}
+}

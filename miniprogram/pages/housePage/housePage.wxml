@@ -1,0 +1,35 @@
+<!--miniprogram/pages/housePage/housePage.wxml-->
+<view class="container">
+  <!-- 轮播图 -->
+  <view class="swiper">
+    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
+      <block wx:for="{{list.estate_article_images}}" wx:key="*this">
+        <swiper-item>
+          <image class="size-full" src="{{item.imgurl}}" mode="aspectFit" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 内容 -->
+  <view class="content">
+    <view class="first-text">
+      <text>{{list.title}}</text>
+    </view>
+    <view class="ordinary-text font-color-theme">{{list.total}}</view>
+    <view class="ordinary-text flex">
+      <view class="size-half-row">建筑面积：{{list.house_area}}</view>
+      <view class="size-half-row">朝向：{{list.direction}}</view>
+    </view>
+    <view class="ordinary-text">首付占比：{{list.payment_proprotion}}</view>
+    <view class="end-text">所属楼盘：{{list.estate.title}}</view>
+  </view>
+  <!-- 电话咨询 -->
+  <view class="phone-tap" bindtap="callPhoneTap">
+    <image class="size-full" src="../../public/icon/phone.png" mode="aspectFill" />
+  </view>
+  <!-- 简介 -->
+  <view class="summary">
+    <view class="title">简介</view>
+    <view class="summary-content">{{list.content}}</view>
+  </view>
+</view>

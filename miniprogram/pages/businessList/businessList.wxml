@@ -1,0 +1,15 @@
+<!--miniprogram/pages/businessList/businessList.wxml-->
+<view class="container">
+  <view class="cell" wx:for="{{businessList}}" wx:key="*this" data-id="{{item.id}}" bindtap="cellTap">
+    <view class="left relative">
+      <view class="image">
+        <image class="size-full" src="{{item.img_url}}" mode="aspectFit" />
+      </view>
+    </view>
+    <view class="right relative">
+      <view class="title absolute view-left row-width">{{item.title}}</view>
+      <view class="subtitle absolute view-left row-width">{{item.subtitle}}</view>
+      <view class="position absolute view-left row-width">{{item.position}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<!--miniprogram/pages/houses/houses.wxml-->
+<view class="container">
+  <view wx:for="{{list}}" wx:key="*this" class="main-view" data-item="{{item}}" bindtap="cellTap">
+    <view class="left-view">
+      <image class="size-full" src="{{item.estate_article_images[0].imgurl}}" mode="aspectFill" />
+    </view>
+    <view class="right-view">
+      <view class="text-rows">{{item.title}}
+        <text style="padding-left:30rpx;">{{item.house_area}}</text>
+      </view>
+      <view class="text-rows"></view>
+      <view class="text-rows red-color">{{item.total}}</view>
+    </view>
+  </view>
+</view>

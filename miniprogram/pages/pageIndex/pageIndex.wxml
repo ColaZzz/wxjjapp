@@ -1,0 +1,77 @@
+<!--miniprogram/pages/pageIndex/pageIndex.wxml-->
+<view class="container">
+<!-- 公众号关注 -->
+<official-account></official-account>
+<!-- 轮播图 -->
+  <view class="swiper">
+    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
+      <block wx:for="{{swiperList}}" wx:key="*this">
+        <swiper-item>
+          <image class="size-full" src="{{item.imgurl}}" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 菜单 -->
+  <view class="menu row-direction">
+    <view class="row-three">
+      <view class="menu-child-top" bindtap="businessTap">
+        <image class="size-half" style="margin-top:15%;" src="../../public/icon/menu1.png" mode="aspectFit" />
+      </view>
+      <view class="menu-child-bottom" bindtap="businessTap">商业</view>
+    </view>
+    <view class="row-three">
+      <view class="menu-child-top" bindtap="estateTap">
+        <image class="size-half" style="margin-top:15%;" src="../../public/icon/menu2.png" mode="aspectFit" />
+      </view>
+      <view class="menu-child-bottom" bindtap="estateTap">住宅</view>
+    </view>
+    <view class="row-three">
+      <view class="menu-child-top">
+        <image class="size-half" style="margin-top:15%;" src="../../public/icon/menu3.png" mode="aspectFit" />
+      </view>
+      <view class="menu-child-bottom">其它</view>
+    </view>
+  </view>
+  <!-- 专栏 -->
+  <view class="column">
+    <view style="width:100%;height:50rpx;font-size:12px;display:flex;">
+      <view style="width:10rpx;height:60%;background-color:#ff6a6a;margin:10rpx 20rpx 0 20rpx;"></view>
+      <view style="margin:10rpx 20rpx 0 0;">专栏</view>
+    </view>
+    <view class="column-box">
+      <view class="column-box-row">
+        <view class="size-half-row">
+          <view class="size-full div-center">
+            <view class="column-item">
+              <image class="size-full" src="{{columnList[0].imgurl}}" mode="aspectFill" />
+            </view>
+          </view>
+        </view>
+        <view class="size-half-row">
+          <view class="size-full div-center">
+            <view class="column-item">
+              <image class="size-full" src="{{columnList[1].imgurl}}" mode="aspectFill" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="column-box-row">
+        <view class="size-half-row">
+          <view class="size-full div-center">
+            <view class="column-item">
+              <image class="size-full" src="{{columnList[2].imgurl}}" mode="aspectFill" />
+            </view>
+          </view>
+        </view>
+        <view class="size-half-row">
+          <view class="size-full div-center">
+            <view class="column-item">
+              <image class="size-full" src="{{columnList[3].imgurl}}" mode="aspectFill" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

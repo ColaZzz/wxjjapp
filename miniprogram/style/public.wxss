@@ -1,0 +1,67 @@
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.size-full {
+  width: 100%;
+  height: 100%;
+}
+
+.size-half {
+  width: 50%;
+  height: 50%;
+}
+
+.size-half-row {
+  width: 50%;
+  height: 100%;
+}
+
+.row-direction {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.row-three {
+  height: 100%;
+  width: 33.3%;
+}
+
+.div-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex{
+  display: flex;
+}
+
+.bk-color-theme{
+  background-color: #ff6a6a;
+}
+
+.font-color-theme{
+  color: #ff6a6a;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+/* 字体描边 */
+.shadow{
+  text-shadow:0 0 0.1em #fff,-0 -0 0.1em #000;
+}
+
+.bg-color{
+  background-color: #ff6a6a;
+}

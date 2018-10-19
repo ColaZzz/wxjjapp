@@ -1,0 +1,58 @@
+/* miniprogram/pages/businessList/businessList.wxss */
+@import "../../style/public.wxss";
+
+.container{
+  background-color: #f6f6f6;
+}
+
+.cell{
+  width: 100%;
+  height: 270rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+  display: flex;
+}
+
+.left{
+  width: 32%;
+  height: 100%;
+}
+
+.right{
+  width: 68%;
+  height: 100%;
+}
+
+.image{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  top: 35rpx;
+  left: 40rpx;
+}
+
+.title{
+  font-size: 32rpx;
+  top: 35rpx;
+}
+
+.subtitle{
+  font-size: 26rpx;
+  top: 85rpx;
+  height: 1.5em;
+}
+
+.position{
+  font-size: 24rpx;
+  bottom: 35rpx;
+}
+
+.view-left{
+  left: 40rpx;
+}
+
+.row-width{
+  width: 60%;
+  overflow:hidden; 
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
