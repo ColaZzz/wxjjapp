@@ -2,7 +2,7 @@
 <view class="container">
   <view wx:for="{{list}}" wx:key="*this" class="main-view" data-item="{{item}}" bindtap="cellTap">
     <view class="left-view">
-      <image class="size-full" src="{{item.estate_article_images[0].imgurl}}" mode="aspectFill" />
+      <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
     </view>
     <view class="right-view">
       <view class="text-rows">{{item.title}}

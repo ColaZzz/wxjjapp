@@ -26,7 +26,6 @@ Page({
         id: id
       },
       success(res){
-        console.log(res.data)
         that.setData({
           businessList: res.data.data
         })

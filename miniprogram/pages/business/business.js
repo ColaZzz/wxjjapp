@@ -82,7 +82,7 @@ Page({
 
   cellTap(event){
     let id = event.currentTarget.dataset.id
-    3
+    
     wx.navigateTo({
       url: '../businessList/businessList?id=' + id,
     })

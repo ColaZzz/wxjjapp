@@ -1,13 +1,13 @@
 <!--miniprogram/pages/pageIndex/pageIndex.wxml-->
-<view class="container">
+<view class="container" hidden="{{hidden}}">
 <!-- 公众号关注 -->
 <official-account></official-account>
 <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
-      <block wx:for="{{swiperList}}" wx:key="*this">
-        <swiper-item>
-          <image class="size-full" src="{{item.imgurl}}" mode="aspectFill" />
+      <block wx:for="{{swiperList}}" wx:key="{{item.index}}">
+        <swiper-item bindtap="cellTap" data-item="{{item}}">
+          <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
         </swiper-item>
       </block>
     </swiper>
@@ -43,15 +43,15 @@
       <view class="column-box-row">
         <view class="size-half-row">
           <view class="size-full div-center">
-            <view class="column-item">
-              <image class="size-full" src="{{columnList[0].imgurl}}" mode="aspectFill" />
+            <view class="column-item" bindtap="columnTap" data-item="{{columnList[0]}}">
+              <image class="size-full" src="{{columnList[0].img_url}}" mode="aspectFill" />
             </view>
           </view>
         </view>
         <view class="size-half-row">
           <view class="size-full div-center">
-            <view class="column-item">
-              <image class="size-full" src="{{columnList[1].imgurl}}" mode="aspectFill" />
+            <view class="column-item" bindtap="columnTap" data-item="{{columnList[1]}}">
+              <image class="size-full" src="{{columnList[1].img_url}}" mode="aspectFill" />
             </view>
           </view>
         </view>
@@ -59,15 +59,15 @@
       <view class="column-box-row">
         <view class="size-half-row">
           <view class="size-full div-center">
-            <view class="column-item">
-              <image class="size-full" src="{{columnList[2].imgurl}}" mode="aspectFill" />
+            <view class="column-item" bindtap="columnTap" data-item="{{columnList[2]}}">
+              <image class="size-full" src="{{columnList[2].img_url}}" mode="aspectFill" />
             </view>
           </view>
         </view>
         <view class="size-half-row">
           <view class="size-full div-center">
-            <view class="column-item">
-              <image class="size-full" src="{{columnList[3].imgurl}}" mode="aspectFill" />
+            <view class="column-item" bindtap="columnTap" data-item="{{columnList[3]}}">
+              <image class="size-full" src="{{columnList[3].img_url}}" mode="aspectFill" />
             </view>
           </view>
         </view>
