@@ -7,27 +7,38 @@ Page({
   data: {
     markers: [{
         id: 1,
-        latitude: 23.771442,
-        longitude: 114.717607,
+      latitude: 23.771786,
+      longitude: 114.717361,
         title: '桃花水母大剧院',
-        iconPath: '/public/icon/go.png'
+        iconPath: '/public/icon/map2.png',
+        width: 30,
+        height: 30
       }, {
         id: 2,
-        latitude: 23.770824,
+        latitude: 23.770814,
         longitude: 114.720472,
-        name: '坚基购物中心'
+        name: '坚基购物中心',
+        iconPath: '/public/icon/map2.png',
+        width: 30,
+        height: 30
       },
       {
         id: 3,
-        latitude: 23.770176,
-        longitude: 114.716181,
-        name: '坚基·美好城'
+        latitude: 23.770186,
+        longitude: 114.715708,
+        name: '坚基·美好城',
+        iconPath: '/public/icon/map2.png',
+        width: 30,
+        height: 30
       },
       {
         id: 4,
-        latitude: 23.771069,
-        longitude: 114.714142,
-        name: '坚基·美丽城'
+        latitude: 23.771079,
+        longitude: 114.714131,
+        name: '坚基·美丽城',
+        iconPath: '/public/icon/map2.png',
+        width: 30,
+        height: 30
       },
     ]
   },
