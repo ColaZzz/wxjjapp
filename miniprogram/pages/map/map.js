@@ -6,54 +6,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    markers: [{
-        id: 1,
-        latitude: 23.771786,
-        longitude: 114.717361,
-        title: '桃花水母大剧院',
-        iconPath: '/public/icon/map2.png',
-        width: 30,
-        height: 30
-      }, {
-        id: 2,
-        latitude: 23.770814,
-        longitude: 114.720472,
-        name: '坚基购物中心',
-        iconPath: '/public/icon/map2.png',
-        width: 30,
-        height: 30
-      },
-      {
-        id: 3,
-        latitude: 23.770186,
-        longitude: 114.715708,
-        name: '坚基·美好城',
-        iconPath: '/public/icon/map2.png',
-        width: 30,
-        height: 30
-      },
-      {
-        id: 4,
-        latitude: 23.771079,
-        longitude: 114.714131,
-        name: '坚基·美丽城',
-        iconPath: '/public/icon/map2.png',
-        width: 30,
-        height: 30
-      },
-    ]
+    markers: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let iconPath = '../../public/icon/map2.png'
     wx.showLoading({
       title: 'loading'
     })
 
     api.request('map', 'GET').then(res => {
-      console.log(res)
+      let arr = new Array()
+      for (let i = 0; i < res.length; i++) {
+        let row = {
+          id: i,
+          uid: res[i].id,
+          title: res[i].title,
+          latitude: res[i].latitude,
+          longitude: res[i].longitude,
+          img_url: res[i].img_url,
+          flag: res[i].flag,
+          iconPath: iconPath,
+          width: 30,
+          height: 30
+        }
+        arr.push(row)
+      }
+      this.setData({
+        markers: arr
+      })
       wx.hideLoading()
     }).catch(err => {
       console.log(err)
