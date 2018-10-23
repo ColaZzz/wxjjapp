@@ -1,4 +1,5 @@
 // miniprogram/pages/businessArticle/businessArticle.js
+import api from '../../common/api.js'
 const app = getApp()
 Page({
 
@@ -12,99 +13,87 @@ Page({
     interval: 5000,
     duration: 1000,
     releaseFocus: false,
-    hidden: false,
+    hidden: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this
     let id = options.id
+    let params = {
+      id: id
+    }
 
     wx.showLoading({
-      title: 'loading',
-      complete(){
-        that.setData({
-          hidden: true
-        })
-      }
+      title: 'loading'
     })
-    
-    wx.request({
-      url: app.url + 'businessarticle',
-      method: 'GET',
-      data: {
-        id: id
-      },
-      success(res) {
-        let result = res.data.data
-        that.setData({
-          list: result
-        })
-      },
-      complete() {
-        wx.hideLoading()
-        that.setData({
-          hidden: false
-        })
-      }
+
+    api.request('businessarticle', 'GET', params).then(res => {
+      that.setData({
+        list: res,
+        hidden: false
+      })
+      wx.hideLoading()
+    }).catch(err => {
+      wx.hideLoading()
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
   /**
-  * 点击回复
-  */
-  bindReply: function (e) {
+   * 点击回复
+   */
+  bindReply: function(e) {
     this.setData({
       releaseFocus: true
     })

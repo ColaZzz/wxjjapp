@@ -1,4 +1,5 @@
 // miniprogram/pages/estateHome/estateHome.js
+import api from '../../common/api.js'
 const app = getApp()
 Page({
 
@@ -16,90 +17,87 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    let that = this
+    let id = options.id
+    let params = {
+      id: id
+    }
+
     wx.showLoading({
       title: 'loading',
     })
 
-    let that = this
-    let id = options.id
-    wx.request({
-      url: app.url + 'estate',
-      method: 'GET',
-      data: {
-        id: id
-      },
-      success(res) {
-        that.setData({
-          data: res.data.data
-        })
-      },
-      complete(){
-        wx.hideLoading()
-      }
+    api.request('estate', 'GET', params).then(res => {
+      that.setData({
+        data: res
+      })
+      wx.hideLoading()
+    }).catch(err => {
+      wx.hideLoading()
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
   // 拨打电话
-  callPhoneTap(){
+  callPhoneTap() {
     wx.makePhoneCall({
       phoneNumber: '123456',
     })
   },
 
   // 查看更多户型
-  allHouse(){
+  allHouse() {
     let that = this
-    
+
     wx.navigateTo({
       url: '../houses/houses?id=' + that.data.data.id,
     })

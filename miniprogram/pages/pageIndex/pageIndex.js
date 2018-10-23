@@ -1,4 +1,5 @@
 // miniprogram/pages/pageIndex/pageIndex.js
+import api from '../../common/api.js'
 const app = getApp()
 Page({
 
@@ -52,48 +53,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
+
     wx.showLoading({
       title: 'loading',
     })
 
-    let that = this
     // 轮播图的请求
-    wx.request({
-      url: app.url + 'indexpage',
-      method: 'GET',
-      success(res){
-        that.setData({
-          swiperList: res.data.data
-        })
-      },
-      complete(){
-        that.data.bool1 = true
-      }
-    })
+    let swiper = api.request('indexpage','GET')
 
     // 专栏的请求
-    wx.request({
-      url: app.url + 'indexcolumn',
-      method: 'GET',
-      success(column) {
-        that.setData({
-          columnList: column.data.data
-        })
-      },
-      complete() {
-        that.data.bool2 = true
-      }
-    })
+    let column = api.request('indexcolumn', 'GET')
 
-    setInterval(()=>{
-      if (that.data.bool1 && that.data.bool2){
-        wx.hideLoading()
-        that.setData({
-          hidden: false
-        })
-        clearInterval()
-      }
-    }, 500)
+    Promise.all([swiper, column]).then(res=>{
+      that.setData({
+        swiperList: res[0],
+        columnList: res[1],
+        hidden: false
+      })
+      wx.hideLoading()
+    }).catch(err=>{
+      wx.hideLoading()
+    })
   },
 
   /**

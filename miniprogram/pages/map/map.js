@@ -1,4 +1,5 @@
 // miniprogram/pages/map/map.js
+import api from '../../common/api.js'
 Page({
 
   /**
@@ -7,8 +8,8 @@ Page({
   data: {
     markers: [{
         id: 1,
-      latitude: 23.771786,
-      longitude: 114.717361,
+        latitude: 23.771786,
+        longitude: 114.717361,
         title: '桃花水母大剧院',
         iconPath: '/public/icon/map2.png',
         width: 30,
@@ -47,7 +48,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: 'loading'
+    })
 
+    api.request('map', 'GET').then(res => {
+      console.log(res)
+      wx.hideLoading()
+    }).catch(err => {
+      console.log(err)
+      wx.hideLoading()
+    })
   },
 
   /**
