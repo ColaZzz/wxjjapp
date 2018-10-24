@@ -12,8 +12,8 @@ App({
 
     this.globalData = {}
 
-    this.url = 'http://jjapp.test/api/'
-    // this.url = 'https://togetherwoh.com/api/'
+    // this.url = 'http://jjapp.test/api/'
+    this.url = 'https://togetherwoh.com/api/'
     this.estateImgPrefix = 'http://jjapp.test/uploads/estates/'
   }
 })

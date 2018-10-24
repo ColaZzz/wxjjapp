@@ -15,7 +15,7 @@ Page({
   onLoad: function(options) {
     let iconPath = '../../public/icon/map2.png'
     wx.showLoading({
-      title: 'loading'
+      title: '加载中'
     })
 
     api.request('map', 'GET').then(res => {

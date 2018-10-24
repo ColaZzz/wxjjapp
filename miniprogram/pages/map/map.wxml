@@ -1,9 +1,9 @@
 <!--miniprogram/pages/map/map.wxml-->
 <view class="container">
   <view class="header">
-    <view>全部</view>
-    <view>商业</view>
-    <view>住宅</view>
+    <view class="tabs">全部</view>
+    <view class="tabs">商业</view>
+    <view class="tabs">住宅</view>
   </view>
   <view class="map">
     <map id="myMap" style="width: 100%; height: 100%;" longitude="114.717640" latitude="23.771403" scale='17' subkey="7WHBZ-XJCWF-APCJC-J2XTK-W65QV-VVFED" markers="{{markers}}" bindmarkertap="mapTap" show-location="true"></map>
