@@ -13,12 +13,17 @@
     <view class="title">{{list.title}}</view>
     <view class="subtitle padding-left">{{list.subtitle}}</view>
     <view class="position">{{list.position}}</view>
-    <view class="title-icon"><image src="../../public/icon/store.png"></image></view>
-    <view class="position-icon"><image src="../../public/icon/position.png"></image></view>
+    <view class="title-icon">
+      <image src="../../public/icon/store.png"></image>
+    </view>
+    <view class="position-icon">
+      <image src="../../public/icon/position.png"></image>
+    </view>
   </view>
   <view class="content-name">
-    <view class="content-text">介绍</view>
-    <view class="content-rectangle"></view>
+    <van-tag color="#ff6a6a" size="large" style="margin-left: 30rpx;">介绍</van-tag>
+    <!-- <view class="content-text">介绍</view>-->
+    <!-- <view class="content-rectangle"></view> -->
   </view>
   <view class="content">
     <view>

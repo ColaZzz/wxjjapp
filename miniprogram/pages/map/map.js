@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    markers: []
+    storeMarkers: [], // 存储的
+    markers: [],      // 展示的
+    active: 1
   },
 
   /**
@@ -36,6 +38,7 @@ Page({
         arr.push(row)
       }
       this.setData({
+        storeMarkers: arr,
         markers: arr
       })
       wx.hideLoading()
@@ -94,11 +97,29 @@ Page({
 
   },
 
+  // 标记点击
   mapTap(event) {
     let id = event.markerId
     let arr = this.data.markers
 
     let row = arr.find(array => (array.id == id))
     console.log(row)
+  },
+
+  // 类型筛选
+  tabsChanged(event){
+    let markers = this.data.storeMarkers
+    let flag = event.detail.title
+    let list
+    if(flag == '商业'){
+      list = markers.filter(item => item.flag == 0)
+    } else if (flag == '住宅'){
+      list = markers.filter(item => item.flag == 1)
+    } else if (flag == '全部') {
+      list = markers
+    }
+    this.setData({
+      markers: list
+    })
   }
 })

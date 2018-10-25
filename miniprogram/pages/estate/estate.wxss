@@ -81,19 +81,25 @@
   width: 100%;
   height: 60%;
   font-size: 28rpx;
+  display: flex;
+  overflow:hidden; 
+  white-space:nowrap;
+  text-overflow: ellipsis;
 }
 
 .title {
-  float: left;
   margin-left: 20rpx;
   margin-top: 20rpx;
   font-weight: bold;
+  width: 60%;
 }
 
 .area {
-  float: right;
+  text-align: right;
   margin-right: 20rpx;
   margin-top: 20rpx;
+  width: 40%;
+
 }
 
 .address-view {

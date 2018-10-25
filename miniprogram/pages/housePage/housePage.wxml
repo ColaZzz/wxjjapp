@@ -5,7 +5,7 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{list.estate_article_images}}" wx:key="*this">
         <swiper-item>
-          <image class="size-full" src="{{item.imgurl}}" mode="aspectFit" />
+          <image class="size-full" src="{{item.img_url}}" mode="aspectFit" />
         </swiper-item>
       </block>
     </swiper>
@@ -27,6 +27,11 @@
   <view class="phone-tap" bindtap="callPhoneTap">
     <image class="size-full" src="../../public/icon/phone.png" mode="aspectFill" />
   </view>
+  <!-- 微信咨询 -->
+  <view class="wechat-tap">
+    <button open-type="contact"></button>
+  </view>
+  <!-- <image class="size-full" src="../../public/icon/wechat.png" mode="aspectFill" /> -->
   <!-- 简介 -->
   <view class="summary">
     <view class="title">简介</view>

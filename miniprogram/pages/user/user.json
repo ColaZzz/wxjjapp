@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "i-avatar": "/dist/iview-weapp/avatar/index"
+  }
+}

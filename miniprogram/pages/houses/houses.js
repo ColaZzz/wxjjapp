@@ -7,29 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: []
+    list: [],
+    loadMore: false,
+    tip: '',
+    currentPage: 1,
+    lastPage: 0,
+    id: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this
-    let params = {
+    this.setData({
       id: options.id
-    }
-
-    wx.showLoading({
-      title: 'loading',
-    })
-
-    api.request('estatearticles', 'GET', params).then(res => {
-      that.setData({
-        list: res
-      })
-      wx.hideLoading()
-    }).catch(err => {
-      wx.hideLoading()
     })
   },
 
@@ -37,7 +28,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    wx.hideLoading()
+    wx.showLoading({
+      title: 'loading',
+    })
+
+    this.getData({
+      id: this.data.id,
+      page: this.data.currentPage
+    })
   },
 
   /**
@@ -72,7 +70,23 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    if (this.data.currentPage == this.data.lastPage) {
+      this.setData({
+        tip: '到底啦'
+      })
+      return
+    }
 
+    let page = this.data.currentPage + 1
+    this.setData({
+      currentPage: page,
+      loadMore: true
+    })
+
+    this.getData({
+      id: this.data.id,
+      page: this.data.currentPage
+    })
   },
 
   /**
@@ -86,6 +100,32 @@ Page({
     let item = event.currentTarget.dataset.item;
     wx.navigateTo({
       url: '../housePage/housePage?id=' + item.id,
+    })
+  },
+
+  // 分页获取户型
+  getData(params) {
+    api.request('estatearticles', 'GET', params).then(res => {
+      let list = this.data.list
+      let tip = ''
+      for (let i = 0; i < res.data.length; i++) {
+        list.push(res.data[i])
+      }
+    
+      if (res.last_page == 1){
+        tip = '到底啦'
+      }
+
+      this.setData({
+        list: list,
+        lastPage: res.last_page,
+        loadMore: false,
+        tip: tip
+      })
+
+      wx.hideLoading()
+    }).catch(err => {
+      wx.hideLoading()
     })
   }
 })

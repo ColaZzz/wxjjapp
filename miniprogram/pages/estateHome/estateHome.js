@@ -101,5 +101,17 @@ Page({
     wx.navigateTo({
       url: '../houses/houses?id=' + that.data.data.id,
     })
+  },
+
+  // 查看更多
+  moreTap(){
+    let more = Object.assign({}, this.data.data)
+    delete more['estate_images']
+    delete more['icon_url']
+    delete more['img_url']
+
+    wx.navigateTo({
+      url: '../estateMoreInfo/estateMoreInfo?data=' + JSON.stringify(more),
+    })
   }
 })

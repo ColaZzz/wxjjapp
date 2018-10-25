@@ -1,6 +1,6 @@
 <!--miniprogram/pages/houses/houses.wxml-->
 <view class="container">
-  <view wx:for="{{list}}" wx:key="*this" class="main-view" data-item="{{item}}" bindtap="cellTap">
+  <view wx:for="{{list}}" wx:key="{{item.id}}" class="main-view" data-item="{{item}}" bindtap="cellTap">
     <view class="left-view">
       <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
     </view>
@@ -11,5 +11,8 @@
       <view class="text-rows"></view>
       <view class="text-rows red-color">{{item.total}}</view>
     </view>
+  </view>
+  <view style="width: 100%; height:50rpx;">
+    <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
   </view>
 </view>

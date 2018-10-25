@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-cell": "/dist/vant-weapp/cell/index",
+    "van-cell-group": "/dist/vant-weapp/cell-group/index",
+    "van-tag": "/dist/vant-weapp/tag/index"
+  }
+}

@@ -1,10 +1,14 @@
 <!--miniprogram/pages/map/map.wxml-->
 <view class="container">
-  <view class="header">
-    <view class="tabs">全部</view>
-    <view class="tabs">商业</view>
-    <view class="tabs">住宅</view>
-  </view>
+
+  <van-tabs type="line" bind:change="tabsChanged" border="false" color="$ff6a6a" style="width:600rpx;padding: 20rpx 0;">
+    <van-tab title="全部"></van-tab>
+    <van-tab title="商业"></van-tab>
+    <van-tab title="住宅"></van-tab>
+
+  </van-tabs>
+  <!-- <view class="header">
+  </view> -->
   <view class="map">
     <map id="myMap" style="width: 100%; height: 100%;" longitude="114.717640" latitude="23.771403" scale='17' subkey="7WHBZ-XJCWF-APCJC-J2XTK-W65QV-VVFED" markers="{{markers}}" bindmarkertap="mapTap" show-location="true"></map>
   </view>

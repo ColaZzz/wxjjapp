@@ -47,11 +47,11 @@
   font-size: 28rpx;
 }
 
-.padding-left{
+.padding-left {
   padding-left: 150rpx;
 }
 
-.phone-tap{
+.phone-tap {
   position: fixed;
   width: 80rpx;
   height: 80rpx;
@@ -60,12 +60,12 @@
   border-radius: 40rpx;
 }
 
-.summary{
+.summary {
   width: 100%;
   background-color: #fff;
 }
 
-.title{
+.title {
   height: 30rpx;
   width: 100%;
   font-size: 30rpx;
@@ -73,7 +73,30 @@
   display: flex;
 }
 
-.summary-content{
+.summary-content {
   font-size: 28rpx;
   padding: 20rpx 50rpx;
+}
+
+.wechat-tap {
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  bottom: 150rpx;
+  right: 50rpx;
+  border-radius: 40rpx;
+}
+
+.wechat-tap button {
+  background-image: url(../../public/icon/wechat.png);
+  background-size: 100% 100%;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.contact image {
+  z-index: 1;
 }

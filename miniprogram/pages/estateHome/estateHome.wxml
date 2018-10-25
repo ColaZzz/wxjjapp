@@ -5,7 +5,7 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{data.estate_images}}" wx:key="*this">
         <swiper-item>
-          <image class="size-full" src="{{item.imgurl}}" mode="aspectFill" />
+          <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
         </swiper-item>
       </block>
     </swiper>
@@ -19,10 +19,10 @@
     <view class="content-bottom">
       <view class="yiled"></view>
       <view class="text-row"><view>售价：<text>{{data.price}}</text></view></view>
-      <view class="text-row"><view>开盘：{{data.start_time}}</view></view>
+      <view class="text-row"><view >开盘：<span wx:if="{{data.start_time}}">{{data.start_time}}</span></view></view>
       <view class="text-row"><view>地址：{{data.address}}</view></view>
       <view class="yiled"></view>
-      <view class="btn-more">更多信息</view>
+      <view class="btn-more" bindtap="moreTap">更多信息</view>
       <view class="yiled-bottom"></view>
     </view>
   </view>

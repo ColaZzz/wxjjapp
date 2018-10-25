@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "van-tag": "/dist/vant-weapp/tag/index"
+  }
+}
