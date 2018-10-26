@@ -3,7 +3,7 @@
   <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
-      <block wx:for="{{list.estate_article_images}}" wx:key="*this">
+      <block wx:for="{{list.estate_article_images}}" wx:key="{{item.id}}">
         <swiper-item>
           <image class="size-full" src="{{item.img_url}}" mode="aspectFit" />
         </swiper-item>
@@ -21,7 +21,10 @@
       <view class="size-half-row">朝向：{{list.direction}}</view>
     </view>
     <view class="ordinary-text">首付占比：{{list.payment_proprotion}}</view>
-    <view class="end-text">所属楼盘：{{list.estate.title}}</view>
+    <view class="end-text relative" bindtap="estateTap" data-estate="{{list.estate_id}}">所属楼盘：
+      <span>{{list.estate.title}}</span>
+      <image class="enter-img absolute" src="../../public/icon/go.png" />
+    </view>
   </view>
   <!-- 电话咨询 -->
   <view class="phone-tap" bindtap="callPhoneTap">
@@ -29,9 +32,10 @@
   </view>
   <!-- 微信咨询 -->
   <view class="wechat-tap">
-    <button open-type="contact"></button>
+    <button open-type="contact" plain>
+      <image class="button-image" src="../../public/icon/wechat.png" mode="aspectFill" />
+    </button>
   </view>
-  <!-- <image class="size-full" src="../../public/icon/wechat.png" mode="aspectFill" /> -->
   <!-- 简介 -->
   <view class="summary">
     <view class="title">简介</view>

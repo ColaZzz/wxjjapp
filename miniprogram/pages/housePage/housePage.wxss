@@ -88,15 +88,29 @@
 }
 
 .wechat-tap button {
-  background-image: url(../../public/icon/wechat.png);
-  background-size: 100% 100%;
   width: 80rpx;
   height: 80rpx;
   border-radius: 40rpx;
-  background-repeat: no-repeat;
   border: none;
+  position: relative;
+  z-index: 2;
 }
 
-.contact image {
-  z-index: 1;
+.button-image{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  left: 0;
+  z-index: 1
+}
+
+.enter-img{
+  width: 40rpx;
+  height: 40rpx;
+  right: 110rpx;
+  top: 35rpx;
+}
+
+.end-text span{
+  color: #72ACE3;
 }

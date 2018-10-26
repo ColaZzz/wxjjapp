@@ -97,5 +97,13 @@ Page({
     wx.makePhoneCall({
       phoneNumber: number,
     })
+  },
+
+  // 楼盘跳转
+  estateTap(event){
+    let estate_id = event.currentTarget.dataset.estate
+    wx.navigateTo({
+      url: '../estateHome/estateHome?id=' + estate_id,
+    })
   }
 })
