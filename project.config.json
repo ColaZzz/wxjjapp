@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -88,7 +88,14 @@
 				{
 					"id": -1,
 					"name": "住宅更多",
-					"pathName": "pages/estateMoreInfo/estateMoreInfo"
+					"pathName": "pages/estateMoreInfo/estateMoreInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test",
+					"query": ""
 				}
 			]
 		}

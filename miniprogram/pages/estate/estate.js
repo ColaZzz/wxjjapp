@@ -11,7 +11,39 @@ Page({
     currentPage: 1,
     lastPage: 0,
     loadMore: false,
-    tip: ''
+    tip: '',
+    items: [{
+      type: 'radio',
+      label: '出售状态',
+      value: '出售状态',
+      children: [{
+        label: '在售',
+        value: '在售',
+      },
+      {
+        label: '售完',
+        value: '售完',
+      },
+      {
+        label: '未开盘',
+        value: '未开盘',
+      },
+      ],
+      groups: [1],
+    },
+    {
+      type: 'sort',
+      label: '售价',
+      value: '售价',
+      groups: [2],
+    },
+    {
+      type: 'text',
+      label: '重置',
+      value: '重置',
+      groups: [3],
+    }
+    ],
   },
 
   /**
@@ -118,5 +150,28 @@ Page({
     }).catch(err => {
       wx.hideLoading()
     })
+  },
+
+  // 筛选
+  onChange(e) {
+    const {
+      checkedItems,
+      items
+    } = e.detail
+    // console.log(e, checkedItems[0], items)
+    let item = checkedItems[0]
+    let state
+    let priceRank
+
+    if(item.value == "重置"){
+      state = null
+      priceRank = null
+    }else if(item.value=="出售状态"){
+      let children =  item.children
+      let row = children.find(arr => arr.checked == true)
+      let state = row.value
+    }else if(item.value=="售价"){
+      
+    }
   }
 })

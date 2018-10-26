@@ -1,5 +1,6 @@
 {
+  "navigationBarTitleText": "FilterBar",
   "usingComponents": {
-    "i-avatar": "/dist/iview-weapp/avatar/index"
+    "wux-filterbar": "../../dist/filterbar/index"
   }
 }

@@ -1,5 +1,9 @@
 <!--miniprogram/pages/estate/estate.wxml-->
 <view class="container">
+<!-- 筛选 -->
+<view class="filter-view">
+<wux-filterbar class="filter" items="{{ items }}" bind:change="onChange" />
+</view>
 <!-- 循环 -->
   <!-- 列表单元 -->
   <view class="list-cell" wx:for="{{listData}}" wx:key="{{item.id}}" bindtap="cellTap" data-item="{{item}}">

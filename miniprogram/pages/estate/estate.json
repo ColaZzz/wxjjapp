@@ -3,6 +3,7 @@
     "onReachBottomDistance": "50"
   },
   "usingComponents": {
-    "i-load-more": "/dist/iview-weapp/load-more/index"
+    "i-load-more": "/dist/iview-weapp/load-more/index",
+    "wux-filterbar": "/dist/wux-weapp/filterbar/index"
   }
 }
