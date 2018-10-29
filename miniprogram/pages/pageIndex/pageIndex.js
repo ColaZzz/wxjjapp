@@ -7,20 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperList:[
-      {
-        imgurl:'https://pic.qyer.com/album/user/966/2/SE9TQhgAZw/index/710x360',
-        title:'这里是标题一'
-      },
-      {
-        imgurl: 'https://pic.qyer.com/album/user/966/8/SE9TQhIEYA/index/710x360',
-        title: '这里是标题二'
-      },
-      {
-        imgurl: 'https://pic.qyer.com/album/user/974/59/SE5RRxMCZQ/index/710x360',
-        title: '这里是标题三'
-      }
-    ],
+    swiperList:[],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -29,24 +16,7 @@ Page({
     bool1: false,
     bool2: false,
     hidden: true,
-    columnList:[
-      {
-        imgurl:'https://pic.qyer.com/album/user/2950/66/Q0BQQhwBZE0/index/680x',
-        title:''
-      },
-      {
-        imgurl: 'https://pic.qyer.com/album/user/2950/56/Q0BQQh8BZks/index/680x',
-        title: ''
-      },
-      {
-        imgurl: 'https://pic.qyer.com/album/user/2736/62/Q05WRBwFYUw/index/680x',
-        title: ''
-      },
-      {
-        imgurl: 'https://pic.qyer.com/album/user/2736/62/Q05WRBwFYUA/index/680x',
-        title: ''
-      }
-    ]
+    columnList:[]
   },
 
   /**

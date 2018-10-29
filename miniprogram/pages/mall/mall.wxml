@@ -1,0 +1,53 @@
+<!--miniprogram/pages/mall/mall.wxml-->
+<view class="container">
+  <!-- 第一栏 -->
+  <view class="header">
+    <view class="menu">
+      <view class="icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_active.png"></image>
+      </view>
+      <view class="text">最新活动</view>
+    </view>
+    <view class="menu">
+      <view class="icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_news.png"></image>
+      </view>
+      <view class="text">商户资讯</view>
+    </view>
+    <view class="menu">
+      <view class="icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_map.png"></image>
+      </view>
+      <view class="text">商户导购</view>
+    </view>
+    <view class="menu">
+      <view class="icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_rent.png"></image>
+      </view>
+      <view class="text">商铺招租</view>
+    </view>
+    <view class="menu">
+      <view class="icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_talk.png"></image>
+      </view>
+      <view class="text">资源洽谈</view>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swiper">
+    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
+      <block wx:for="{{list}}" wx:key="{{item}}">
+        <swiper-item>
+          <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- tabs -->
+  <view class="tabs">
+    <i-tabs current="{{ current }}" bindchange="handleChange">
+      <i-tab key="tab1" title="最新活动"><view>1</view></i-tab>
+      <i-tab key="tab2" title="商户资讯"><view>2</view></i-tab>
+    </i-tabs>
+  </view>
+</view>

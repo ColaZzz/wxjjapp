@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -96,6 +96,11 @@
 					"name": "测试",
 					"pathName": "pages/test/test",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "JJMall",
+					"pathName": "pages/mall/mall"
 				}
 			]
 		}

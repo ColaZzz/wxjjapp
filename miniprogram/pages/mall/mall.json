@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-tabs": "/dist/iview-weapp/tabs/index",
+    "i-tab": "/dist/iview-weapp/tab/index"
+  }
+}
