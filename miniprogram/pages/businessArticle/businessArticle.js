@@ -27,7 +27,7 @@ Page({
     }
 
     wx.showLoading({
-      title: 'loading'
+      title: '加载中..'
     })
 
     api.request('businessarticle', 'GET', params).then(res => {

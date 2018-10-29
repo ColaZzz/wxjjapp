@@ -24,7 +24,7 @@ Page({
     }
 
     wx.showLoading({
-      title: 'loading',
+      title: '加载中..',
     })
 
     api.request('estatearticle', 'GET', params).then(res => {

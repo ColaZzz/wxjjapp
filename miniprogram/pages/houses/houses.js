@@ -29,7 +29,7 @@ Page({
    */
   onReady: function() {
     wx.showLoading({
-      title: 'loading',
+      title: '加载中..',
     })
 
     this.getData({

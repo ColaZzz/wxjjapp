@@ -11,6 +11,8 @@ Page({
     currentPage: 1,
     lastPage: 0,
     loadMore: false,
+    state: '',
+    priceRank: '',
     tip: '',
     items: [{
       type: 'radio',
@@ -50,20 +52,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    wx.showLoading({
+      title: '加载中..',
+    })
+
+    this.getData({
+      page: this.data.currentPage
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    wx.showLoading({
-      title: '加载中',
-    })
     
-    this.getData({
-      page: this.data.currentPage
-    })
   },
 
   /**
@@ -111,7 +113,9 @@ Page({
     })
 
     this.getData({
-      page: this.data.currentPage
+      page: this.data.currentPage,
+      state: this.data.state,
+      priceRank: this.data.priceRank
     })
   },
 
@@ -160,18 +164,39 @@ Page({
     } = e.detail
     // console.log(e, checkedItems[0], items)
     let item = checkedItems[0]
-    let state
-    let priceRank
+    let state = ''
+    let priceRank = ''
 
     if(item.value == "重置"){
-      state = null
-      priceRank = null
+      state = ''
+      priceRank = ''
     }else if(item.value=="出售状态"){
       let children =  item.children
       let row = children.find(arr => arr.checked == true)
-      let state = row.value
+      state = row.value
     }else if(item.value=="售价"){
-      
+      if(item.sort == 1){
+        priceRank = 1
+      }else if(item.sort){
+        priceRank = 2
+      }
     }
+
+    this.setData({
+      state: state,
+      priceRank: priceRank,
+      listData: [],
+      currentPage: 1
+    })
+
+    wx.showLoading({
+      title: '加载中..',
+    })
+
+    this.getData({
+      page: this.data.currentPage,
+      state: this.data.state,
+      priceRank: this.data.priceRank
+    })
   }
 })

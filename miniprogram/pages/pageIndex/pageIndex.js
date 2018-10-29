@@ -56,7 +56,7 @@ Page({
     let that = this
 
     wx.showLoading({
-      title: 'loading',
+      title: '加载中..',
     })
 
     // 轮播图的请求

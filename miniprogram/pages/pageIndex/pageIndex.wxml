@@ -18,19 +18,19 @@
       <view class="menu-child-top" bindtap="businessTap">
         <image class="size-half" style="margin-top:15%;" src="../../public/icon/menu1.png" mode="aspectFit" />
       </view>
-      <view class="menu-child-bottom" bindtap="businessTap">商业</view>
+      <view class="menu-child-bottom" bindtap="businessTap">JJMall</view>
     </view>
     <view class="row-three">
       <view class="menu-child-top" bindtap="estateTap">
         <image class="size-half" style="margin-top:15%;" src="../../public/icon/menu2.png" mode="aspectFit" />
       </view>
-      <view class="menu-child-bottom" bindtap="estateTap">住宅</view>
+      <view class="menu-child-bottom" bindtap="estateTap">地产</view>
     </view>
     <view class="row-three">
       <view class="menu-child-top">
         <image class="size-half" style="margin-top:15%;" src="../../public/icon/menu3.png" mode="aspectFit" />
       </view>
-      <view class="menu-child-bottom">其它</view>
+      <view class="menu-child-bottom">演艺</view>
     </view>
   </view>
   <!-- 专栏 -->
