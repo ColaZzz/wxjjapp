@@ -55,3 +55,10 @@
   width: 95%;
   height: 100%;
 }
+
+.tab-cell{
+  width: 100%;
+  height: 200rpx;
+  background-color: #000;
+  margin-top: 20rpx;
+}

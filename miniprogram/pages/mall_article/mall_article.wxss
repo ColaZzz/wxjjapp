@@ -1,0 +1,57 @@
+/* miniprogram/pages/mall_article/mall_article.wxss */
+@import "../../style/public.wxss";
+
+.container {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.header{
+  width: 100%;
+  height: 150rpx;
+  border-bottom: 1rpx solid #f6f6f6;
+  position: relative;
+}
+
+.content{
+  width: 95%;
+  height: 100%;
+  padding: 30rpx 0;
+}
+
+.title{
+  height: 60%;
+  font-size: 34rpx;
+  padding-left: 30rpx;
+  line-height: 390%;
+}
+
+.subtitle{
+  height: 40%;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}
+
+.state{
+  width: 140rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 50rpx;
+  text-align: right;
+  font-size: 30rpx;
+  color: #ff6a6a;
+  font-family: 微软雅黑;
+}
+
+.timestamp{
+  width: 140rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 90rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: #ff6a6a;
+  font-family: 微软雅黑;
+}

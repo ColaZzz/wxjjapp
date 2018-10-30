@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "i-tabs": "/dist/iview-weapp/tabs/index",
-    "i-tab": "/dist/iview-weapp/tab/index"
+    "van-tab": "/dist/vant-weapp/tab/index",
+    "van-tabs": "/dist/vant-weapp/tabs/index",
+    "van-card": "/dist/vant-weapp/card/index"
   }
 }

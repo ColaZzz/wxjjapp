@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -100,7 +100,20 @@
 				{
 					"id": -1,
 					"name": "JJMall",
-					"pathName": "pages/mall/mall"
+					"pathName": "pages/mall/mall",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "mall文章",
+					"pathName": "pages/mall_article/mall_article",
+					"query": "id=1"
+				},
+				{
+					"id": 13,
+					"name": "mall文章列表",
+					"pathName": "pages/mall_articleList/mall_articleList",
+					"query": "type=1"
 				}
 			]
 		}

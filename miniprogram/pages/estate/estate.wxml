@@ -1,10 +1,10 @@
 <!--miniprogram/pages/estate/estate.wxml-->
 <view class="container">
-<!-- 筛选 -->
-<view class="filter-view">
-<wux-filterbar class="filter" items="{{ items }}" bind:change="onChange" />
-</view>
-<!-- 循环 -->
+  <!-- 筛选 -->
+  <view class="filter-view">
+    <wux-filterbar class="filter" items="{{ items }}" bind:change="onChange" />
+  </view>
+  <!-- 循环 -->
   <!-- 列表单元 -->
   <view class="list-cell" wx:for="{{listData}}" wx:key="{{item.id}}" bindtap="cellTap" data-item="{{item}}">
     <view class="flex list-top">
@@ -22,14 +22,14 @@
           <text class="area">{{item.area}}</text>
         </view>
         <view class="address-view">
-        <image class="add-icon" src="../../public/icon/address.png" />
+          <image class="add-icon" src="../../public/icon/address.png" />
           <!-- 填入地址 -->
           <text class="address">{{item.address}}</text>
         </view>
       </view>
     </view>
     <view class="flex list-bottom">
-    <!-- 状态和价格 -->
+      <!-- 状态和价格 -->
       <view class="list-bottom-left">
         <view class="list-state bgcolor-blue">{{item.state}}</view>
         <view class="list-price">{{item.price}}元/m²</view>
@@ -41,6 +41,6 @@
     </view>
   </view>
   <view style="width: 100%; height:50rpx;">
-  <i-load-more tip="{{tip}}" loading="{{loadMore}}"/>
+    <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
   </view>
 </view>

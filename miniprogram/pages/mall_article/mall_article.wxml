@@ -1,0 +1,12 @@
+<!--miniprogram/pages/mall_article/mall_article.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="title">{{article.title}}</view>
+    <view class="subtitle">{{article.subtitle}}</view>
+    <view class="state">{{article.state}}</view>
+    <view class="timestamp">{{article.created_at}}</view>
+  </view>
+  <view class="content"> 
+  <image  class="size-full" src="{{article.information}}" mode="widthFix"></image>
+  </view>
+</view>

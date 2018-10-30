@@ -2,13 +2,13 @@
 <view class="container">
   <!-- 第一栏 -->
   <view class="header">
-    <view class="menu">
+    <view class="menu" data-type="1" bindtap="articleTap">
       <view class="icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_active.png"></image>
       </view>
       <view class="text">最新活动</view>
     </view>
-    <view class="menu">
+    <view class="menu" data-type="2" bindtap="articleTap">
       <view class="icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_news.png"></image>
       </view>
@@ -45,9 +45,17 @@
   </view>
   <!-- tabs -->
   <view class="tabs">
-    <i-tabs current="{{ current }}" bindchange="handleChange">
-      <i-tab key="tab1" title="最新活动"><view>1</view></i-tab>
-      <i-tab key="tab2" title="商户资讯"><view>2</view></i-tab>
-    </i-tabs>
+    <van-tabs>
+      <van-tab title="最新活动" class="relative">
+        <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{activeList}}">
+          <van-card currency="" price="10-30" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.cover}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+        </view>
+      </van-tab>
+      <van-tab title="商户资讯">
+        <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}">
+          <van-card currency="" price="10-30" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.cover}}" thumb-mode="aspectFill" />
+        </view>
+      </van-tab>
+    </van-tabs>
   </view>
 </view>

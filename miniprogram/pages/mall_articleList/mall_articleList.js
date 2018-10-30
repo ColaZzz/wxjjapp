@@ -1,42 +1,21 @@
-// miniprogram/pages/estate/estate.js
+// miniprogram/pages/mall_articleList/mall_articleList.js
 import api from '../../common/api.js'
-const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listData: [],
-    currentPage: 1,
-    lastPage: 0,
-    loadMore: false,
-    state: '',
-    priceRank: '',
-    tip: '',
     items: [{
-        type: 'radio',
-        label: '出售状态',
-        value: '出售状态',
-        children: [{
-            label: '在售',
-            value: '在售',
-          },
-          {
-            label: '售完',
-            value: '售完',
-          },
-          {
-            label: '未开盘',
-            value: '未开盘',
-          },
-        ],
+        type: 'sort',
+        label: '时间',
+        value: '时间',
         groups: [1],
       },
       {
         type: 'sort',
-        label: '售价',
-        value: '售价',
+        label: '热度',
+        value: '热度',
         groups: [2],
       },
       {
@@ -46,18 +25,27 @@ Page({
         groups: [3],
       }
     ],
+    activeList: [],
+    currentPage: 1,
+    lastPage: 1,
+    mode: 'aspectFill',
+    lazyLoad: 'true',
+    tip: '',
+    loadMore: false,
+    type: null,
+    time: '',
+    rank: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.showLoading({
-      title: '加载中..',
+    this.setData({
+      type: options.type
     })
-
-    this.getData({
-      page: this.data.currentPage
+    wx.showLoading({
+      title: '加载中',
     })
   },
 
@@ -65,7 +53,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    this.getArticleList({
+      type: this.data.type,
+      page: this.data.currentPage,
+      time: this.data.time,
+      rank: this.data.rank
+    })
   },
 
   /**
@@ -112,10 +105,11 @@ Page({
       currentPage: page
     })
 
-    this.getData({
-      page: this.data.currentPage,
-      state: this.data.state,
-      priceRank: this.data.priceRank
+    this.getArticleList({
+      type: this.data.type,
+      page: page,
+      time: this.data.time,
+      rank: this.data.rank
     })
   },
 
@@ -126,34 +120,32 @@ Page({
 
   },
 
-  cellTap(event) {
-    let item = event.currentTarget.dataset.item;
-    wx.navigateTo({
-      url: '../estateHome/estateHome?id=' + item.id,
-    })
-  },
-
-  // 分页拉取数据
-  getData(params) {
-    this.setData({
-      loadMore: true
-    })
-
-    api.request('estates', 'GET', params).then(res => {
-      let listData = this.data.listData
+  /**
+   * 加载数据
+   */
+  getArticleList(params) {
+    api.request('articles', 'GET', params).then(res => {
+      let listData = this.data.activeList
       for (let i = 0; i < res.data.length; i++) {
         listData.push(res.data[i])
       }
-      console.log(listData)
       this.setData({
-        listData: listData,
-        loadMore: false,
+        activeList: listData,
         currentPage: res.current_page,
-        lastPage: res.last_page
+        lastPage: res.last_page,
+        loadMore: false
       })
       wx.hideLoading()
-    }).catch(err => {
-      wx.hideLoading()
+    })
+  },
+
+  /**
+   * 进入文章
+   */
+  cellTap(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../mall_article/mall_article?id=' + id,
     })
   },
 
@@ -163,41 +155,44 @@ Page({
       checkedItems,
       items
     } = e.detail
-    // console.log(e, checkedItems[0], items)
+    console.log(checkedItems[0])
     let item = checkedItems[0]
-    let state = ''
-    let priceRank = ''
+    let time = ''
+    let rank = ''
 
     if (item.value == "重置") {
-      state = ''
-      priceRank = ''
-    } else if (item.value == "出售状态") {
-      let children = item.children
-      let row = children.find(arr => arr.checked == true)
-      state = row.value
-    } else if (item.value == "售价") {
+      time = ''
+      rank = ''
+    } else if (item.value == "时间") {
       if (item.sort == 1) {
-        priceRank = 'desc'
+        time = 'desc'
       } else if (item.sort) {
-        priceRank = 'asc'
+        time = 'asc'
+      }
+    } else if (item.value == "热度") {
+      if (item.sort == 1) {
+        rank = 'desc'
+      } else if (item.sort) {
+        rank = 'asc'
       }
     }
 
     this.setData({
-      state: state,
-      priceRank: priceRank,
-      listData: [],
-      currentPage: 1
+      activeList: [],
+      currentPage: 1,
+      time: time,
+      rank: rank
     })
 
     wx.showLoading({
       title: '加载中..',
     })
 
-    this.getData({
+    this.getArticleList({
       page: this.data.currentPage,
-      state: this.data.state,
-      priceRank: this.data.priceRank
+      time: time,
+      rank: rank,
+      type: this.data.type
     })
   }
 })

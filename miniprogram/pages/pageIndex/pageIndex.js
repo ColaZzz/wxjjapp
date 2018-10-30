@@ -104,7 +104,7 @@ Page({
 
   businessTap(){
     wx.navigateTo({
-      url: '../business/business',
+      url: '../mall/mall',
     })
   },
 
