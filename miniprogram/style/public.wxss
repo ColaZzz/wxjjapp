@@ -59,7 +59,7 @@ page {
 
 /* 字体描边 */
 .shadow{
-  text-shadow:0 0 0.1em #fff,-0 -0 0.1em #000;
+  text-shadow:0 0 0.1em #fff,-0 -0 0.08em #000000;
 }
 
 .bg-color{

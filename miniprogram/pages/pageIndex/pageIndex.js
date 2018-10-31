@@ -114,7 +114,7 @@ Page({
     let flag = item.flag
     if(flag == 0){
       wx.navigateTo({
-        url: '../businessArticle/businessArticle?id=' + id,
+        url: '../mall_article/mall_article?id=' + id,
       })
     }else if(flag == 1){
       wx.navigateTo({
@@ -127,7 +127,7 @@ Page({
     let item = event.currentTarget.dataset.item
     if(item.flag == 0){
       wx.navigateTo({
-        url: '../businessList/businessList?id=' + item.id,
+        url: '../mall_article/mall_article?id=' + item.id,
       })
     }else if(item.flag == 1){
       wx.navigateTo({

@@ -1,5 +1,6 @@
 // miniprogram/pages/mall/mall.js
 import api from '../../common/api.js'
+import fmt from '../../common/format.js'
 Page({
 
   /**
@@ -11,16 +12,7 @@ Page({
     interval: 5000,
     duration: 1000,
     indicatorColor: 'rgba(255, 255, 255, .5)',
-    list: [{
-        img_url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3053101037,2218498766&fm=26&gp=0.jpg'
-      },
-      {
-        img_url: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1321784252,25532542&fm=26&gp=0.jpg'
-      },
-      {
-        img_url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1449781320,2531680375&fm=26&gp=0.jpg'
-      }
-    ],
+    swiperList: [],
     current: 'tab1',
     activeList: [],
     newsList: [],
@@ -44,11 +36,24 @@ Page({
     let news = api.request('articles', 'GET', {
       type: 2
     })
+    // 轮播图的加载
+    let swiper = api.request('mallswiper', 'GET')
 
-    Promise.all([ac, news]).then(res => {
+    Promise.all([ac, news, swiper]).then(res => {
+      let active = res[0].data
+      for (let i = 0; i < active.length; i++) {
+        active[i].created = fmt.getMMdd(active[i].created_at)
+      }
+
+      let news = res[1].data
+      for (let i = 0; i < news.length; i++) {
+        news[i].created = fmt.getMMdd(news[i].created_at)
+      }
+
       this.setData({
-        activeList: res[0].data,
-        newsList: res[1].data
+        activeList: active,
+        newsList: news,
+        swiperList: res[2]
       })
       wx.hideLoading()
     })
@@ -110,6 +115,16 @@ Page({
     let type = e.currentTarget.dataset.type
     wx.navigateTo({
       url: '../mall_articleList/mall_articleList?type=' + type,
+    })
+  },
+
+  /**
+   * 
+   */
+  cellTap(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../mall_article/mall_article?id=' + id,
     })
   }
 })

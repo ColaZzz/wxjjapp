@@ -1,5 +1,6 @@
 // miniprogram/pages/mall_articleList/mall_articleList.js
 import api from '../../common/api.js'
+import fmt from '../../common/format.js'
 Page({
 
   /**
@@ -25,7 +26,7 @@ Page({
         groups: [3],
       }
     ],
-    activeList: [],
+    articleList: [],
     currentPage: 1,
     lastPage: 1,
     mode: 'aspectFill',
@@ -125,12 +126,14 @@ Page({
    */
   getArticleList(params) {
     api.request('articles', 'GET', params).then(res => {
-      let listData = this.data.activeList
+      let listData = this.data.articleList
+      // 在尾部加入数据
       for (let i = 0; i < res.data.length; i++) {
+        res.data[i].created = fmt.getMMdd(res.data[i].created_at) // 时间格式化
         listData.push(res.data[i])
       }
       this.setData({
-        activeList: listData,
+        articleList: listData,
         currentPage: res.current_page,
         lastPage: res.last_page,
         loadMore: false
@@ -178,7 +181,7 @@ Page({
     }
 
     this.setData({
-      activeList: [],
+      articleList: [],
       currentPage: 1,
       time: time,
       rank: rank

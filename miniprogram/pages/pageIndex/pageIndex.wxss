@@ -53,7 +53,25 @@
 }
 
 .column-item {
-  background-color: #DCDCDC;
+  background-color: #dcdcdc;
   width: 90%;
   height: 90%;
+}
+
+.swiper-text {
+  left: 40rpx;
+  bottom: 40rpx;
+  width: 80%;
+  color: #f6f6f6;
+  overflow: hidden;
+  font-size: 34rpx;
+  font-family: 微软雅黑;
+}
+
+.column-text{
+  bottom: 10rpx;
+  left: 30rpx;
+  font-size: 25rpx;
+  overflow: hidden;
+  color: #fff;
 }

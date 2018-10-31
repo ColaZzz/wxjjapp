@@ -1,11 +1,10 @@
-function DateTimeToDate(datetime) {
-  let year = datetime.getFullYear()
-  let month = datetime.getMonth() + 1
-  let day = datetime.getDate()
+function getMMdd(d) {
+  let date = d.split(' ')[0]
+  date = date.substr(5)
 
-  return year + '-' + month + '-' + day
+  return date
 }
 
 module.exports = {
-  DateTimeToDate: DateTimeToDate
+  getMMdd: getMMdd
 }

@@ -36,9 +36,9 @@
   <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
-      <block wx:for="{{list}}" wx:key="{{item}}">
+      <block wx:for="{{swiperList}}" wx:key="{{item}}">
         <swiper-item>
-          <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
+          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{item.information}}" mode="aspectFill" />
         </swiper-item>
       </block>
     </swiper>
@@ -47,13 +47,13 @@
   <view class="tabs">
     <van-tabs>
       <van-tab title="最新活动" class="relative">
-        <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{activeList}}">
-          <van-card currency="" price="10-30" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.cover}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+        <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
       </van-tab>
       <van-tab title="商户资讯">
-        <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}">
-          <van-card currency="" price="10-30" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.cover}}" thumb-mode="aspectFill" />
+        <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}" data-id="{{item.id}}" bindtap="cellTap">
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.img_url}}" thumb-mode="aspectFill" />
         </view>
       </van-tab>
     </van-tabs>
