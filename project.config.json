@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -114,6 +114,12 @@
 					"name": "mall文章列表",
 					"pathName": "pages/mall_articleList/mall_articleList",
 					"query": "type=1"
+				},
+				{
+					"id": -1,
+					"name": "投诉建议",
+					"pathName": "pages/support/support",
+					"query": ""
 				}
 			]
 		}

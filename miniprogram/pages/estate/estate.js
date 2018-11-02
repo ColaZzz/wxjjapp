@@ -46,12 +46,16 @@ Page({
         groups: [3],
       }
     ],
+    img_url: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      img_url: app.img_url
+    })
     wx.showLoading({
       title: '加载中..',
     })

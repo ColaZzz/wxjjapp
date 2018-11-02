@@ -16,12 +16,14 @@
     "pages/test/test",
     "pages/mall/mall",
     "pages/mall_article/mall_article",
-    "pages/mall_articleList/mall_articleList"
+    "pages/mall_articleList/mall_articleList",
+    "pages/support/support",
+    "pages/art/art"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "掌上坚基",
     "navigationBarTextStyle": "black"
   },

@@ -89,8 +89,9 @@ Page({
 
   // 拨打电话
   callPhoneTap() {
+    let number = this.data.data.telephone
     wx.makePhoneCall({
-      phoneNumber: '123456',
+      phoneNumber: number,
     })
   },
 
