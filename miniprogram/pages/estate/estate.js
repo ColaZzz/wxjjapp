@@ -1,5 +1,6 @@
 // miniprogram/pages/estate/estate.js
 import api from '../../common/api.js'
+import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -148,6 +149,7 @@ Page({
       for (let i = 0; i < res.data.length; i++) {
         listData.push(res.data[i])
       }
+      fmt.imgPrefix(listData)
       console.log(listData)
       this.setData({
         listData: listData,

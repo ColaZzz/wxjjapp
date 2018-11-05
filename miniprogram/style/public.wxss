@@ -65,3 +65,13 @@ page {
 .bg-color{
   background-color: #ff6a6a;
 }
+
+.swiper-text {
+  left: 40rpx;
+  bottom: 40rpx;
+  width: 80%;
+  color: #f6f6f6;
+  overflow: hidden;
+  font-size: 34rpx;
+  font-family: 微软雅黑;
+}

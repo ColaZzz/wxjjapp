@@ -1,0 +1,8 @@
+/* miniprogram/pages/image/image.wxss */
+@import "../../style/public.wxss";
+
+.container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}

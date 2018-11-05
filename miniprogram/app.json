@@ -18,7 +18,9 @@
     "pages/mall_article/mall_article",
     "pages/mall_articleList/mall_articleList",
     "pages/support/support",
-    "pages/art/art"
+    "pages/art/art",
+    "pages/mall_navigation/mall_navigation",
+    "pages/image/image"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
@@ -41,12 +43,6 @@
         "text": "地图",
         "iconPath": "public/icon/map.png",
         "selectedIconPath": "public/icon/map-selected.png"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "我的",
-        "iconPath": "public/icon/user.png",
-        "selectedIconPath": "public/icon/user-selected.png"
       }
     ]
   }

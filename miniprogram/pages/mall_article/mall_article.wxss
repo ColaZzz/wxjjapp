@@ -28,6 +28,7 @@
 
 .subtitle{
   height: 40%;
+  width: 550rpx;
   font-size: 28rpx;
   padding-left: 30rpx;
 }

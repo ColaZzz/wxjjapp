@@ -1,5 +1,6 @@
 // miniprogram/pages/housePage/housePage.js
 import api from '../../common/api.js'
+import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [],
+    list: null,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -18,7 +19,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this
     let params = {
       id: options.id
     }
@@ -28,7 +28,8 @@ Page({
     })
 
     api.request('estatearticle', 'GET', params).then(res => {
-      that.setData({
+      fmt.imgPrefix(res.estate_article_images)
+      this.setData({
         list: res
       })
       wx.hideLoading()
@@ -104,6 +105,13 @@ Page({
     let estate_id = event.currentTarget.dataset.estate
     wx.navigateTo({
       url: '../estateHome/estateHome?id=' + estate_id,
+    })
+  },
+
+  imgTap(event){
+    let img = event.currentTarget.dataset.img
+    wx.navigateTo({
+      url: '../image/image?img=' + img,
     })
   }
 })

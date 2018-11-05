@@ -7,6 +7,7 @@
     <view class="timestamp">{{article.created_at}}</view>
   </view>
   <view class="content"> 
-  <image  class="size-full" src="{{article.information}}" mode="widthFix"></image>
+  <rich-text nodes="{{html}}"></rich-text>
+  <!-- <image  class="size-full" src="{{article.information}}" mode="widthFix"></image> -->
   </view>
 </view>

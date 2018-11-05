@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article: null
+    article: null,
+    html: ''
   },
 
   /**
@@ -23,7 +24,8 @@ Page({
       let date = res.created_at
       res.created_at = date.split(' ')[0]
       this.setData({
-        article: res
+        article: res,
+        html: res.information
       })
       wx.hideLoading()
     })

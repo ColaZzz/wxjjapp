@@ -18,7 +18,7 @@
       <view class="icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_map.png"></image>
       </view>
-      <view class="text">商户导购</view>
+      <view class="text">店铺导航</view>
     </view>
     <view class="menu">
       <view class="icon">
@@ -38,7 +38,8 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{swiperList}}" wx:key="{{item}}">
         <swiper-item>
-          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{item.information}}" mode="aspectFill" />
+          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{item.img_url}}" mode="aspectFill" />
+          <view class="absolute swiper-text shadow">{{item.title}}</view>
         </swiper-item>
       </block>
     </swiper>
