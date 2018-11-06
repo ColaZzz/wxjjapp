@@ -18,7 +18,8 @@ Page({
     newsList: [],
     topList: [],
     mode: 'aspectFill',
-    lazyLoad: 'true'
+    lazyLoad: 'true',
+    hidden: true
   },
 
   /**
@@ -64,7 +65,8 @@ Page({
         activeList: active,
         newsList: news,
         swiperList: res[2],
-        topList: top
+        topList: top,
+        hidden: false
       })
       wx.hideLoading()
     })

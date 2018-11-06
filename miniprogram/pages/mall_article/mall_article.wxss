@@ -2,38 +2,40 @@
 @import "../../style/public.wxss";
 
 .container {
-  background-color: #ffffff;
+  background-color: #fff;
   height: 100%;
 }
 
-.header{
+.header {
   width: 100%;
   height: 150rpx;
-  border-bottom: 1rpx solid #f6f6f6;
+  border-bottom: 3rpx solid #f6f6f6;
   position: relative;
+  margin-bottom: 30rpx;
 }
 
-.content{
+.content {
+  margin-top: 10rpx;
   width: 95%;
   height: 100%;
-  padding: 30rpx 0;
+  padding: 20rpx 0;
 }
 
-.title{
+.title {
   height: 60%;
   font-size: 34rpx;
   padding-left: 30rpx;
   line-height: 390%;
 }
 
-.subtitle{
+.subtitle {
   height: 40%;
   width: 550rpx;
   font-size: 28rpx;
   padding-left: 30rpx;
 }
 
-.state{
+.state {
   width: 140rpx;
   height: 40rpx;
   position: absolute;
@@ -45,7 +47,7 @@
   font-family: 微软雅黑;
 }
 
-.timestamp{
+.timestamp {
   width: 140rpx;
   height: 40rpx;
   position: absolute;
@@ -55,4 +57,50 @@
   font-size: 24rpx;
   color: #ff6a6a;
   font-family: 微软雅黑;
+}
+
+.recommend {
+  width: 700rpx;
+  height: 250rpx;
+}
+
+.recommend-cell {
+  height: 200rpx;
+  width: 250rpx;
+}
+
+.scroll-x {
+  display: flex;
+  flex-direction: row;
+}
+
+.scroll-y {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-cell{
+  height: 80%;
+  width: 90%;
+  margin-top: 7%;
+  margin-left: 7%;
+}
+
+.scroll-title{
+  height: 50rpx;
+  width: 700rpx;
+  font-weight: bold;
+}
+
+.scroll-title text{
+  font-size: 24rpx;
+  padding-left: 20rpx;
+}
+
+.img-title{
+  font-size: 28rpx;
+  padding: 8rpx 20rpx 8rpx 20rpx;
+  width: 90%;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }

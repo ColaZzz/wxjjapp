@@ -42,11 +42,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let rank = ''
+    if (!options.type){
+      rank = 'desc'
+    }
     this.setData({
-      type: options.type
+      type: options.type,
+      rank: rank
     })
     wx.showLoading({
-      title: '加载中',
+      title: '加载中'
     })
   },
 

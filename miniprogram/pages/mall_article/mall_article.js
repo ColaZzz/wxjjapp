@@ -7,7 +7,9 @@ Page({
    */
   data: {
     article: null,
-    html: ''
+    html: '',
+    scrollItem: null,
+    hidden: true
   },
 
   /**
@@ -18,14 +20,25 @@ Page({
       title: '加载中..',
     })
     let id = options.id
-    api.request('article', 'GET', {
+    // 获取文章信息
+    let detail = api.request('article', 'GET', {
       id: id
-    }).then(res => {
-      let date = res.created_at
-      res.created_at = date.split(' ')[0]
+    })
+    // 获取随机文章
+    let recommend = api.request('randomarticles', 'GET', {
+      rows: 5
+    })
+
+    Promise.all([detail, recommend]).then(res => {
+      // 时间字符串的转换
+      let date = res[0].created_at
+      res[0].created_at = date.split(' ')[0]
+      
       this.setData({
-        article: res,
-        html: res.information
+        article: res[0],
+        html: res[0].information,
+        scrollItem: res[1],
+        hidden: false
       })
       wx.hideLoading()
     })
@@ -78,5 +91,12 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  recommendTap(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../mall_article/mall_article?id=' + id,
+    })
   }
 })
