@@ -13,7 +13,7 @@
 }
 
 .content {
-  width: 100%;
+  width: 95%;
   height: 450rpx;
   margin: 20rpx 0;
   background-color: #fff;
@@ -24,7 +24,7 @@
   width: 100%;
   background-color: #fff;
   line-height: 300%;
-  padding-left: 50rpx;
+  padding-left: 20rpx;
   font-weight: bold;
   font-size: 32rpx;
 }
@@ -33,7 +33,7 @@
   height: 25%;
   width: 100%;
   background-color: #fff;
-  padding-left: 50rpx;
+  padding-left: 20rpx;
   border-top: 2rpx solid #f6f6f6;
   line-height: 330%;
   font-size: 30rpx;
@@ -43,7 +43,7 @@
   height: 16%;
   width: 100%;
   background-color: #fff;
-  padding-left: 50rpx;
+  padding-left: 20rpx;
   font-size: 28rpx;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .summary {
-  width: 100%;
+  width: 95%;
   background-color: #fff;
 }
 
@@ -69,7 +69,7 @@
   height: 30rpx;
   width: 100%;
   font-size: 30rpx;
-  padding: 10rpx 50rpx;
+  padding: 10rpx 20rpx;
   display: flex;
 }
 

@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -56,24 +56,6 @@
 					"query": "id=1"
 				},
 				{
-					"id": 5,
-					"name": "商业列表",
-					"pathName": "pages/business/business",
-					"query": ""
-				},
-				{
-					"id": 5,
-					"name": "商业文章列表",
-					"pathName": "pages/businessList/businessList",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "商业文章",
-					"pathName": "pages/businessArticle/businessArticle",
-					"query": "id=1"
-				},
-				{
 					"id": -1,
 					"name": "地图",
 					"pathName": "pages/map/map",
@@ -81,20 +63,8 @@
 				},
 				{
 					"id": -1,
-					"name": "用户",
-					"pathName": "pages/user/user",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "住宅更多",
 					"pathName": "pages/estateMoreInfo/estateMoreInfo",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "测试",
-					"pathName": "pages/test/test",
 					"query": ""
 				},
 				{
@@ -114,12 +84,6 @@
 					"name": "mall文章列表",
 					"pathName": "pages/mall_articleList/mall_articleList",
 					"query": "type=1"
-				},
-				{
-					"id": -1,
-					"name": "投诉建议",
-					"pathName": "pages/support/support",
-					"query": ""
 				}
 			]
 		}

@@ -16,6 +16,7 @@ Page({
     current: 'tab1',
     activeList: [],
     newsList: [],
+    topList: [],
     mode: 'aspectFill',
     lazyLoad: 'true'
   },
@@ -36,10 +37,14 @@ Page({
     let news = api.request('articles', 'GET', {
       type: 2
     })
+    // 最热资讯栏的加载
+    let top = api.request('articles', 'GET', {
+      rank: 'desc'
+    })
     // 轮播图的加载
     let swiper = api.request('mallswiper', 'GET')
 
-    Promise.all([ac, news, swiper]).then(res => {
+    Promise.all([ac, news, swiper, top]).then(res => {
       let active = res[0].data
       for (let i = 0; i < active.length; i++) {
         active[i].created = fmt.getMMdd(active[i].created_at)
@@ -50,10 +55,16 @@ Page({
         news[i].created = fmt.getMMdd(news[i].created_at)
       }
 
+      let top = res[3].data
+      for (let i = 0; i < top.length; i++) {
+        top[i].created = fmt.getyyyyMMdd(top[i].created_at)
+      }
+
       this.setData({
         activeList: active,
         newsList: news,
-        swiperList: res[2]
+        swiperList: res[2],
+        topList: top
       })
       wx.hideLoading()
     })

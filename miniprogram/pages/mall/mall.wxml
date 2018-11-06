@@ -2,6 +2,12 @@
 <view class="container">
   <!-- 第一栏 -->
   <view class="header">
+    <view class="menu">
+      <view class="icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_top.png"></image>
+      </view>
+      <view class="text">热门资讯</view>
+    </view>
     <view class="menu" data-type="1" bindtap="articleTap">
       <view class="icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_active.png"></image>
@@ -22,15 +28,9 @@
     </view>
     <view class="menu">
       <view class="icon">
-        <image class="size-full" mode="aspectFit" src="/public/icon/mall_rent.png"></image>
-      </view>
-      <view class="text">商铺招租</view>
-    </view>
-    <view class="menu">
-      <view class="icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_talk.png"></image>
       </view>
-      <view class="text">资源洽谈</view>
+      <view class="text">合作洽谈</view>
     </view>
   </view>
   <!-- 轮播图 -->
@@ -47,6 +47,11 @@
   <!-- tabs -->
   <view class="tabs">
     <van-tabs>
+      <van-tab title="热门资讯" class="relative">
+        <view class="tab-cell" wx:for="{{topList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+        </view>
+      </van-tab>
       <van-tab title="最新活动" class="relative">
         <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
           <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
@@ -54,7 +59,7 @@
       </van-tab>
       <van-tab title="商户资讯">
         <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.img_url}}" thumb-mode="aspectFill" />
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
       </van-tab>
     </van-tabs>

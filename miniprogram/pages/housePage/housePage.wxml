@@ -39,6 +39,7 @@
   <!-- 简介 -->
   <view class="summary">
     <view class="title">简介</view>
-    <view class="summary-content">{{list.content}}</view>
+    <!-- <view class="summary-content">{{list.content}}</view> -->
+    <rich-text class="summary-content" nodes="{{list.content}}"></rich-text>
   </view>
 </view>

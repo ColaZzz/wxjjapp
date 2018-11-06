@@ -8,6 +8,12 @@ function getMMdd(d) {
   return date
 }
 
+function getyyyyMMdd(d) {
+  let date = d.split(' ')[0]
+
+  return date
+}
+
 function imgPrefix(arr){
   for(let i=0;i<arr.length;i++){
     let str = arr[i].img_url.substr(0, 4)
@@ -26,7 +32,8 @@ function imgPrefixForObj(arr) {
 }
 
 module.exports = {
-  getMMdd: getMMdd,
-  imgPrefix: imgPrefix,
-  imgPrefixForObj: imgPrefixForObj
+  getMMdd,
+  imgPrefix,
+  imgPrefixForObj,
+  getyyyyMMdd
 }

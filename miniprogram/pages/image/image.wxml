@@ -1,4 +1,0 @@
-<!--miniprogram/pages/image/image.wxml-->
-<view class="container">
-<image class="size-full" src="{{img}}" mode="widthFix"></image>
-</view>

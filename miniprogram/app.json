@@ -2,22 +2,16 @@
   "cloud": false,
   "pages": [
     "pages/pageIndex/pageIndex",
-    "pages/index/index",
-    "pages/user/user",
     "pages/estate/estate",
     "pages/estateHome/estateHome",
     "pages/houses/houses",
     "pages/housePage/housePage",
     "pages/map/map",
     "pages/estateMoreInfo/estateMoreInfo",
-    "pages/test/test",
     "pages/mall/mall",
     "pages/mall_article/mall_article",
     "pages/mall_articleList/mall_articleList",
-    "pages/support/support",
-    "pages/art/art",
-    "pages/mall_navigation/mall_navigation",
-    "pages/image/image"
+    "pages/mall_navigation/mall_navigation"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
