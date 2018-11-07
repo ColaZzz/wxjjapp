@@ -9,7 +9,7 @@
 		"newFeature": true
 	},
 	"appid": "wxa17994c398e1201f",
-	"projectname": "jjapp10-19",
+	"projectname": "jjapp",
 	"libVersion": "2.2.5",
 	"compileType": "miniprogram",
 	"condition": {
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -84,6 +84,11 @@
 					"name": "mall文章列表",
 					"pathName": "pages/mall_articleList/mall_articleList",
 					"query": "type=1"
+				},
+				{
+					"id": -1,
+					"name": "店铺导航",
+					"pathName": "pages/mall_navigation/mall_navigation"
 				}
 			]
 		}

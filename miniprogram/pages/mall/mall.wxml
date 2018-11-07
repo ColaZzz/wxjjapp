@@ -20,7 +20,7 @@
       </view>
       <view class="text">商户资讯</view>
     </view>
-    <view class="menu">
+    <view class="menu" bindtap="navigationTap">
       <view class="icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_map.png"></image>
       </view>

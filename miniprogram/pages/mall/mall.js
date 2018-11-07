@@ -139,5 +139,14 @@ Page({
     wx.navigateTo({
       url: '../mall_article/mall_article?id=' + id,
     })
+  },
+
+  /**
+   * 店铺导航
+   */
+  navigationTap(){
+    wx.navigateTo({
+      url: '../mall_navigation/mall_navigation',
+    })
   }
 })

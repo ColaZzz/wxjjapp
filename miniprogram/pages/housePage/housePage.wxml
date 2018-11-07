@@ -5,7 +5,7 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{list.estate_article_images}}" wx:key="{{item.id}}">
         <swiper-item>
-          <image class="size-full" src="{{item.img_url}}" mode="aspectFit" data-img="{{item.img_url}}" />
+          <image class="size-full" src="{{item.img_url}}" mode="aspectFit" data-img="{{item.img_url}}" bindtap="preview" />
         </swiper-item>
       </block>
     </swiper>

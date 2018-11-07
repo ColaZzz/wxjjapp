@@ -40,6 +40,10 @@ Page({
         scrollItem: res[1],
         hidden: false
       })
+      // 设置页面标题
+      wx.setNavigationBarTitle({
+        title: res[0].title,
+      })
       wx.hideLoading()
     })
   },

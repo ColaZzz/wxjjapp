@@ -1,5 +1,5 @@
 <!--miniprogram/pages/estateHome/estateHome.wxml-->
-<view class="container">
+<view class="container" hidden="{{hidden}}">
   <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">

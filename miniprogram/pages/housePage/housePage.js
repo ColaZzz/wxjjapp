@@ -113,5 +113,15 @@ Page({
     wx.navigateTo({
       url: '../image/image?img=' + img,
     })
+  },
+
+  /**
+   * 点击看大图
+   */
+  preview(e){
+    let img = e.currentTarget.dataset.img
+    wx.previewImage({
+      urls: [img],
+    })
   }
 })

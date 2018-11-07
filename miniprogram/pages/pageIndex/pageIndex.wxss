@@ -41,6 +41,10 @@
 }
 
 .menu-child-bottom text{
+  color: #ff6a6a;
+}
+
+.menu-child-bottom text{
   font-size: 0.8em;
 }
 

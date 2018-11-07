@@ -43,9 +43,21 @@ Page({
    */
   onLoad: function(options) {
     let rank = ''
-    if (!options.type){
+    let title = 'JJMall'
+    let type = options.type
+    // 判断是否为热门资讯和设置标题
+    if (!type){
       rank = 'desc'
+      title = '热门资讯'
+    }else if(type == '1'){
+      title = '最新活动'
+    } else if (type == '2') {
+      title = '商户资讯'
     }
+    // 设置标题
+    wx.setNavigationBarTitle({
+      title: title,
+    })
     this.setData({
       type: options.type,
       rank: rank

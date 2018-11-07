@@ -12,7 +12,8 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    scrollItem: null
+    scrollItem: null,
+    hidden: true
   },
 
   /**
@@ -38,7 +39,8 @@ Page({
     Promise.all([estate, recommend]).then(res => {
       this.setData({
         data: res[0],
-        scrollItem: res[1]
+        scrollItem: res[1],
+        hidden: false
       })
       wx.hideLoading()
     })
