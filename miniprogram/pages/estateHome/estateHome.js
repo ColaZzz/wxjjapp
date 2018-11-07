@@ -12,13 +12,13 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    scrollItem: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this
     let id = options.id
     let params = {
       id: id
@@ -28,12 +28,18 @@ Page({
       title: '加载中..',
     })
 
-    api.request('estate', 'GET', params).then(res => {
-      that.setData({
-        data: res
+    // 获取页面信息
+    let estate = api.request('estate', 'GET', params)
+    // 获取随机楼盘
+    let recommend = api.request('randomestates', 'GET', {
+      rows: 5
+    })
+
+    Promise.all([estate, recommend]).then(res => {
+      this.setData({
+        data: res[0],
+        scrollItem: res[1]
       })
-      wx.hideLoading()
-    }).catch(err => {
       wx.hideLoading()
     })
   },
@@ -105,7 +111,7 @@ Page({
   },
 
   // 查看更多
-  moreTap(){
+  moreTap() {
     let more = Object.assign({}, this.data.data)
     delete more['estate_images']
     delete more['icon_url']

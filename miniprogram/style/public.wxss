@@ -75,3 +75,41 @@ page {
   font-size: 34rpx;
   font-family: 微软雅黑;
 }
+
+/* 推荐 */
+.scroll-x {
+  display: flex;
+  flex-direction: row;
+}
+
+.scroll-y {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-img-cell{
+  height: 80%;
+  width: 90%;
+  margin-top: 7%;
+  margin-left: 7%;
+}
+
+.scroll-title{
+  height: 50rpx;
+  width: 700rpx;
+  font-weight: bold;
+}
+
+.scroll-title text{
+  font-size: 24rpx;
+  padding-left: 20rpx;
+}
+
+.scroll-img-title{
+  font-size: 28rpx;
+  padding: 8rpx 20rpx 8rpx 20rpx;
+  width: 90%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  z-index: 99;
+}

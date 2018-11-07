@@ -18,9 +18,19 @@
     </view>
     <view class="content-bottom">
       <view class="yiled"></view>
-      <view class="text-row"><view>售价：<text>{{data.price}}</text></view></view>
-      <view class="text-row"><view >开盘：<span wx:if="{{data.start_time}}">{{data.start_time}}</span></view></view>
-      <view class="text-row"><view>地址：{{data.address}}</view></view>
+      <view class="text-row">
+        <view>售价：
+          <text>{{data.price}}</text>
+        </view>
+      </view>
+      <view class="text-row">
+        <view>开盘：
+          <span wx:if="{{data.start_time}}">{{data.start_time}}</span>
+        </view>
+      </view>
+      <view class="text-row">
+        <view>地址：{{data.address}}</view>
+      </view>
       <view class="yiled"></view>
       <view class="btn-more" bindtap="moreTap">更多信息</view>
       <view class="yiled-bottom"></view>
@@ -31,8 +41,28 @@
     <view>查看全部户型</view>
     <image src="../../public/icon/go.png" />
   </view>
+  <!-- 推荐 -->
+  <view class="recommend">
+    <view class="scroll-title">
+      <text>更多楼盘推荐</text>
+    </view>
+    <scroll-view scroll-x="true" scroll-left="100">
+      <view class="scroll-x">
+        <view wx:for="{{scrollItem}}" wx:key="{{item.id}}">
+          <view class="recommend-cell">
+            <view class="scroll-img-cell">
+              <image class="size-full" src="{{item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
+            </view>
+            <view class="scroll-img-title">{{item.title}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- <view style="width: 95%;height: 50rpx;background-color:#ffffff;">
+  </view> -->
   <!-- 联系电话按钮 -->
   <view class="phone-tap" bindtap="callPhoneTap">
-  <view>电话咨询</view>
+    <image class="size-full" src="../../public/icon/phone.png" mode="aspectFill" />
   </view>
 </view>

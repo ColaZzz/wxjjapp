@@ -40,6 +40,10 @@
   font-size: 12px;
 }
 
+.menu-child-bottom text{
+  font-size: 0.8em;
+}
+
 .column-box {
   width: 90%;
   height: 380rpx;

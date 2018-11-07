@@ -4,7 +4,7 @@
 .container {
   background-color: #f6f6f6;
   height: 100%;
-  position: absolute;
+  /* position: absolute; */
 }
 
 .swiper {
@@ -14,7 +14,7 @@
 }
 
 .content-body{
-  width: 90%;
+  width: 95%;
   height: 350rpx;
   background-color: #ffffff;
   margin-top: 20rpx;
@@ -82,7 +82,7 @@
 }
 
 .entrance{
-  width: 90%;
+  width: 95%;
   height: 70rpx;
   background-color: #fff;
   margin-top: 20rpx;
@@ -105,12 +105,12 @@
 }
 
 .phone-tap{
-  position: absolute;
-  width: 80%;
+  position: fixed;
+  width: 80rpx;
   height: 80rpx;
-  background-color: #02c95b;
+  border-radius: 40rpx;
   bottom: 15rpx;
-  border-radius: 8rpx;
+  right: 15rpx;
 }
 
 .phone-tap view{
@@ -118,4 +118,17 @@
   text-align: center;
   line-height: 250%;
   font-size: 34rpx;
+}
+
+.recommend {
+  width: 95%;
+  height: 300rpx;
+  background-color: #ffffff;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.recommend-cell {
+  height: 200rpx;
+  width: 250rpx;
 }
