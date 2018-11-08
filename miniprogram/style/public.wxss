@@ -113,3 +113,18 @@ page {
   text-overflow:ellipsis;
   z-index: 99;
 }
+
+/* 边框阴影 */
+.box-shadow{
+  box-shadow:0 0 3px 1px #e6ebf0;
+}
+
+/* 水平垂直居中 */
+.div-center{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
