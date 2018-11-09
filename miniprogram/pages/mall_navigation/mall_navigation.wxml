@@ -22,7 +22,7 @@
     <image class="size-full" src="{{img}}" data-url="{{img}}" mode="aspectFit" bindtap="navigationTap"></image>
   </view> -->
   <!-- 地图插件 -->
-  <view id="demo_map" style="width: 750px; height: 500rpx;">
+  <view id="demo_map" style="width: 750px; height: 750rpx;">
     <template is="SimpleMap" data="{{...demo_map}}" />
   </view>
 </view>

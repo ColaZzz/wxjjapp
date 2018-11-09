@@ -24,7 +24,7 @@ Page({
     // mapLayer.addTileLevel(1.4, TILE_URL + "cqcet-s-{column}-{row}.jpg", 1001, 1438, 500, 500)
     // mapLayer.addTileLevel(2.4, TILE_URL + "cqcet-m-{column}-{row}.jpg", 2669, 3835, 800, 800)
     // mapLayer.addTileLevel(2.8, TILE_URL + "cqcet-l-{column}-{row}.jpg", 5000, 7185, 800, 800)
-    mapLayer.addTileLevel(1, "../../public/4/tile-{column}_{row}.png", 512, 512, 256, 256)
+    mapLayer.addTileLevel(1, "../../public/4/tile-{column}_{row}.png", 1024, 1024, 256, 256)
     // mapLayer.addTileLevel(2, "../../public/5/tile-{column}_{row}.png", 1024, 1024, 256, 256)
     // 配置单一图层
     // const mapLayer = new Layer.MapLayer(map,this.data.img, 1000, 1000)
