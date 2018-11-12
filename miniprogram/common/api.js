@@ -22,6 +22,21 @@ function request(apiName, method, params = null) {
   return promise
 }
 
+function login(){
+  let promise = new Promise((resolve,reject)=>{
+    wx.login({
+      success(res){
+        if(res.errMsg == 'login:ok'){
+          resolve('res.code')
+        }else{
+          reject(false)
+        }
+      }
+    })
+  })
+}
+
 module.exports = {
-  request: request
+  request,
+  login
 }

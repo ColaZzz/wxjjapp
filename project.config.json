@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -88,7 +88,19 @@
 				{
 					"id": -1,
 					"name": "店铺导航",
-					"pathName": "pages/mall_navigation/mall_navigation"
+					"pathName": "pages/mall_navigation/mall_navigation",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "联动",
+					"pathName": "pages/block/block",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户",
+					"pathName": "pages/user/user"
 				}
 			]
 		}

@@ -1,0 +1,5 @@
+<!--miniprogram/pages/block/block.wxml-->
+<view class="container">
+<view bindtap="scanCode">扫一扫</view>
+<view>{{result}}</view>
+</view>
