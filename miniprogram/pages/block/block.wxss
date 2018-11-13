@@ -2,6 +2,29 @@
 @import "../../style/public.wxss";
 
 .container {
-  background-color: #ffffff;
+  background-color: #f6f6f6;
   height: 100%;
+}
+
+.getInfo {
+  width: 100%;
+  background-color: #fff;
+}
+
+.scan {
+  background-color: antiquewhite;
+}
+
+.title{
+  font-size: 36rpx;
+  font-weight: bold;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  margin-top: 20rpx;
+}
+
+button{
+  width: 250rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }

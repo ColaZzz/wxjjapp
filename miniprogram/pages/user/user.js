@@ -8,6 +8,7 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
@@ -83,7 +84,7 @@ Page({
   onGotUserInfo: function (e) {
   },
 
-  onGotUserInfo(e){
+  getUserInfo(e){
     console.log(e.detail.userInfo)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

@@ -13,7 +13,8 @@
     "pages/mall_articleList/mall_articleList",
     "pages/mall_navigation/mall_navigation",
     "pages/block/block",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/test/test"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
@@ -39,7 +40,7 @@
       },
       {
         "pagePath": "pages/user/user",
-        "text": "用户",
+        "text": "我的",
         "iconPath": "public/icon/user.png",
         "selectedIconPath": "public/icon/user-selected.png"
       }

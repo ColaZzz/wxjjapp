@@ -1,0 +1,4 @@
+<!--miniprogram/pages/test/test.wxml-->
+<view style="width: 500rpx;height:500rpx;">
+<image src="http://qr.liantu.com/api.php?text=123"></image>
+</view>

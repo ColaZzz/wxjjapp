@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -100,7 +100,14 @@
 				{
 					"id": -1,
 					"name": "用户",
-					"pathName": "pages/user/user"
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "测试",
+					"pathName": "pages/test/test",
+					"query": ""
 				}
 			]
 		}
