@@ -14,7 +14,9 @@
     "pages/mall_navigation/mall_navigation",
     "pages/block/block",
     "pages/user/user",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/block_myQrcode/block_myQrcode",
+    "pages/block_qrcode/block_qrcode"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

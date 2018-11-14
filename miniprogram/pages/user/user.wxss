@@ -2,12 +2,42 @@
 @import "../../style/public.wxss";
 
 .container {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
-.userinfo-avatar{
+.userinfo-avatar {
   margin-top: 200rpx;
   width: 150rpx;
   height: 150rpx;
   border-radius: 75rpx;
+}
+
+.menu {
+  width: 100%;
+  min-height: 200rpx;
+  border-top: 10rpx solid #f6f6f6;
+}
+
+.bottom-menu {
+  display: flex;
+  justify-content: center;
+  border-top: 10rpx solid #f6f6f6;
+  width: 100%;
+  min-height: 100rpx;
+}
+
+.b-m-box {
+  height: 150rpx;
+  width: 100rpx;
+  margin: 20rpx;
+}
+
+.b-m-b-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.b-m-b-title {
+  font-size: 24rpx;
+  text-align: center;
 }

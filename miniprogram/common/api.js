@@ -47,14 +47,26 @@ function login(){
   let promise = new Promise((resolve,reject)=>{
     wx.login({
       success(res){
-        if(res.errMsg == 'login:ok'){
-          resolve('res.code')
-        }else{
-          reject(false)
-        }
+        wx.request({
+          url: url + 'login',
+          method: 'POST',
+          data: {
+            code: res.code
+          },
+          success(result) {
+            let session_3rd = result.data.data
+            wx.setStorageSync('token', session_3rd)
+            resolve(session_3rd)
+          },
+          fail(err){
+            reject(err)
+          }
+        })
       }
     })
   })
+
+  return promise;
 }
 
 module.exports = {

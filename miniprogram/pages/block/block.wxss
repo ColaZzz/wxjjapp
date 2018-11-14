@@ -6,6 +6,31 @@
   height: 100%;
 }
 
+.menu {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #f6f6f6;
+}
+
+.b-m-box {
+  height: 150rpx;
+  width: 100rpx;
+  margin: 20rpx;
+}
+
+.b-m-b-img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.b-m-b-title {
+  font-size: 24rpx;
+  text-align: center;
+}
+
 .getInfo {
   width: 100%;
   background-color: #fff;
@@ -15,7 +40,7 @@
   background-color: antiquewhite;
 }
 
-.title{
+.title {
   font-size: 36rpx;
   font-weight: bold;
   padding-left: 20rpx;
@@ -23,7 +48,7 @@
   margin-top: 20rpx;
 }
 
-button{
+button {
   width: 250rpx;
   margin-top: 20rpx;
   margin-bottom: 20rpx;

@@ -1,0 +1,12 @@
+/* miniprogram/pages/block_myQrcode/block_myQrcode.wxss */
+@import "../../style/public.wxss";
+
+.container {
+  background-color: #f6f6f6;
+  height: 100%;
+}
+
+.card{
+  width: 95%;
+  height: 200rpx;
+}

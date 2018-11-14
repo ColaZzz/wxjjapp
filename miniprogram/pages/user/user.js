@@ -8,13 +8,16 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    recStartTime: 0,
+    show: false,
+    password: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -32,64 +35,69 @@ Page({
     }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  onGotUserInfo: function (e) {
-  },
-
-  getUserInfo(e){
+  getUserInfo(e) {
     console.log(e.detail.userInfo)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+
+  netRecommendation() {
+    wx.navigateTo({
+      url: '../block/block',
+    })
+  },
+
+  /**
+   * 长按事件
+   */
+  longpress(e) {},
+
+  /**
+   * 长按事件改造
+   */
+  startTap(e) {
+    this.setData({
+      recStartTime: e.timeStamp
+    })
+  },
+
+  /**
+   * 长按事件改造
+   */
+  endTap(e) {
+    let differ = e.timeStamp - this.data.recStartTime
+    if (differ > 3000) {
+      this.setData({
+        show: true
+      })
+    }
+  },
+
+  onClose(event) {
+    if (event.detail === 'confirm') {
+      console.log(this.data.password)
+      // 异步关闭弹窗
+      setTimeout(() => {
+        this.setData({
+          show: false
+        });
+      }, 1000);
+    } else {
+      this.setData({
+        show: false
+      });
+    }
+  },
+
+  /**
+   * 获取通行码
+   */
+  PwdOnChange(e){
+    this.setData({
+      password: e.detail
     })
   }
 })

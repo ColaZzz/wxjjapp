@@ -1,0 +1,14 @@
+<!--miniprogram/pages/block_qrcode/block_qrcode.wxml-->
+<view class="container">
+  <view class="box relative">
+    <view class="qrcode-img">
+      <image class="size-full" src="{{'http://qr.liantu.com/api.php?text=' + code}}"></image>
+    </view>
+    <view class="qrcode-datetime">提交于：{{datetime}}</view>
+    <view class="qrcode-title">将此码交由工作人员扫描</view>
+  </view>
+  <view class="return-lsit" bindtap="returnTap">
+    <image class="size-full" src="../../public/icon/list.png"></image>
+  </view>
+  <view class="return-text" bindtap="returnTap">返回</view>
+</view>

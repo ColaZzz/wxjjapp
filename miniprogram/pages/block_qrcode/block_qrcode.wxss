@@ -1,0 +1,60 @@
+/* miniprogram/pages/block_qrcode/block_qrcode.wxss */
+@import "../../style/public.wxss";
+
+.container {
+  background-color: #ffffff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.box{
+  width: 550rpx;
+  height: 750rpx;
+  border: 3rpx dashed black;
+  border-radius: 25rpx;
+  margin-top: 150rpx;
+}
+
+.qrcode-img{
+  width: 400rpx;
+  height: 400rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.qrcode-datetime{
+  width: 100%;
+  height: 50rpx;
+  position: absolute;
+  bottom: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.qrcode-title{
+  width: 100%;
+  height: 50rpx;
+  position: absolute;
+  bottom: 30rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.return-lsit{
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 90rpx;
+  border-radius: 50rpx;
+  overflow: hidden;
+}
+
+.return-text{
+  font-size: 30rpx;
+  font-weight: bold;
+}
