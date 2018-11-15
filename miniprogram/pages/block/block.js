@@ -54,7 +54,8 @@ Page({
                   qrcode,
                   datetime
                 } = res.data
-                
+
+                wx.hideLoading()
                 wx.showToast({
                   title: '提交成功',
                   icon: 'success',
@@ -90,7 +91,6 @@ Page({
                 })
 
               }
-              wx.hideLoading()
             })
             .catch(err => {
               wx.hideLoading()
@@ -106,7 +106,7 @@ Page({
       }
     })
   },
-  myRecommendation(){
+  myRecommendation() {
     wx.navigateTo({
       url: '../block_myQrcode/block_myQrcode',
     })

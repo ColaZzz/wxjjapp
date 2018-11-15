@@ -1,0 +1,18 @@
+<!--miniprogram/pages/block_Scan/block_Scan.wxml-->
+<view class="container">
+  <view class="scan" bindtap="scanCode">
+    <image class="size-full" src="../../public/icon/scan.png"></image>
+  </view>
+  <!-- 对话框 -->
+  <van-dialog use-slot async-close show="{{ show }}" show-cancel-button showCancelButton="{{ false }}" title="联动单" bind:close="onClose">
+    <van-cell-group>
+      <van-cell title="电商平台：" value="{{linkage.platform}}" />
+      <van-cell title="联动项目：" value="{{linkage.project}}" />
+      <van-cell title="公司名称：" value="{{linkage.company}}" />
+      <van-cell title="工作人员：" value="{{linkage.worker}}" />
+      <van-cell title="联系方式：" value="{{linkage.worker_number}}" />
+      <van-cell title="客户姓名：" value="{{linkage.user}}" />
+      <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
+    </van-cell-group>
+  </van-dialog>
+</view>

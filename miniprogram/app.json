@@ -16,7 +16,8 @@
     "pages/user/user",
     "pages/test/test",
     "pages/block_myQrcode/block_myQrcode",
-    "pages/block_qrcode/block_qrcode"
+    "pages/block_qrcode/block_qrcode",
+    "pages/block_Scan/block_Scan"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

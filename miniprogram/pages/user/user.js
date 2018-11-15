@@ -1,4 +1,6 @@
 // miniprogram/pages/user/user.js
+import md5 from '../../common/md5.js'
+import api from '../../common/api.js'
 const app = getApp()
 Page({
 
@@ -69,33 +71,78 @@ Page({
    */
   endTap(e) {
     let differ = e.timeStamp - this.data.recStartTime
-    if (differ > 3000) {
-      this.setData({
-        show: true
-      })
-    }
-  },
-
-  onClose(event) {
-    if (event.detail === 'confirm') {
-      console.log(this.data.password)
-      // 异步关闭弹窗
-      setTimeout(() => {
-        this.setData({
-          show: false
-        });
-      }, 1000);
-    } else {
-      this.setData({
-        show: false
-      });
+    if (differ > 1000) {
+      this.checkRole()
     }
   },
 
   /**
+   * 判断是否进入扫描界面
+   */
+  checkRole() {
+    api.oldRequest('checklinkagerole', 'POST', {
+        token: wx.getStorageSync('token')
+      })
+      .then(res => {
+        if (res.code == 2) {
+          api.login().then(()=>{
+            this.checkRole()
+          })
+        } else if (res.msg == '确认通过') {
+          // 成功跳转
+          wx.navigateTo({
+            url: '../block_Scan/block_Scan',
+          })
+        } else {
+          // 确认失败
+          wx.showToast({
+            title: differ / 1000 + '秒',
+            duration: 2000
+          })
+        }
+      })
+  },
+
+  // onClose(event) {
+  //   if (event.detail === 'confirm') {
+  //     // 确认通行码
+  //     let secret = md5(this.data.password)
+  //     api.oldRequest('checkscancode', 'POST', {
+  //         code: secret
+  //       })
+  //       .then(res => {
+  //         if (res.msg == '确认成功') {
+  //           this.setData({
+  //             show: false
+  //           })
+  //         }else{
+  //           this.setData({
+  //             show: false
+  //           })
+  //           wx.showToast({
+  //             title: '通行码错误',
+  //             icon: 'success',
+  //             duration: 2000
+  //           })
+  //         }
+  //       })
+  //     // 异步关闭弹窗
+  //     // setTimeout(() => {
+  //     //   this.setData({
+  //     //     show: false
+  //     //   });
+  //     // }, 1000);
+  //   } else {
+  //     this.setData({
+  //       show: false
+  //     });
+  //   }
+  // },
+
+  /**
    * 获取通行码
    */
-  PwdOnChange(e){
+  PwdOnChange(e) {
     this.setData({
       password: e.detail
     })

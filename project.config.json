@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": -1,
@@ -120,6 +120,12 @@
 					"name": "二维码展示",
 					"pathName": "pages/block_qrcode/block_qrcode",
 					"query": "qrcode=123&datetime=2018-11-13 8:22:22"
+				},
+				{
+					"id": -1,
+					"name": "二维码扫描",
+					"pathName": "pages/block_Scan/block_Scan",
+					"query": ""
 				}
 			]
 		}

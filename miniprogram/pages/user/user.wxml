@@ -15,7 +15,7 @@
   </view>
 
   <!-- 对话框 -->
-  <van-dialog title="身份确认" use-slot async-close show="{{ show }}" show-cancel-button bind:close="onClose">
+  <!-- <van-dialog title="身份确认" use-slot async-close show="{{ show }}" show-cancel-button bind:close="onClose">
     <van-field value="{{password}}" type="password" label="通行码" :border="false" placeholder="请输入通行码" bind:change="PwdOnChange" />
-  </van-dialog>
+  </van-dialog> -->
 </view>
