@@ -3,8 +3,8 @@ App({
   onLaunch: function() {
     let that = this
 
-    this.url = 'http://jjapp.test/api/'
-    // this.url = 'https://togetherwoh.com/api/'
+    // this.url = 'http://jjapp.test/api/'
+    this.url = 'https://togetherwoh.com/api/'
     this.estateImgPrefix = 'http://jjapp.test/uploads/estates/'
     this.img_url = 'http://jjapp.test/uploads/estates/'
 

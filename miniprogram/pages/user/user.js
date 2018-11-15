@@ -72,14 +72,14 @@ Page({
   endTap(e) {
     let differ = e.timeStamp - this.data.recStartTime
     if (differ > 1000) {
-      this.checkRole()
+      this.checkRole(differ)
     }
   },
 
   /**
    * 判断是否进入扫描界面
    */
-  checkRole() {
+  checkRole(differ) {
     api.oldRequest('checklinkagerole', 'POST', {
         token: wx.getStorageSync('token')
       })
