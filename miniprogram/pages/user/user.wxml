@@ -8,7 +8,7 @@
   <view class="menu">
   </view>
   <view class="bottom-menu">
-    <view class="b-m-box" bindtap="netRecommendation" bindlongpress="longpress" bindtouchstart="startTap" bindtouchend="endTap">
+    <view wx:if="{{hasUserInfo && canIUse}}" class="b-m-box" bindtap="netRecommendation" bindlongpress="longpress" bindtouchstart="startTap" bindtouchend="endTap">
       <image class="b-m-b-img" src="../../public/icon/dianshang.png"></image>
       <view class="b-m-b-title">电商推荐</view>
     </view>
