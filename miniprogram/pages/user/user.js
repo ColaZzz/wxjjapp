@@ -38,7 +38,7 @@ Page({
   },
 
   getUserInfo(e) {
-    console.log(e.detail.userInfo)
+    app.loginAPI()
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,

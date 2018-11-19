@@ -41,3 +41,9 @@
   font-size: 24rpx;
   text-align: center;
 }
+
+.login{
+  position: absolute;
+  margin: auto 0;
+  top: 30%;
+}

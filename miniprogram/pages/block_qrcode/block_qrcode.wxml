@@ -8,8 +8,18 @@
     <view class="qrcode-title">将此码交由工作人员扫描</view>
     <view class="qrcode-tip">二维码有效期为3天</view>
   </view>
-  <view class="return-lsit" bindtap="returnTap">
-    <image class="size-full" src="../../public/icon/list.png"></image>
+  <view class="bottom-menu">
+    <view class="menu-box">
+      <view class="return-lsit" bindtap="returnTap">
+        <image class="size-full" src="../../public/icon/list.png"></image>
+      </view>
+      <view class="return-text" bindtap="returnTap">我的二维码</view>
+    </view>
+    <view>
+      <view class="return-lsit" bindtap="goheadTap">
+        <image class="size-full" src="../../public/icon/return.png"></image>
+      </view>
+      <view class="return-text" bindtap="goheadTap">继续填写</view>
+    </view>
   </view>
-  <view class="return-text" bindtap="returnTap">返回</view>
 </view>

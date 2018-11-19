@@ -26,5 +26,14 @@ Page({
     wx.navigateTo({
       url: '../block_myQrcode/block_myQrcode',
     })
+  },
+
+  /**
+   * goheadTap
+   */
+  goheadTap(){
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })

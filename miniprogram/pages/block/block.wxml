@@ -18,10 +18,11 @@
       </van-cell-group>
       <view class="title">客户信息</view>
       <van-cell-group>
-        <van-field value="客户姓名" name="user" required clearable label="客户姓名" placeholder="请输入客户姓名" />
-        <van-field value="12345678901" name="userNumber" required clearable type="number" label="联系电话" placeholder="请输入客户联系电话" border="{{ false }}" />
+        <van-field value="{{user}}" name="user" required clearable label="客户姓名" placeholder="请输入客户姓名" />
+        <van-field value="{{userNumber}}" name="userNumber" required clearable type="number" label="联系电话" placeholder="请输入客户联系电话" border="{{ false }}" />
       </van-cell-group>
       <button form-type="submit" type="primary">提交信息</button>
     </form>
   </view>
 </view>
+<van-toast id="van-toast" />

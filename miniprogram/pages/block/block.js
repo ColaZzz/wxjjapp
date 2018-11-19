@@ -1,5 +1,6 @@
 // miniprogram/pages/block/block.js
 import api from '../../common/api.js'
+import Toast from '../../dist/vant-weapp/toast/toast'
 const app = getApp()
 Page({
 
@@ -8,6 +9,8 @@ Page({
    */
   data: {
     result: '',
+    user: '',
+    userNumber: '',
   },
 
   /**
@@ -20,8 +23,11 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-
+  onShow: function() {
+    this.setData({
+      user: null,
+      userNumber: null
+    })
   },
 
   /**
@@ -48,8 +54,8 @@ Page({
               token: token
             })
             .then(res => {
-              if (res.msg != "用户未登录") {
-                // 成功了
+              // 提交成功
+              if (res.code == 1) {
                 let {
                   qrcode,
                   datetime
@@ -59,16 +65,15 @@ Page({
                 wx.showToast({
                   title: '提交成功',
                   icon: 'success',
-                  duration: 2000
+                  duration: 2000,
+                  mask: true
                 })
                 setTimeout(() => {
                   wx.navigateTo({
                     url: '../block_qrcode/block_qrcode?qrcode=' + qrcode + '&datetime=' + datetime,
                   })
                 }, 2000)
-              } else {
-                // 过期了
-                // 用户登录
+              } else if (res.code == 2) { // 登录过期
                 wx.login({
                   success(res) {
                     wx.request({
@@ -89,7 +94,13 @@ Page({
                     })
                   }
                 })
-
+              } else if (res.code == 3) {
+                wx.hideLoading()
+                // 遍历对象
+                for(let i in res.data){
+                  Toast(res.data[i][0])
+                  break
+                }
               }
             })
             .catch(err => {
