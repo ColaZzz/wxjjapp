@@ -37,6 +37,7 @@ Page({
       id: this.data.id,
       page: this.data.currentPage
     })
+    console.log(this.data.list[0])
   },
 
   /**
@@ -78,7 +79,7 @@ Page({
         list.push(res.data[i])
       }
       
-      fmt.imgPrefix(list)
+      // fmt.imgPrefix(list)
       
       if (res.last_page == 1){
         tip = '到底啦'

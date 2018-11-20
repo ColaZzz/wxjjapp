@@ -9,13 +9,7 @@
   <van-cell title="开盘时间" value="{{data.start_time}}" />
   <van-cell title="售楼地址" value="{{data.sell_address}}" />
   <van-cell title="建筑规划" icon="wap-home"/>
-  <van-cell title="产权年限" value="{{data.property_year}}" />
   <van-cell title="装修标准" value="{{data.decoration}}" />
-  <van-cell title="开发商" value="{{data.development_company}}" />
-  <van-cell title="绿化率" value="{{data.greening}}" />
   <van-cell title="占地面积" value="{{data.place_area}}" />
   <van-cell title="住宅面积" value="{{data.house_area}}" />
-  <van-cell title="物业信息" icon="home"/>
-  <van-cell title="物业费" value="{{data.property_costs}}" />
-  <van-cell title="物业公司" value="{{data.property_company}}" border="{{ false }}"/>
 </van-cell-group>
