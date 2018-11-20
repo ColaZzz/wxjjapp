@@ -6,53 +6,100 @@ Page({
    * 页面的初始数据
    */
   data: {
+    items: [{
+      type: 'radio',
+      label: '是否扫描',
+      value: 'state',
+      children: [{
+        label: '未扫描',
+        value: '0',
+      },
+      {
+        label: '已扫描',
+        value: '1',
+      },
+      {
+        label: '全部',
+        value: '2',
+      },
+      ],
+      groups: ['001'],
+    },
+    {
+      type: 'text',
+      label: '重置',
+      value: '重置',
+      groups: ['002'],
+    }
+    ],
     mode: 'aspectFill',
     lazyLoad: 'true',
-    linkageList: []
+    linkageList: [],
+    tip: '到底啦',
+    loadMore: false,
+    currentPage: 1,
+    lastPage: 1,
+    state: 2,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.loadLinkages()
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+    this.loadLinkages(this.data.state, this.data.currentPage)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    if (this.data.currentPage == this.data.lastPage) {
+      this.setData({
+        tip: '到底啦'
+      })
+      return
+    }
+    let page = this.data.currentPage + 1
+    this.setData({
+      loadMore: true,
+      currentPage: page
+    })
 
+    this.loadLinkages(this.data.state, page)
   },
 
   /**
    * 初始化联动记录
    */
-  loadLinkages() {
+  loadLinkages(state, page) {
     wx.showLoading({
       title: '加载中..',
       mask: true
     })
     let token = wx.getStorageSync('token')
     api.oldRequest('personlinkages', 'POST', {
-      token: token
+      token,
+      state,
+      page
     }).then(res => {
       if (res.msg == '获取记录') {
+        let array = this.stateForText(res.data.data)
+        let linkageList = this.data.linkageList
+        // 从队尾插入
+        for(let i = 0;i<array.length;i++){
+          linkageList.push(array[i])
+        }
+        // 写入数据
         this.setData({
-          linkageList: res.data
+          linkageList: linkageList,
+          currentPage: res.data.current_page,
+          lastPage: res.data.last_page,
+          loadMore: false
         })
       } else if (res.msg == '用户未登录') {
         // 先登录
         api.login().then(log => {
           // 再递归
-          console.log(log)
           this.loadLinkages()
         })
       }
@@ -64,10 +111,46 @@ Page({
    * 点击进入二维码大图
    */
   qrcodeTap(e) {
-    let qrcode = e.currentTarget.dataset.qrcode
-    let datetime = e.currentTarget.dataset.datetime
+    let item = e.currentTarget.dataset.item
+    if (item.state) return
     wx.navigateTo({
-      url: '../block_qrcode/block_qrcode?qrcode=' + qrcode + '&datetime=' + datetime,
+      url: '../block_qrcode/block_qrcode?qrcode=' + item.qrcode + '&datetime=' + item.datetime,
     })
+  },
+
+  stateForText(array) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].state) {
+        array[i].stateText = '已扫描'
+      } else {
+        array[i].stateText = ''
+      }
+    }
+    return array
+  },
+
+  onChange(e) {
+    let {
+      checkedItems,
+      items
+    } = e.detail
+    let item = checkedItems[0]
+    let state
+    if (item.value == 'state') {
+      for (let i = 0; i < item.children.length; i++) {
+        if (item.children[i].checked) {
+          state = item.children[i].value
+        }
+      }
+    } else if (item.value == '重置'){
+      state = 2
+    }
+
+    this.setData({
+      state: state,
+      linkageList: []
+    })
+
+    this.loadLinkages(state, this.data.currentPage)
   }
 })

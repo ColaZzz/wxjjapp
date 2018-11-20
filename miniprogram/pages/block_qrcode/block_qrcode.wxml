@@ -6,7 +6,7 @@
     </view>
     <view class="qrcode-datetime">提交于：{{datetime}}</view>
     <view class="qrcode-title">将此码交由工作人员扫描</view>
-    <view class="qrcode-tip">二维码有效期为3天</view>
+    <view class="qrcode-tip">二维码有效期为7天</view>
   </view>
   <view class="bottom-menu">
     <view class="menu-box">

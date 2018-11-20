@@ -20,7 +20,7 @@
       <view class="yiled"></view>
       <view class="text-row">
         <view>售价：
-          <text>{{data.price}}</text>
+          <text>{{data.price}}元/m²</text>
         </view>
       </view>
       <view class="text-row">

@@ -1,6 +1,15 @@
 <!--miniprogram/pages/block_myQrcode/block_myQrcode.wxml-->
 <view class="container">
-  <view class="card" wx:for="{{linkageList}}" wx:key="{{item.id}}" data-datetime="{{item.created_at}}" data-qrcode="{{item.qrcode}}" bindtap="qrcodeTap">
-    <van-card currency="" price="{{item.created_at}}" title="{{item.user}}" thumb="{{'http://qr.liantu.com/api.php?text=' + item.img}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+  <!-- 筛选 -->
+  <view class="filter-view">
+    <wux-filterbar class="filter" items="{{items}}" bind:change="onChange" />
+  </view>
+  <!-- 列表 -->
+  <view class="card" wx:for="{{linkageList}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="qrcodeTap">
+    <van-card currency="" price="{{item.created_at}}" title="{{item.username}}" thumb="{{'http://qr.liantu.com/api.php?text=' + item.img}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" tag="{{item.stateText}}" />
+  </view>
+  <!-- loadmore -->
+  <view style="width: 100%; height:50rpx;">
+    <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
   </view>
 </view>

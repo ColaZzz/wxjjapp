@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "van-card": "/dist/vant-weapp/card/index"
+    "i-load-more": "/dist/iview-weapp/load-more/index",
+    "van-card": "/dist/vant-weapp/card/index",
+    "wux-filterbar": "/dist/wux-weapp/filterbar/index"
   }
 }
