@@ -71,15 +71,20 @@ Page({
    */
   endTap(e) {
     let differ = e.timeStamp - this.data.recStartTime
+<<<<<<< HEAD
     if (differ > 2000) {
       this.checkRole()
+=======
+    if (differ > 1000) {
+      this.checkRole(differ)
+>>>>>>> 3e3320ed668e46bda50c6ce883e4620d493a2333
     }
   },
 
   /**
    * 判断是否进入扫描界面
    */
-  checkRole() {
+  checkRole(differ) {
     api.oldRequest('checklinkagerole', 'POST', {
         token: wx.getStorageSync('token')
       })
