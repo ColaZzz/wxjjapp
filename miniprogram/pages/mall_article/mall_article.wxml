@@ -8,7 +8,6 @@
   </view>
   <view class="content">
     <rich-text nodes="{{html}}"></rich-text>
-    <!-- <image  class="size-full" src="{{article.information}}" mode="widthFix"></image> -->
   </view>
   <view class="recommend">
     <view class="scroll-title"><text>更多推荐</text></view>
@@ -17,7 +16,7 @@
         <view wx:for="{{scrollItem}}" wx:key="{{item.id}}">
           <view class="recommend-cell">
             <view class="scroll-img-cell">
-              <image class="size-full" src="{{item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
+              <image class="size-full" src="{{articleUrl + item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
             </view>
             <view class="scroll-img-title">{{item.title}}</view>
           </view>

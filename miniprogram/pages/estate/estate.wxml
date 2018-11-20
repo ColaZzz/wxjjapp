@@ -12,7 +12,7 @@
         <view class="list-avatar">
           <!-- 填入icon -->
           <!-- <image class="size-full" src="{{item.icon_url}}" mode="aspectFill" /> -->
-          <image class="size-full" src="{{img_url + item.icon_url}}" mode="aspectFill" />
+          <image class="size-full" src="{{estateUrl + item.icon_url}}" mode="aspectFill" />
         </view>
       </view>
       <view class="list-top-right">
@@ -35,8 +35,7 @@
         <view class="list-price">{{item.price}}元/m²</view>
       </view>
       <view class="list-bottom-right">
-        <!-- <image class="size-full" src="{{item.img_url}}" mode="aspectFill" /> -->
-        <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
+        <image class="size-full" src="{{estateUrl + item.img_url}}" mode="aspectFill" />
       </view>
     </view>
   </view>

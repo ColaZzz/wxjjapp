@@ -1,6 +1,7 @@
 // miniprogram/pages/mall/mall.js
 import api from '../../common/api.js'
 import fmt from '../../common/format.js'
+const app = getApp()
 Page({
 
   /**
@@ -19,13 +20,17 @@ Page({
     topList: [],
     mode: 'aspectFill',
     lazyLoad: 'true',
-    hidden: true
+    hidden: true,
+    articleUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      articleUrl: app.articleUrl
+    })
     wx.showLoading({
       title: '加载中',
     })

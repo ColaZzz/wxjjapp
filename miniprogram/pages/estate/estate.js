@@ -47,7 +47,7 @@ Page({
         groups: [3],
       }
     ],
-    img_url: ''
+    estateUrl: ''
   },
 
   /**
@@ -55,7 +55,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      img_url: app.img_url
+      estateUrl: app.estateUrl
     })
     wx.showLoading({
       title: '加载中..',
@@ -107,8 +107,7 @@ Page({
       for (let i = 0; i < res.data.length; i++) {
         listData.push(res.data[i])
       }
-      fmt.imgPrefix(listData)
-      console.log(listData)
+      
       this.setData({
         listData: listData,
         loadMore: false,
@@ -127,7 +126,6 @@ Page({
       checkedItems,
       items
     } = e.detail
-    // console.log(e, checkedItems[0], items)
     let item = checkedItems[0]
     let state = ''
     let priceRank = ''

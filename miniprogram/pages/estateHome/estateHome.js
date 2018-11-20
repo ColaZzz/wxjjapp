@@ -1,6 +1,5 @@
 // miniprogram/pages/estateHome/estateHome.js
 import api from '../../common/api.js'
-import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -14,13 +13,18 @@ Page({
     interval: 5000,
     duration: 1000,
     scrollItem: null,
-    hidden: true
+    hidden: true,
+    estateUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      estateUrl: app.estateUrl
+    })
+
     let id = options.id
     let params = {
       id: id
@@ -38,10 +42,6 @@ Page({
     })
 
     Promise.all([estate, recommend]).then(res => {
-      fmt.imgPrefix(res[0].estate_images)
-      console.log(res[0])
-      fmt.imgPrefix(res[1])
-      console.log(res[1])
       this.setData({
         data: res[0],
         scrollItem: res[1],
@@ -77,6 +77,16 @@ Page({
 
     wx.navigateTo({
       url: '../estateMoreInfo/estateMoreInfo?data=' + JSON.stringify(more),
+    })
+  },
+
+  /**
+   * 楼盘推荐
+   */
+  recommendTap(e){
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../estateHome/estateHome?id=' + id,
     })
   }
 })

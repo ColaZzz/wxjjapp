@@ -1,6 +1,7 @@
 // miniprogram/pages/mall_articleList/mall_articleList.js
 import api from '../../common/api.js'
 import fmt from '../../common/format.js'
+const app = getApp()
 Page({
 
   /**
@@ -35,13 +36,17 @@ Page({
     loadMore: false,
     type: null,
     time: '',
-    rank: ''
+    rank: '',
+    articleUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      articleUrl: app.articleUrl
+    })
     let rank = ''
     let title = 'JJMall'
     let type = options.type

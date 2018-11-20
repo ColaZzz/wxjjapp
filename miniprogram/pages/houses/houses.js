@@ -1,6 +1,5 @@
 // miniprogram/pages/houses/houses.js
 import api from '../../common/api.js'
-import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -13,7 +12,8 @@ Page({
     tip: '',
     currentPage: 1,
     lastPage: 0,
-    id: 0
+    id: 0,
+    estateUrl: ''
   },
 
   /**
@@ -21,7 +21,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      estateUrl: app.estateUrl
     })
   },
 
@@ -37,7 +38,6 @@ Page({
       id: this.data.id,
       page: this.data.currentPage
     })
-    console.log(this.data.list[0])
   },
 
   /**
@@ -78,8 +78,6 @@ Page({
       for (let i = 0; i < res.data.length; i++) {
         list.push(res.data[i])
       }
-      
-      // fmt.imgPrefix(list)
       
       if (res.last_page == 1){
         tip = '到底啦'

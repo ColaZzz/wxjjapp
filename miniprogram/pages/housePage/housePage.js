@@ -1,6 +1,5 @@
 // miniprogram/pages/housePage/housePage.js
 import api from '../../common/api.js'
-import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -13,12 +12,16 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
+    estateUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      estateUrl: app.estateUrl
+    })
     let params = {
       id: options.id
     }
@@ -28,7 +31,6 @@ Page({
     })
 
     api.request('estatearticle', 'GET', params).then(res => {
-      fmt.imgPrefix(res.estate_article_images)
       this.setData({
         list: res
       })

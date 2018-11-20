@@ -5,7 +5,7 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{data.estate_images}}" wx:key="*this">
         <swiper-item>
-          <image class="size-full" src="{{item.img_url}}" mode="aspectFill" />
+          <image class="size-full" src="{{estateUrl + item.img_url}}" mode="aspectFill" />
         </swiper-item>
       </block>
     </swiper>
@@ -51,7 +51,7 @@
         <view wx:for="{{scrollItem}}" wx:key="{{item.id}}">
           <view class="recommend-cell">
             <view class="scroll-img-cell">
-              <image class="size-full" src="{{item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
+              <image class="size-full" src="{{estateUrl + item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
             </view>
             <view class="scroll-img-title">{{item.title}}</view>
           </view>

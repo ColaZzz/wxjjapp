@@ -1,5 +1,6 @@
 const app = getApp()
-var prefix = app.estateImgPrefix
+var estateUrl = app.estateUrl
+var articleUrl = app.articleUrl
 
 function getMMdd(d) {
   let date = d.split(' ')[0]
@@ -16,24 +17,18 @@ function getyyyyMMdd(d) {
 
 function imgPrefix(arr) {
   for (let i = 0; i < arr.length; i++) {
-    let str = arr[i].img_url.substr(0, 4)
-    if (str != 'http') {
-      arr[i].img_url = prefix + arr[i].img_url
+    if (arr[i].flag == 0) {
+      arr[i].img_url = articleUrl + arr[i].img_url
+    } else if (arr[i].flag == 1) {
+      arr[i].img_url = estateUrl + arr[i].img_url
     }
   }
+  return arr
 }
 
-function imgPrefixForObj(arr) {
-  let str = arr.img_url.substr(0, 4)
-  debugger
-  if (str != 'http') {
-    arr.img_url = prefix + arr.img_url
-  }
-}
 
 module.exports = {
   getMMdd,
-  imgPrefix,
-  imgPrefixForObj,
-  getyyyyMMdd
+  getyyyyMMdd,
+  imgPrefix
 }

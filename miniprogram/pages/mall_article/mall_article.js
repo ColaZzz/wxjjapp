@@ -1,5 +1,6 @@
 // miniprogram/pages/mall_article/mall_article.js
 import api from '../../common/api.js'
+const app = getApp()
 Page({
 
   /**
@@ -9,13 +10,17 @@ Page({
     article: null,
     html: '',
     scrollItem: null,
-    hidden: true
+    hidden: true,
+    articleUrl: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.setData({
+      articleUrl: app.articleUrl
+    })
     wx.showLoading({
       title: '加载中..',
     })
