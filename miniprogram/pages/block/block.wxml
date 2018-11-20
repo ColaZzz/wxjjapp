@@ -10,11 +10,11 @@
     <form bindsubmit="submit">
       <view class="title">联动公司信息</view>
       <van-cell-group>
-        <van-field value="电商平台" name="platform" required clearable label="电商平台" placeholder="请输入电商平台" bind:blur="confirm" />
-        <van-field value="联动项目" name="project" required clearable label="联动项目" placeholder="请输入联动项目名称" />
-        <van-field value="公司名称" name="company" required clearable label="公司名称" placeholder="请输入公司名称" />
-        <van-field value="工作人员" name="worker" required clearable label="工作人员" placeholder="请输入工作人员姓名" />
-        <van-field value="12345678901" name="workNumber" required clearable type="number" label="联系电话" placeholder="请输入工作人员联系电话" border="{{ false }}" />
+        <van-field name="platform" required clearable label="电商平台" placeholder="请输入电商平台" bind:blur="confirm" />
+        <van-field name="project" required clearable label="联动项目" placeholder="请输入联动项目名称" />
+        <van-field name="company" required clearable label="公司名称" placeholder="请输入公司名称" />
+        <van-field name="worker" required clearable label="工作人员" placeholder="请输入工作人员姓名" />
+        <van-field name="workNumber" required clearable type="number" label="联系电话" placeholder="请输入工作人员联系电话" border="{{ false }}" />
       </van-cell-group>
       <view class="title">客户信息</view>
       <van-cell-group>

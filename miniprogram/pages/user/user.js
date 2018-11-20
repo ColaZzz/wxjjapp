@@ -71,7 +71,7 @@ Page({
    */
   endTap(e) {
     let differ = e.timeStamp - this.data.recStartTime
-    if (differ > 1000) {
+    if (differ > 2000) {
       this.checkRole()
     }
   },

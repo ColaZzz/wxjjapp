@@ -1,5 +1,6 @@
 // miniprogram/pages/estateHome/estateHome.js
 import api from '../../common/api.js'
+import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -37,6 +38,10 @@ Page({
     })
 
     Promise.all([estate, recommend]).then(res => {
+      fmt.imgPrefix(res[0].estate_images)
+      console.log(res[0])
+      fmt.imgPrefix(res[1])
+      console.log(res[1])
       this.setData({
         data: res[0],
         scrollItem: res[1],
@@ -44,55 +49,6 @@ Page({
       })
       wx.hideLoading()
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   },
 
   // 拨打电话

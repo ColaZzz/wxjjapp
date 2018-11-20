@@ -7,11 +7,15 @@ App({
    * baseUrl
    */
   url: 'http://jjapp.test/api/',
-  /**
-   * 地产图片地址
-   */
   estateImgPrefix: 'http://jjapp.test/uploads/estates/',
   img_url: 'http://jjapp.test/uploads/estates/',
+  /**
+   * 生产地址
+   */
+  // url: 'https://togetherwoh.com/api/',
+  // estateImgPrefix: 'https://togetherwoh.com/uploads/estates/',
+  // img_url: 'https://togetherwoh.com/uploads/estates/',
+
   /**
    * 程序Load
    */

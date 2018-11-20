@@ -1,5 +1,6 @@
 // miniprogram/pages/pageIndex/pageIndex.js
 import api from '../../common/api.js'
+import fmt from '../../common/format.js'
 const app = getApp()
 Page({
 
@@ -36,6 +37,8 @@ Page({
     let column = api.request('indexcolumn', 'GET')
 
     Promise.all([swiper, column]).then(res=>{
+      fmt.imgPrefix(res[0])
+      fmt.imgPrefix(res[1])
       that.setData({
         swiperList: res[0],
         columnList: res[1],
