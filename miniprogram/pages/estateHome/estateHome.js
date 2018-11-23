@@ -14,7 +14,7 @@ Page({
     duration: 1000,
     scrollItem: null,
     hidden: true,
-    estateUrl: ''
+    imgUrl: ''
   },
 
   /**
@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      estateUrl: app.estateUrl
+      imgUrl: app.imgUrl
     })
 
     let id = options.id

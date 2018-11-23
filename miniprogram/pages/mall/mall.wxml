@@ -39,7 +39,7 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{swiperList}}" wx:key="{{item}}">
         <swiper-item>
-          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{articleUrl + item.img_url}}" mode="aspectFill" />
+          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
           <view class="absolute swiper-text shadow">{{item.title}}</view>
         </swiper-item>
       </block>
@@ -50,17 +50,17 @@
     <van-tabs>
       <van-tab title="热门资讯" class="relative">
         <view class="tab-cell" wx:for="{{topList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{articleUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
       </van-tab>
       <van-tab title="最新活动" class="relative">
         <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{articleUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
       </van-tab>
       <van-tab title="商户资讯">
         <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{articleUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
       </van-tab>
     </van-tabs>

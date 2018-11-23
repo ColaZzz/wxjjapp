@@ -13,7 +13,7 @@ Page({
     currentPage: 1,
     lastPage: 0,
     id: 0,
-    estateUrl: ''
+    imgUrl: ''
   },
 
   /**
@@ -22,7 +22,7 @@ Page({
   onLoad: function(options) {
     this.setData({
       id: options.id,
-      estateUrl: app.estateUrl
+      imgUrl: app.imgUrl
     })
   },
 

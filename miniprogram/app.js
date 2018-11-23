@@ -6,15 +6,13 @@ App({
   /**
    * baseUrl
    */
-  url: 'http://jjapp.test/api/',
-  estateUrl: 'http://jjapp.test/uploads/estates/',
-  articleUrl: 'http://jjapp.test/uploads/articles/',
+  // url: 'http://jjapp.test/api/',
+  // imgUrl: 'http://jjapp.test/uploads/',
   /**
    * 生产地址
    */
-  // url: 'https://togetherwoh.com/api/',
-  // estateImgPrefix: 'https://togetherwoh.com/uploads/estates/',
-  // img_url: 'https://togetherwoh.com/uploads/estates/',
+  url: 'https://www.togetherwoh.com:8089/api/',
+  imgUrl: 'https://www.togetherwoh.com:8089/uploads/',
 
   /**
    * 程序Load

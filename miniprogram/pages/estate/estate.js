@@ -47,7 +47,7 @@ Page({
         groups: [3],
       }
     ],
-    estateUrl: ''
+    imgUrl: ''
   },
 
   /**
@@ -55,7 +55,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      estateUrl: app.estateUrl
+      imgUrl: app.imgUrl
     })
     wx.showLoading({
       title: '加载中..',

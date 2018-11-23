@@ -16,7 +16,7 @@
         <view wx:for="{{scrollItem}}" wx:key="{{item.id}}">
           <view class="recommend-cell">
             <view class="scroll-img-cell">
-              <image class="size-full" src="{{articleUrl + item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
+              <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" data-id="{{item.id}}" bindtap="recommendTap"></image>
             </view>
             <view class="scroll-img-title">{{item.title}}</view>
           </view>

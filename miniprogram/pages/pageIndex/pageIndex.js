@@ -35,9 +35,8 @@ Page({
     let column = api.request('indexcolumn', 'GET')
 
     Promise.all([swiper, column]).then(res => {
-      console.log(res[0])
-      let swiperList = fmt.imgPrefix(res[0], 1)
-      let columnList = fmt.imgPrefix(res[1], 1)
+      let swiperList = fmt.imgPrefix(res[0])
+      let columnList = fmt.imgPrefix(res[1])
       this.setData({
         swiperList: swiperList,
         columnList: columnList,

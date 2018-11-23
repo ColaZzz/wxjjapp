@@ -1,7 +1,7 @@
 <!--miniprogram/pages/pageIndex/pageIndex.wxml-->
 <view class="container" hidden="{{hidden}}">
   <!-- 公众号关注 -->
-  <official-account></official-account>
+  <view><official-account></official-account></view>
   <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">

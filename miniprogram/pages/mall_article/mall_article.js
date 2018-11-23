@@ -11,7 +11,7 @@ Page({
     html: '',
     scrollItem: null,
     hidden: true,
-    articleUrl: ''
+    imgUrl: ''
   },
 
   /**
@@ -19,7 +19,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      articleUrl: app.articleUrl
+      imgUrl: app.imgUrl
     })
     wx.showLoading({
       title: '加载中..',

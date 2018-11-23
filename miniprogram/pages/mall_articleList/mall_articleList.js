@@ -37,7 +37,7 @@ Page({
     type: null,
     time: '',
     rank: '',
-    articleUrl: ''
+    imgUrl: ''
   },
 
   /**
@@ -45,7 +45,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      articleUrl: app.articleUrl
+      imgUrl: app.imgUrl
     })
     let rank = ''
     let title = 'JJMall'

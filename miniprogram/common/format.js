@@ -1,6 +1,6 @@
 const app = getApp()
-var estateUrl = app.estateUrl
-var articleUrl = app.articleUrl
+var imgUrl = app.imgUrl
+var imgUrl = app.imgUrl
 
 function getMMdd(d) {
   let date = d.split(' ')[0]
@@ -17,11 +17,7 @@ function getyyyyMMdd(d) {
 
 function imgPrefix(arr) {
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].flag == 0) {
-      arr[i].img_url = articleUrl + arr[i].img_url
-    } else if (arr[i].flag == 1) {
-      arr[i].img_url = estateUrl + arr[i].img_url
-    }
+    arr[i].img_url = imgUrl + arr[i].img_url
   }
   return arr
 }

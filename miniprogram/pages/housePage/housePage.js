@@ -12,7 +12,7 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    estateUrl: ''
+    imgUrl: ''
   },
 
   /**
@@ -20,7 +20,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      estateUrl: app.estateUrl
+      imgUrl: app.imgUrl
     })
     let params = {
       id: options.id
