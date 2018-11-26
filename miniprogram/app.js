@@ -4,15 +4,15 @@ App({
     userInfo: null
   },
   /**
-   * baseUrl
+   * 本地开发地址
    */
-  // url: 'http://jjapp.test/api/',
-  // imgUrl: 'http://jjapp.test/uploads/',
+  url: 'http://jjapp.test/api/',
+  imgUrl: 'http://jjapp.test/uploads/',
   /**
    * 生产地址
    */
-  url: 'https://www.togetherwoh.com:8089/api/',
-  imgUrl: 'https://www.togetherwoh.com:8089/uploads/',
+  // url: 'https://togetherwoh.com/api/',
+  // imgUrl: 'https://togetherwoh.com/uploads/',
 
   /**
    * 程序Load

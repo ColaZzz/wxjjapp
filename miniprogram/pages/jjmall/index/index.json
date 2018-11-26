@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "wux-floating-button": "/dist/wux-weapp/floating-button/index",
+    "wux-spin": "/dist/wux-weapp/spin/index",
+    "van-card": "/dist/vant-weapp/card/index",
+    "wux-icon": "/dist/wux-weapp/icon/index",
+    "wux-tabbar": "/dist/wux-weapp/tabbar/index",
+    "wux-tabbar-item": "/dist/wux-weapp/tabbar-item/index"
+  }
+}

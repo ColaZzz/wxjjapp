@@ -1,0 +1,65 @@
+<!--miniprogram/pages/jjmall/index/index.wxml-->
+<view class="container" hidden="{{container}}" wx:if="{{mallTab}}">
+  <!-- 主力店铺 -->
+  <view class="topshop">
+    <scroll-view scroll-x="true" scroll-left="0">
+      <view class="scroll-x">
+        <view wx:for="{{topShopes}}" wx:key="{{item.id}}">
+          <view class="top-cell">
+            <view class="top-img-cell">
+              <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" data-id="{{item}}"></image>
+            </view>
+            <view class="top-img-title">{{item.title}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swiper">
+    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
+      <block wx:for="{{swiperes}}" wx:key="{{item}}">
+        <swiper-item>
+          <image data-id="{{item.id}}" class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
+          <view class="absolute swiper-text shadow">{{item.title}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 列表 -->
+  <view class="list">
+    <view class="left-tabs">
+      <view class="head-icon">
+        <image src="/public/icon/floor.png" mode="aspectFit"></image>
+      </view>
+      <block wx:for="{{floor}}" wx:key="{{item.id}}">
+        <view class="floor" data-item="{{item}}" bindtap="floorTap">
+          <view class="y-bar" hidden="{{item.hidden}}"></view>{{item.floor_name}}
+        </view>
+      </block>
+    </view>
+    <view class="right-content">
+      <wux-spin class="loading" nested size="large" spinning="{{ spinning }}"></wux-spin>
+      <block wx:for="{{floorList}}" wx:key="{{item.id}}">
+        <van-card desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="aspectFill" />
+      </block>
+    </view>
+  </view>
+</view>
+<!-- 浮动按钮 -->
+<wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}" bind:change="onChange" bind:click="onClick" />
+<!-- tabbar -->
+<wux-tabbar default-current="mall" position="bottom" bindchange="tabChange">
+  <wux-tabbar-item key="mall" title="Mall">
+    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
+    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
+  </wux-tabbar-item>
+  <wux-tabbar-item key="article" title="活动">
+    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
+    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
+  </wux-tabbar-item>
+  <wux-tabbar-item key="vip" title="会员" disabled>
+    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
+    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
+  </wux-tabbar-item>
+</wux-tabbar>
