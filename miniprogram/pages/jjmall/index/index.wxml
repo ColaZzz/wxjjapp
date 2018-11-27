@@ -4,10 +4,10 @@
   <view class="topshop">
     <scroll-view scroll-x="true" scroll-left="0">
       <view class="scroll-x">
-        <view wx:for="{{topShopes}}" wx:key="{{item.id}}">
+        <view wx:for="{{topShopes}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="topTap">
           <view class="top-cell">
             <view class="top-img-cell">
-              <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" data-id="{{item}}"></image>
+              <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill"></image>
             </view>
             <view class="top-img-title">{{item.title}}</view>
           </view>
@@ -19,8 +19,8 @@
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <block wx:for="{{swiperes}}" wx:key="{{item}}">
-        <swiper-item>
-          <image data-id="{{item.id}}" class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
+        <swiper-item data-item="{{item}}" bindtap="topTap">
+          <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
           <view class="absolute swiper-text shadow">{{item.title}}</view>
         </swiper-item>
       </block>
@@ -41,13 +41,13 @@
     <view class="right-content">
       <wux-spin class="loading" nested size="large" spinning="{{ spinning }}"></wux-spin>
       <block wx:for="{{floorList}}" wx:key="{{item.id}}">
-        <van-card desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="aspectFill" />
+        <van-card  data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="aspectFill" />
       </block>
     </view>
   </view>
 </view>
 <!-- 浮动按钮 -->
-<wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}" bind:change="onChange" bind:click="onClick" />
+<wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}"  bind:click="onClick" />
 <!-- tabbar -->
 <wux-tabbar default-current="mall" position="bottom" bindchange="tabChange">
   <wux-tabbar-item key="mall" title="Mall">

@@ -87,7 +87,6 @@ Page({
         buttonRow.icon = icon
         buttons.push(buttonRow)
       }
-      console.log(buttons)
       this.setData({
         buttons: buttons
       })
@@ -106,16 +105,19 @@ Page({
 
   },
 
+  /**
+   * 点击浮动按钮
+   */
   onClick(e) {
-    console.log('onClick', e.detail)
-    if (e.detail.index === 3) {
-      wx.switchTab({
-        url: '/pages/jjmall/index/index'
-      })
-    }
-  },
-  onChange(e) {
-    console.log('onChange', e)
+    let label = e.detail.value.label
+    let business = this.data.business
+    let row = business.find(row => {
+      return row.business_name == label
+    })
+    let id = row.id
+    wx.navigateTo({
+      url: '../business/business?id=' + id,
+    })
   },
 
   /**
@@ -164,5 +166,15 @@ Page({
         vipTab: true
       })
     }
+  },
+
+  /**
+   * 店铺
+   */
+  topTap(e) {
+    let item = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: '../shop/shop?id=' + item.id,
+    })
   }
 })

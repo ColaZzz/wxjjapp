@@ -1,0 +1,121 @@
+/* miniprogram/pages/jjmall/shop/shop.wxss */
+@import "../../../style/public.wxss";
+
+.container {
+  background-color: #f6f6f6;
+  height: 100%;
+}
+
+.header {
+  width: 750rpx;
+  height: 200rpx;
+  background-color: #fff;
+}
+
+.commodity {
+  margin-top: 20rpx;
+  width: 750rpx;
+  height: 230rpx;
+  background-color: #fff;
+}
+
+.content {
+  margin-top: 20rpx;
+  width: 750rpx;
+  min-height: 300rpx;
+  background-color: #fff;
+}
+
+.icon {
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 30rpx;
+  margin: 30rpx 0 0 50rpx;
+  float: left;
+}
+
+.text {
+  width: 350rpx;
+  height: 140rpx;
+  margin: 30rpx 0 0 30rpx;
+  float: left;
+  position: relative;
+}
+
+.mark {
+  width: 120rpx;
+  height: 140rpx;
+  margin: 30rpx 0 0 30rpx;
+  float: left;
+}
+
+.row {
+  height: 33%;
+  width: 100%;
+}
+
+.title {
+  font-size: 30rpx;
+}
+
+.customize {
+  font-size: 24rpx;
+  line-height: 300%;
+}
+
+.cobom {
+  position: relative;
+}
+
+.zan-icon {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  left: 0;
+  top: 6rpx;
+}
+
+.zan-total {
+  position: absolute;
+  width: 80rpx;
+  height: 40rpx;
+  left: 48rpx;
+  top: 10rpx;
+  font-size: 27rpx;
+}
+
+.zan-averge {
+  position: absolute;
+  width: 150rpx;
+  height: 40rpx;
+  left: 128rpx;
+  top: 10rpx;
+  font-size: 27rpx;
+}
+
+.html {
+  margin: 50rpx auto;
+  width: 720rpx;
+}
+
+.com-cell {
+  width: 180rpx;
+  height: 100%;
+  margin: 0 10rpx;
+}
+
+.com-img-cell {
+  margin-top: 20rpx;
+  width: 180rpx;
+  height: 150rpx;
+}
+
+.com-img-title{
+  overflow: hidden;
+  height: 60rpx;
+  width: 180rpx;
+  font-size: 26rpx;
+  line-height: 230%;
+  text-align: center;
+  text-overflow: ellipsis;
+}

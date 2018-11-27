@@ -145,7 +145,6 @@ Page({
       checkedItems,
       items
     } = e.detail
-    console.log(checkedItems[0])
     let item = checkedItems[0]
     let time = ''
     let rank = ''

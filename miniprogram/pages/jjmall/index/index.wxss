@@ -34,9 +34,14 @@
 
 .top-img-title{
   width: 150rpx;
-  height: 35rpx;
+  height: 55rpx;
   text-align: center;
-  font-size: 28rpx;
+  line-height: 200%;
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 2;
+  padding: 0 5rpx;
 }
 
 .list{

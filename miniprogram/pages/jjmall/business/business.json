@@ -1,1 +1,8 @@
-{}
+{
+  "usingComponents": {
+    "wux-floating-button": "/dist/wux-weapp/floating-button/index",
+    "van-card": "/dist/vant-weapp/card/index",
+    "i-load-more": "/dist/iview-weapp/load-more/index",
+    "wux-filterbar": "/dist/wux-weapp/filterbar/index"
+  }
+}
