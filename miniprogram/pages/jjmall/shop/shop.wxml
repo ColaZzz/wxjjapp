@@ -13,25 +13,34 @@
         <!-- 点赞数 -->
         <view class="zan-total"></view>
         <!-- 人均消费 -->
-        <view class="zan-averge"><span wx:if="{{averageSpent}}">￥{{averageSpent}}/人</span></view>
+        <view class="zan-averge">
+          <span wx:if="{{averageSpent}}">￥{{averageSpent}}/人</span>
+        </view>
       </view>
       <view class="row customize">{{shop.customize_type}}</view>
     </view>
     <view class="mark"></view>
   </view>
   <view class="commodity">
-    <scroll-view scroll-x="true" scroll-left="0">
-      <view class="scroll-x">
-        <view wx:for="{{commodities}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="comTap">
-          <view class="com-cell">
-            <view class="com-img-cell">
-              <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill"></image>
+    <block wx:if="{{commodities}}">
+      <scroll-view scroll-x="true" scroll-left="0">
+        <view class="scroll-x">
+          <view wx:for="{{commodities}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="comTap">
+            <view class="com-cell">
+              <view class="com-img-cell">
+                <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill"></image>
+              </view>
+              <view class="com-img-title">{{item.name}}</view>
             </view>
-            <view class="com-img-title">{{item.name}}</view>
           </view>
         </view>
+      </scroll-view>
+    </block>
+    <block wx:else>
+      <view class="alert">
+        <wux-alert theme="light" title="空空如也" label="暂时没有商品"/>
       </view>
-    </scroll-view>
+    </block>
   </view>
   <view class="content">
     <view class="html">

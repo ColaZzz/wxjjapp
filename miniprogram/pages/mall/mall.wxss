@@ -10,7 +10,6 @@
   display: flex;
   width: 95%;
   height: 230rpx;
-  /* background-color: #000; */
 }
 
 .menu{

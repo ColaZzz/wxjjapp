@@ -1,5 +1,6 @@
 // miniprogram/pages/jjmall/index/index.js
 import api from '../../../common/api.js'
+import fmt from '../../../common/format.js'
 const app = getApp()
 const icon = '/public/icon/mall-icon.png'
 Page({
@@ -28,6 +29,13 @@ Page({
     mallTab: true,
     articleTab: false,
     vipTab: false,
+    swiperList: [],
+    activeList: [],
+    newsList: [],
+    topList: [],
+    mode: 'aspectFill',
+    lazyLoad: 'true',
+    articleHidden: false,
   },
 
   /**
@@ -159,6 +167,9 @@ Page({
         articleTab: true,
         vipTab: false
       })
+      if (!this.data.swiperList.length) {
+        this.loadInfo()
+      }
     } else if (e.detail.key == 'vip') {
       this.setData({
         mallTab: false,
@@ -176,5 +187,90 @@ Page({
     wx.navigateTo({
       url: '../shop/shop?id=' + item.id,
     })
-  }
+  },
+
+  /**
+   * 资讯
+   */
+  /**
+   * 第一二个菜单
+   */
+  articleTap(e) {
+    let type = e.currentTarget.dataset.type
+    wx.navigateTo({
+      url: '/pages/mall_articleList/mall_articleList?type=' + type,
+    })
+  },
+
+  /**
+   * 店铺导航
+   */
+  navigationTap() {
+    wx.navigateTo({
+      url: '/pages/mall_navigation/mall_navigation',
+    })
+  },
+
+  /**
+   * 资讯初始化
+   */
+  loadInfo() {
+    this.setData({
+      articleHidden: true
+    })
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    // 最新活动栏的加载
+    let ac = api.request('articles', 'GET', {
+      type: 1
+    })
+    // 商户资讯栏的加载
+    let news = api.request('articles', 'GET', {
+      type: 2
+    })
+    // 最热资讯栏的加载
+    let top = api.request('articles', 'GET', {
+      rank: 'desc'
+    })
+    // 轮播图的加载
+    let swiper = api.request('mallswiper', 'GET')
+
+    Promise.all([ac, news, swiper, top]).then(res => {
+      let active = res[0].data
+      for (let i = 0; i < active.length; i++) {
+        active[i].created = fmt.getMMdd(active[i].created_at)
+      }
+
+      let news = res[1].data
+      for (let i = 0; i < news.length; i++) {
+        news[i].created = fmt.getMMdd(news[i].created_at)
+      }
+
+      let top = res[3].data
+      for (let i = 0; i < top.length; i++) {
+        top[i].created = fmt.getyyyyMMdd(top[i].created_at)
+      }
+
+      this.setData({
+        activeList: active,
+        newsList: news,
+        swiperList: res[2],
+        topList: top,
+        articleHidden: false
+      })
+      wx.hideLoading()
+    })
+  },
+
+  /**
+   *文章点击 
+   */
+  cellTap(e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/mall_article/mall_article?id=' + id,
+    })
+  },
 })

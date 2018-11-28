@@ -30,6 +30,14 @@
   color: #fff;
 }
 
+.current-floor{
+  width: 180rpx;
+  height: 50rpx;
+  top: 190rpx;
+  right: 30rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
 .total-title {
   width: 170rpx;
   height: 20rpx;
@@ -72,8 +80,9 @@
   border-radius: 50rpx;
 }
 
-.navigation {
+.navi{
+  margin-top: 20rpx;
   width: 750rpx;
-  height: 500rpx;
-  background-color: #fff;
+  height: 450rpx;
+  background-color: #ffffff;
 }

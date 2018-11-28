@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "wux-alert": "/dist/wux-weapp/alert/index"
+  }
+}

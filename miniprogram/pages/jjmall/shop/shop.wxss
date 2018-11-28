@@ -119,3 +119,9 @@
   text-align: center;
   text-overflow: ellipsis;
 }
+
+.alert{
+  width: 375rpx;
+  margin: auto;
+  margin-top: 50rpx;
+}

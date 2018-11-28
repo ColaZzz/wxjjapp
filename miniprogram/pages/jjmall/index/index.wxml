@@ -1,4 +1,5 @@
 <!--miniprogram/pages/jjmall/index/index.wxml-->
+<!-- 主页 -->
 <view class="container" hidden="{{container}}" wx:if="{{mallTab}}">
   <!-- 主力店铺 -->
   <view class="topshop">
@@ -18,12 +19,10 @@
   <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
-      <block wx:for="{{swiperes}}" wx:key="{{item}}">
-        <swiper-item data-item="{{item}}" bindtap="topTap">
-          <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
-          <view class="absolute swiper-text shadow">{{item.title}}</view>
-        </swiper-item>
-      </block>
+      <swiper-item wx:for="{{swiperes}}" wx:key="{{item}}" data-item="{{item}}" bindtap="topTap">
+        <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
+        <view class="absolute swiper-text shadow">{{item.title}}</view>
+      </swiper-item>
     </swiper>
   </view>
   <!-- 列表 -->
@@ -41,25 +40,94 @@
     <view class="right-content">
       <wux-spin class="loading" nested size="large" spinning="{{ spinning }}"></wux-spin>
       <block wx:for="{{floorList}}" wx:key="{{item.id}}">
-        <van-card  data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="aspectFill" />
+        <van-card data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="aspectFill" />
       </block>
     </view>
   </view>
 </view>
+<!-- 资讯 -->
+<view class="container" wx:if="{{articleTab}}" hidden="{{articleHidden}}">
+  <!-- 第一栏 -->
+  <view class="article-header">
+    <view class="article-menu" data-type="" bindtap="articleTap">
+      <view class="article-icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_top.png"></image>
+      </view>
+      <view class="article-text">热门资讯</view>
+    </view>
+    <view class="article-menu" data-type="1" bindtap="articleTap">
+      <view class="article-icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_active.png"></image>
+      </view>
+      <view class="article-text">最新活动</view>
+    </view>
+    <view class="article-menu" data-type="2" bindtap="articleTap">
+      <view class="article-icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_news.png"></image>
+      </view>
+      <view class="article-text">商户资讯</view>
+    </view>
+    <view class="article-menu" bindtap="navigationTap">
+      <view class="article-icon">
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_map.png"></image>
+      </view>
+      <view class="article-text">店铺导航</view>
+    </view>
+    <view class="article-menu">
+      <view class="article-icon relative">
+        <button class="absolute article-contact" open-type="contact" plain></button>
+        <image class="size-full" mode="aspectFit" src="/public/icon/mall_talk.png"></image>
+      </view>
+      <view class="article-text">合作洽谈</view>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swiper">
+    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
+      <block wx:for="{{swiperList}}" wx:key="{{item}}">
+        <swiper-item>
+          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
+          <view class="absolute swiper-text shadow">{{item.title}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- tabs -->
+  <view class="tabs">
+    <van-tabs>
+      <van-tab title="热门资讯" class="relative">
+        <view class="tab-cell" wx:for="{{topList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+        </view>
+      </van-tab>
+      <van-tab title="最新活动" class="relative">
+        <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+        </view>
+      </van-tab>
+      <van-tab title="商户资讯">
+        <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}" data-id="{{item.id}}" bindtap="cellTap">
+          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
+<!-- 资讯 -->
 <!-- 浮动按钮 -->
-<wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}"  bind:click="onClick" />
+<wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}" bind:click="onClick" />
 <!-- tabbar -->
 <wux-tabbar default-current="mall" position="bottom" bindchange="tabChange">
-  <wux-tabbar-item key="mall" title="Mall">
+  <wux-tabbar-item key="mall" title="主页">
     <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
     <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
   </wux-tabbar-item>
-  <wux-tabbar-item key="article" title="活动">
-    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
-    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
+  <wux-tabbar-item key="article" title="资讯">
+    <wux-icon wux-class="icon" type="ios-aperture" size="22" slot="icon-on" />
+    <wux-icon wux-class="icon" type="ios-aperture" size="22" slot="icon-off" />
   </wux-tabbar-item>
   <wux-tabbar-item key="vip" title="会员" disabled>
-    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
-    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
+    <wux-icon wux-class="icon" type="ios-person" size="22" slot="icon-on" />
+    <wux-icon wux-class="icon" type="ios-person" size="22" slot="icon-off" />
   </wux-tabbar-item>
 </wux-tabbar>

@@ -50,13 +50,13 @@ Page({
 
   estateTap() {
     wx.navigateTo({
-      url: '../estate/estate',
+      url: '/pages/estate/estate',
     })
   },
 
   businessTap() {
     wx.navigateTo({
-      url: '../mall/mall',
+      url: '/pages/jjmall/index/index',
     })
   },
 

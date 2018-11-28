@@ -5,6 +5,9 @@
     "van-card": "/dist/vant-weapp/card/index",
     "wux-icon": "/dist/wux-weapp/icon/index",
     "wux-tabbar": "/dist/wux-weapp/tabbar/index",
-    "wux-tabbar-item": "/dist/wux-weapp/tabbar-item/index"
+    "wux-tabbar-item": "/dist/wux-weapp/tabbar-item/index",
+    "mall":"/pages/mall/mall",
+    "van-tab": "/dist/vant-weapp/tab/index",
+    "van-tabs": "/dist/vant-weapp/tabs/index"
   }
 }
