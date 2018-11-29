@@ -27,9 +27,9 @@
   </view>
   <!-- 列表 -->
   <view class="list">
-    <view class="left-tabs">
-      <view class="head-icon">
-        <image src="/public/icon/floor.png" mode="aspectFit"></image>
+    <view class="left-tabs">  
+      <view class="head-icon" bindtap="returnHome">
+        <image src="/public/icon/home.png" mode="aspectFit"></image>
       </view>
       <block wx:for="{{floor}}" wx:key="{{item.id}}">
         <view class="floor" data-item="{{item}}" bindtap="floorTap">
@@ -53,7 +53,7 @@
       <view class="article-icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_top.png"></image>
       </view>
-      <view class="article-text">热门资讯</view>
+      <view class="article-text">热门活动</view>
     </view>
     <view class="article-menu" data-type="1" bindtap="articleTap">
       <view class="article-icon">
@@ -61,11 +61,11 @@
       </view>
       <view class="article-text">最新活动</view>
     </view>
-    <view class="article-menu" data-type="2" bindtap="articleTap">
+    <view class="article-menu" bindtap="">
       <view class="article-icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_news.png"></image>
       </view>
-      <view class="article-text">商户资讯</view>
+      <view class="article-text">商务洽谈</view>
     </view>
     <view class="article-menu" bindtap="navigationTap">
       <view class="article-icon">
@@ -78,7 +78,7 @@
         <button class="absolute article-contact" open-type="contact" plain></button>
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_talk.png"></image>
       </view>
-      <view class="article-text">合作洽谈</view>
+      <view class="article-text">微信客服</view>
     </view>
   </view>
   <!-- 轮播图 -->
@@ -95,7 +95,7 @@
   <!-- tabs -->
   <view class="tabs">
     <van-tabs>
-      <van-tab title="热门资讯" class="relative">
+      <van-tab title="热门活动" class="relative">
         <view class="tab-cell" wx:for="{{topList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
           <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
@@ -105,11 +105,11 @@
           <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
       </van-tab>
-      <van-tab title="商户资讯">
+      <!-- <van-tab title="商户资讯">
         <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}" data-id="{{item.id}}" bindtap="cellTap">
           <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
         </view>
-      </van-tab>
+      </van-tab> -->
     </van-tabs>
   </view>
 </view>
@@ -117,10 +117,10 @@
 <!-- 浮动按钮 -->
 <wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}" bind:click="onClick" />
 <!-- tabbar -->
-<wux-tabbar default-current="mall" position="bottom" bindchange="tabChange">
-  <wux-tabbar-item key="mall" title="主页">
-    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-on" />
-    <wux-icon wux-class="icon" type="ios-home" size="22" slot="icon-off" />
+<wux-tabbar default-current="mall" position="bottom" theme="{{theme}}" bindchange="tabChange">
+  <wux-tabbar-item key="mall" title="Mall">
+    <wux-icon wux-class="icon" type="ios-gift" size="22" slot="icon-on" />
+    <wux-icon wux-class="icon" type="ios-gift" size="22" slot="icon-off" />
   </wux-tabbar-item>
   <wux-tabbar-item key="article" title="资讯">
     <wux-icon wux-class="icon" type="ios-aperture" size="22" slot="icon-on" />

@@ -43,3 +43,7 @@
     <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
   </view>
 </view>
+<!-- 首页 -->
+<view class="return-home" bindtap="returnHome">
+<wux-icon class="div-center" type="ios-home" color="#ffffff"/>
+</view>

@@ -57,36 +57,6 @@
 				},
 				{
 					"id": -1,
-					"name": "地图",
-					"pathName": "pages/map/map",
-					"query": ""
-				},
-				{
-					"id": 5,
-					"name": "Mall",
-					"pathName": "pages/mall/mall",
-					"query": ""
-				},
-				{
-					"id": 12,
-					"name": "mall文章",
-					"pathName": "pages/mall_article/mall_article",
-					"query": "id=1"
-				},
-				{
-					"id": 13,
-					"name": "mall文章列表",
-					"pathName": "pages/mall_articleList/mall_articleList",
-					"query": "type=1"
-				},
-				{
-					"id": -1,
-					"name": "店铺导航",
-					"pathName": "pages/mall_navigation/mall_navigation",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "联动",
 					"pathName": "pages/block/block",
 					"query": ""
@@ -95,30 +65,6 @@
 					"id": -1,
 					"name": "用户",
 					"pathName": "pages/user/user",
-					"query": ""
-				},
-				{
-					"id": 12,
-					"name": "测试",
-					"pathName": "pages/test/test",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的二维码",
-					"pathName": "pages/block_myQrcode/block_myQrcode",
-					"query": "id=1"
-				},
-				{
-					"id": 13,
-					"name": "二维码展示",
-					"pathName": "pages/block_qrcode/block_qrcode",
-					"query": "qrcode=123"
-				},
-				{
-					"id": -1,
-					"name": "二维码扫描",
-					"pathName": "pages/block_Scan/block_Scan",
 					"query": ""
 				},
 				{

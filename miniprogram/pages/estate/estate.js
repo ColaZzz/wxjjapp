@@ -161,5 +161,11 @@ Page({
       state: this.data.state,
       priceRank: this.data.priceRank
     })
+  },
+
+  returnHome(){
+    wx.switchTab({
+      url: '/pages/pageIndex/pageIndex',
+    })
   }
 })

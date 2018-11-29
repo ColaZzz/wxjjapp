@@ -48,6 +48,7 @@ Page({
       imgUrl: app.imgUrl
     })
     let rank = ''
+    let time = ''
     let title = 'JJMall'
     let type = options.type
     // 判断是否为热门资讯和设置标题
@@ -55,16 +56,15 @@ Page({
       rank = 'desc'
       title = '热门资讯'
     }else if(type == '1'){
+      time = 'desc'
       title = '最新活动'
-    } else if (type == '2') {
-      title = '商户资讯'
     }
     // 设置标题
     wx.setNavigationBarTitle({
       title: title,
     })
     this.setData({
-      type: options.type,
+      time: time,
       rank: rank
     })
     wx.showLoading({
@@ -77,7 +77,6 @@ Page({
    */
   onReady: function() {
     this.getArticleList({
-      type: this.data.type,
       page: this.data.currentPage,
       time: this.data.time,
       rank: this.data.rank
@@ -101,7 +100,6 @@ Page({
     })
 
     this.getArticleList({
-      type: this.data.type,
       page: page,
       time: this.data.time,
       rank: this.data.rank
@@ -180,8 +178,7 @@ Page({
     this.getArticleList({
       page: this.data.currentPage,
       time: time,
-      rank: rank,
-      type: this.data.type
+      rank: rank
     })
   }
 })

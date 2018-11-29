@@ -7,13 +7,17 @@ App({
    * 本地开发地址
    */
   url: 'http://jjapp.test/api/',
-  imgUrl: 'http://jjapp.test/uploads/',
+  imgUrl: 'http://jjapp.test/storage/',
   /**
    * 生产地址
    */
   // url: 'https://togetherwoh.com/api/',
-  // imgUrl: 'https://togetherwoh.com/uploads/',
-
+  // imgUrl: 'https://togetherwoh.com/storage/',
+  /**
+   * 公司局域网
+   */
+  // url: 'http://10.200.1.64:8080/api/',
+  // imgUrl: 'http://10.200.1.64:8080/storage/',
   /**
    * 程序Load
    */

@@ -20,7 +20,7 @@ Page({
     business: [],
     imgUrl: '',
     position: 'bottomRight',
-    theme: 'energized',
+    theme: 'calm',
     action: '/public/icon/floor-business.png',
     buttons: [],
     spinning: false,
@@ -271,6 +271,12 @@ Page({
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/mall_article/mall_article?id=' + id,
+    })
+  },
+
+  returnHome() {
+    wx.switchTab({
+      url: '/pages/pageIndex/pageIndex',
     })
   },
 })

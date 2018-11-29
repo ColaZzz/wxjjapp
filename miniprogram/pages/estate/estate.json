@@ -4,6 +4,7 @@
   },
   "usingComponents": {
     "i-load-more": "/dist/iview-weapp/load-more/index",
-    "wux-filterbar": "/dist/wux-weapp/filterbar/index"
+    "wux-filterbar": "/dist/wux-weapp/filterbar/index",
+    "wux-icon": "/dist/wux-weapp/icon/index"
   }
 }

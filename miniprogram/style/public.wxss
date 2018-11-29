@@ -128,3 +128,14 @@ page {
   bottom: 0;
   margin: auto;
 }
+
+/* 回首页 */
+.return-home{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #ff6a6a;
+  border-radius: 50%;
+  right: 30rpx;
+  bottom: 50rpx;
+}
