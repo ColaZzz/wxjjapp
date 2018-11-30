@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -90,6 +90,12 @@
 					"name": "mall_commodity",
 					"pathName": "pages/jjmall/commodity/commodity",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "招商",
+					"pathName": "pages/jjmall/investment/investment",
+					"query": ""
 				}
 			]
 		}

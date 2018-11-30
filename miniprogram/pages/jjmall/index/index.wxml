@@ -61,11 +61,11 @@
       </view>
       <view class="article-text">最新活动</view>
     </view>
-    <view class="article-menu" bindtap="">
+    <view class="article-menu" bindtap="investTap">
       <view class="article-icon">
         <image class="size-full" mode="aspectFit" src="/public/icon/mall_news.png"></image>
       </view>
-      <view class="article-text">商务洽谈</view>
+      <view class="article-text">品牌招商</view>
     </view>
     <view class="article-menu" bindtap="navigationTap">
       <view class="article-icon">

@@ -1,0 +1,9 @@
+/* miniprogram/pages/jjmall/investment/investment.wxss */
+@import "../../../style/public.wxss";
+
+.container {
+  background-color: #ffffff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

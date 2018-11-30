@@ -21,7 +21,8 @@
     "pages/jjmall/index/index",
     "pages/jjmall/business/business",
     "pages/jjmall/shop/shop",
-    "pages/jjmall/commodity/commodity"
+    "pages/jjmall/commodity/commodity",
+    "pages/jjmall/investment/investment"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

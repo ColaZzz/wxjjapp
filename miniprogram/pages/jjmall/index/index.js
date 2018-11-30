@@ -279,4 +279,10 @@ Page({
       url: '/pages/pageIndex/pageIndex',
     })
   },
+
+  investTap(){
+    wx.navigateTo({
+      url: '../investment/investment',
+    })
+  }
 })
