@@ -8,7 +8,7 @@
         <view wx:for="{{topShopes}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="topTap">
           <view class="top-cell">
             <view class="top-img-cell">
-              <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill"></image>
+              <image class="size-full" src="{{imgUrl + item.icon_url}}" mode="aspectFill"></image>
             </view>
             <view class="top-img-title">{{item.title}}</view>
           </view>
@@ -21,7 +21,7 @@
     <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <swiper-item wx:for="{{swiperes}}" wx:key="{{item}}" data-item="{{item}}" bindtap="topTap">
         <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
-        <view class="absolute swiper-text shadow">{{item.title}}</view>
+        <view class="absolute swiper-text shadow">{{item.subtitle}}</view>
       </swiper-item>
     </swiper>
   </view>
@@ -40,7 +40,7 @@
     <view class="right-content">
       <wux-spin class="loading" nested size="large" spinning="{{ spinning }}"></wux-spin>
       <block wx:for="{{floorList}}" wx:key="{{item.id}}">
-        <van-card data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="aspectFill" />
+        <van-card data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.icon_url}}" thumb-mode="aspectFill" />
       </block>
     </view>
   </view>
@@ -87,7 +87,7 @@
       <block wx:for="{{swiperList}}" wx:key="{{item}}">
         <swiper-item>
           <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
-          <view class="absolute swiper-text shadow">{{item.title}}</view>
+          <view class="absolute swiper-text shadow">{{item.subtitle}}</view>
         </swiper-item>
       </block>
     </swiper>

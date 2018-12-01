@@ -1,4 +1,4 @@
 <!--miniprogram/pages/jjmall/investment/investment.wxml-->
 <view class="container">
-  <web-view src="http://jjapp.test/investment"></web-view>
+  <web-view src="https://togetherwoh.com/investment"></web-view>
 </view>
