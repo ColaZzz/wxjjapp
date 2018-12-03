@@ -224,11 +224,7 @@ Page({
 
     // 最新活动栏的加载
     let ac = api.request('articles', 'GET', {
-      type: 1
-    })
-    // 商户资讯栏的加载
-    let news = api.request('articles', 'GET', {
-      type: 2
+      time: 'desc'
     })
     // 最热资讯栏的加载
     let top = api.request('articles', 'GET', {
@@ -237,26 +233,20 @@ Page({
     // 轮播图的加载
     let swiper = api.request('mallswiper', 'GET')
 
-    Promise.all([ac, news, swiper, top]).then(res => {
+    Promise.all([ac, swiper, top]).then(res => {
       let active = res[0].data
       for (let i = 0; i < active.length; i++) {
         active[i].created = fmt.getMMdd(active[i].created_at)
       }
 
-      let news = res[1].data
-      for (let i = 0; i < news.length; i++) {
-        news[i].created = fmt.getMMdd(news[i].created_at)
-      }
-
-      let top = res[3].data
+      let top = res[2].data
       for (let i = 0; i < top.length; i++) {
         top[i].created = fmt.getyyyyMMdd(top[i].created_at)
       }
 
       this.setData({
         activeList: active,
-        newsList: news,
-        swiperList: res[2],
+        swiperList: res[1],
         topList: top,
         articleHidden: false
       })
