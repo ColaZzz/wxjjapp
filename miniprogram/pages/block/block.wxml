@@ -1,28 +1,62 @@
 <!--miniprogram/pages/block/block.wxml-->
 <view class="container">
-  <view class="menu">
-    <view class="b-m-box" bindtap="myRecommendation">
-      <image class="b-m-b-img" src="../../public/icon/linkage-my.png"></image>
-      <view class="b-m-b-title">我的推荐</view>
+  <!-- 未登录 -->
+  <view wx:if="{{!hasUserInfo && canIUse}}" class="login">
+    <button class="login-btn login-position" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" type="primary">登录</button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <block wx:else>
+    <view class="avatar">
+      <!-- 登录信息 -->
+      <view class="avatar-img">
+        <image class="size-full" src="{{avatar}}"></image>
+      </view>
+      <view class="nickname">
+        <view>{{nickName}}</view>
+        <view>{{role.linkage_name}}</view>
+      </view>
     </view>
-  </view>
-  <view class="getInfo">
-    <form bindsubmit="submit">
-      <view class="title">联动公司信息</view>
-      <van-cell-group>
-        <van-field name="platform" required clearable label="电商平台" placeholder="请输入电商平台" bind:blur="confirm" />
-        <van-field name="project" required clearable label="联动项目" placeholder="请输入联动项目名称" />
-        <van-field name="company" required clearable label="公司名称" placeholder="请输入公司名称" />
-        <van-field name="worker" required clearable label="工作人员" placeholder="请输入工作人员姓名" />
-        <van-field name="workNumber" required clearable type="number" label="联系电话" placeholder="请输入工作人员联系电话" border="{{ false }}" />
-      </van-cell-group>
-      <view class="title">客户信息</view>
-      <van-cell-group>
-        <van-field value="{{user}}" name="username" required clearable label="客户姓名" placeholder="请输入客户姓名" />
-        <van-field value="{{userNumber}}" name="userNumber" required clearable label="联系电话" placeholder="请输入客户联系电话" border="{{ false }}" />
-      </van-cell-group>
-      <button form-type="submit" type="primary">提交信息</button>
-    </form>
-  </view>
+    <view class="menu">
+      <view class="b-m-box" bindtap="myRecommendation">
+        <image class="b-m-b-img" src="../../public/icon/linkage-my.png"></image>
+        <view class="b-m-b-title">我的推荐</view>
+      </view>
+      <view class="b-m-box" bindtap="scanCode">
+        <image class="b-m-b-img" src="../../public/icon/scan.png"></image>
+        <view class="b-m-b-title">扫码</view>
+      </view>
+    </view>
+    <view class="getInfo">
+      <form bindsubmit="submit">
+        <view class="title">联动公司信息</view>
+        <van-cell-group>
+          <van-field name="company" required clearable label="公司名称" placeholder="请输入公司名称" />
+          <van-field name="childCompany" required clearable label="分店名称" placeholder="请输入分店名称" />
+          <van-field name="worker" required clearable label="工作人员" placeholder="请输入工作人员姓名" />
+          <van-field name="workNumber" required clearable type="number" label="联系电话" placeholder="请输入工作人员联系电话" border="{{ false }}" />
+        </van-cell-group>
+        <view class="title">客户信息</view>
+        <van-cell-group>
+          <van-field value="{{user}}" name="username" required clearable label="客户姓名" placeholder="请输入客户姓名" />
+          <van-field value="{{userNumber}}" name="userNumber" required clearable label="联系电话" placeholder="请输入客户联系电话" border="{{ false }}" />
+        </van-cell-group>
+        <button class="submit-btn" form-type="submit" type="primary">提交信息</button>
+      </form>
+    </view>
+  </block>
 </view>
 <van-toast id="van-toast" />
+
+<van-dialog use-slot async-close show="{{ show }}" show-cancel-button showCancelButton="{{ false }}" title="联动单" bind:close="onClose">
+  <van-cell-group>
+    <van-cell title="公司名称：" value="{{linkage.company}}" />
+    <van-cell title="分店：" value="{{linkage.child_company}}" />
+    <van-cell title="工作人员：" value="{{linkage.worker}}" />
+    <van-cell title="联系方式：" value="{{linkage.worker_number}}" />
+    <van-cell title="客户姓名：" value="{{linkage.username}}" />
+    <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
+  </van-cell-group>
+</van-dialog>

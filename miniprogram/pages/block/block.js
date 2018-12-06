@@ -8,16 +8,51 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     result: '',
     user: '',
     userNumber: '',
+    linkage: null,
+    show: false,
+    checkUsers: null,
+    avatar: null,
+    nickName: null,
+    role: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    }
+    // 获取本地缓存
+    let userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      let user = JSON.parse(userInfo)
+      this.setData({
+        avatar: user.avatarUrl,
+        nickName: user.nickName
+      })
+    }
 
+    // 获取权限信息
+    this.getRoleInfo()
   },
 
   /**
@@ -27,6 +62,17 @@ Page({
     this.setData({
       user: null,
       userNumber: null
+    })
+  },
+
+  getUserInfo(e) {
+    app.loginAPI()
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true,
+      avatar: e.detail.userInfo.avatarUrl,
+      nickName: e.detail.userInfo.nickName
     })
   },
 
@@ -97,7 +143,7 @@ Page({
               } else if (res.code == 3) {
                 wx.hideLoading()
                 // 遍历对象
-                for(let i in res.data){
+                for (let i in res.data) {
                   Toast(res.data[i][0])
                   break
                 }
@@ -117,9 +163,97 @@ Page({
       }
     })
   },
+
   myRecommendation() {
     wx.navigateTo({
       url: '../block_myQrcode/block_myQrcode',
     })
+  },
+  /**
+   * 扫码
+   */
+  scanCode() {
+    let that = this
+    wx.scanCode({
+      scanType: ['qrCode'],
+      success(res) {
+        if (res.errMsg == 'scanCode:ok') {
+          let code = res.result
+          let token = wx.getStorageSync('token')
+          that.getLinkageInfo(code, token)
+        }
+      }
+    })
+  },
+
+  /**
+   * 扫码后的请求
+   */
+  getLinkageInfo(code, token) {
+    wx.showLoading({
+      title: '查询中..',
+    })
+    api.oldRequest('scancodelinkage', 'POST', {
+        code,
+        token
+      })
+      .then(res => {
+        if (res.code == 1) {
+          this.setData({
+            linkage: res.data,
+            show: true
+          })
+        } else if (res.code == 2) {
+          api.login().then(() => {
+            this.getLinkageInfo(code, wx.getStorageSync('token'))
+          })
+        } else if (res.code == 3) {
+          wx.showToast({
+            title: res.msg,
+            image: '../../public/icon/fail.png',
+            duration: 2000
+          })
+        } else if (res.code == 4) {
+          wx.showToast({
+            title: res.msg,
+            image: '../../public/icon/fail.png',
+            duration: 2000
+          })
+        } else if (res.code == 5) {
+          wx.navigateTo({
+            url: '../block_info/block_info?data=' + JSON.stringify(res.data) + '&data2=' + JSON.stringify(res.data2),
+          })
+        }
+        wx.hideLoading()
+      })
+  },
+
+  /**
+   * 关闭对话框
+   */
+  onClose(event) {
+    if (event.detail === 'confirm') {
+      this.setData({
+        show: false
+      });
+    }
+  },
+
+  /**
+   * 获取权限信息
+   */
+  getRoleInfo() {
+    api.request('roleinfo', 'POST', {
+        token: wx.getStorageSync('token')
+      })
+      .then(res => {
+        this.setData({
+          role: res
+        })
+        wx.setStorage({
+          key: 'role',
+          data: JSON.stringify(res),
+        })
+      })
   }
 })

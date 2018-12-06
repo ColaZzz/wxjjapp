@@ -11,7 +11,7 @@
       <van-cell title="公司名称：" value="{{linkage.company}}" />
       <van-cell title="工作人员：" value="{{linkage.worker}}" />
       <van-cell title="联系方式：" value="{{linkage.worker_number}}" />
-      <van-cell title="客户姓名：" value="{{linkage.user}}" />
+      <van-cell title="客户姓名：" value="{{linkage.username}}" />
       <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
     </van-cell-group>
   </van-dialog>

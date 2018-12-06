@@ -1,0 +1,28 @@
+<!--miniprogram/pages/block_info/block_info.wxml-->
+<view>
+  <view class="title">报备信息</view>
+  <van-cell-group wx:if="{{linkage}}">
+    <van-cell title="公司名称：" value="{{linkage.company}}" />
+    <van-cell title="分店：" value="{{linkage.child_company}}" />
+    <van-cell title="工作人员：" value="{{linkage.worker}}" />
+    <van-cell title="联系方式：" value="{{linkage.worker_number}}" />
+    <van-cell title="客户姓名：" value="{{linkage.username}}" />
+    <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
+  </van-cell-group>
+  <view wx:if="{{checkLength}}">
+    <view class="title">匹配到{{checkLength}}条可能相关数据</view>
+    <view class="tip">该客户可能不是首次上门</view>
+    <block wx:if="{{checkUsers}}" wx:for="{{checkUsers}}" wx:key="{{item.id}}" wx:for-index="index">
+      <view class="cell">第{{index + 1}}条</view>
+      <van-cell-group>
+        <van-cell title="姓名：" value="{{item.username}}" />
+        <van-cell title="联系方式：" value="{{item.user_number}}" />
+        <van-cell title="上门时间：" value="{{item.visit}}" border="{{ false }}" />
+      </van-cell-group>
+    </block>
+  </view>
+  <view wx:else>
+    <view class="title">匹配到{{checkLength}}条可能相关数据</view>
+    <view class="tip">该客户是首次上门</view>
+  </view>
+</view>

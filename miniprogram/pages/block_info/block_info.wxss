@@ -1,0 +1,19 @@
+/* miniprogram/pages/block_info/block_info.wxss */
+.title{
+  padding: 30rpx 0  15rpx 27rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.cell{
+  padding: 20rpx 0  8rpx 27rpx;
+  font-size: 24rpx;
+  color: #ff6a6a;
+}
+
+.tip{
+  padding: 5rpx 0  8rpx 27rpx;
+  font-size: 28rpx;
+  color: #ff6a6a;
+  font-weight: bold;
+}

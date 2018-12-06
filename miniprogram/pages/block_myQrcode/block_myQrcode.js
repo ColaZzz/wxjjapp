@@ -112,7 +112,7 @@ Page({
    */
   qrcodeTap(e) {
     let item = e.currentTarget.dataset.item
-    if (item.state) return
+    // if (item.state) return
     wx.navigateTo({
       url: '../block_qrcode/block_qrcode?qrcode=' + item.qrcode + '&datetime=' + item.datetime,
     })
