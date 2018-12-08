@@ -10,7 +10,7 @@
     <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
   </van-cell-group>
   <view wx:if="{{checkLength}}">
-    <view class="title">匹配到{{checkLength}}条可能相关数据</view>
+    <view class="title">匹配到{{checkLength}}条{{keyWord}}数据</view>
     <view class="tip">该客户可能不是首次上门</view>
     <block wx:if="{{checkUsers}}" wx:for="{{checkUsers}}" wx:key="{{item.id}}" wx:for-index="index">
       <view class="cell">第{{index + 1}}条</view>

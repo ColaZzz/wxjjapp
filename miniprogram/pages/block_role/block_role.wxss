@@ -1,0 +1,24 @@
+/* miniprogram/pages/block_role/block_role.wxss */
+@import "../../style/public.wxss";
+
+.container {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.title{
+  padding: 50rpx 0 20rpx 50rpx;
+  font-weight: bold;
+}
+
+.apply-record{
+  width: 750rpx;
+  height: 500rpx;
+  background-color: #ffffff;
+  border-top: 20rpx solid #f6f6f6;
+  overflow: scroll;
+}

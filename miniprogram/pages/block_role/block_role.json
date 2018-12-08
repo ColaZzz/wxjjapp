@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-cell-group": "/dist/vant-weapp/cell-group/index",
+    "van-field": "/dist/vant-weapp/field/index",
+    "van-dialog": "/dist/vant-weapp/dialog/index",
+    "van-cell": "/dist/vant-weapp/cell/index"
+  }
+}

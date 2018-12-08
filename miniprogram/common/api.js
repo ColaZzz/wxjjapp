@@ -8,13 +8,13 @@ function request(apiName, method, params = null) {
       method: method,
       data: params,
       success(res) {
-        if(res.data.code){
+        if (res.data.code) {
           resolve(res.data.data)
-        }else{
+        } else {
           reject('网络错误')
         }
       },
-      fail(err){
+      fail(err) {
         reject(err)
       }
     })
@@ -43,10 +43,10 @@ function oldRequest(apiName, method, params = null) {
   return promise
 }
 
-function login(){
-  let promise = new Promise((resolve,reject)=>{
+function login() {
+  let promise = new Promise((resolve, reject) => {
     wx.login({
-      success(res){
+      success(res) {
         wx.request({
           url: url + 'login',
           method: 'POST',
@@ -58,7 +58,7 @@ function login(){
             wx.setStorageSync('token', session_3rd)
             resolve(session_3rd)
           },
-          fail(err){
+          fail(err) {
             reject(err)
           }
         })
@@ -69,8 +69,20 @@ function login(){
   return promise;
 }
 
+function checkToken() {
+  this.oldRequest('checktoken', 'POST', {
+      token: wx.getStorageSync('token')
+    })
+    .then(res => {
+      if (res.code == 2) {
+        app.loginAPI()
+      }
+    })
+}
+
 module.exports = {
   request,
   oldRequest,
-  login
+  login,
+  checkToken
 }

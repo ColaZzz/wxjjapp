@@ -1,0 +1,13 @@
+<!--miniprogram/pages/block_apply/block_apply.wxml-->
+<view class="container">
+  <view class="full-width row" wx:for="{{applyList}}" wx:key="{{index}}">
+    <van-card currency="" price="{{item.created_at}}" desc="{{item.estate_role.linkage_name}}" title="{{item.user.name}}">
+      <view slot="footer">
+        <van-button size="mini" bindtap="reject" data-item="{{item}}">拒绝</van-button>
+        <van-button size="mini" bindtap="agreed" data-item="{{item}}">同意</van-button>
+      </view>
+    </van-card>
+  </view>
+</view>
+
+<van-toast id="van-toast" />

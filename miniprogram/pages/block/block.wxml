@@ -28,6 +28,14 @@
         <image class="b-m-b-img" src="../../public/icon/scan.png"></image>
         <view class="b-m-b-title">扫码</view>
       </view>
+      <view class="b-m-box" bindtap="roleTap">
+        <image class="b-m-b-img" src="../../public/icon/role.png"></image>
+        <view class="b-m-b-title">权限申请</view>
+      </view>
+      <view class="b-m-box" bindtap="applyTap">
+        <image class="b-m-b-img" src="../../public/icon/apply.png"></image>
+        <view class="b-m-b-title">消息处理</view>
+      </view>
     </view>
     <view class="getInfo">
       <form bindsubmit="submit">

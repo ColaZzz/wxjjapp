@@ -52,24 +52,28 @@ App({
    * 登录的封装
    */
   loginAPI() {
-    let url = this.url
-    this.getUerInfoAPI().then(username => {
-      wx.login({
-        success(res) {
-          wx.request({
-            url: url + 'login',
-            method: 'POST',
-            data: {
-              code: res.code,
-              username: username
-            },
-            success(result) {
-              let session_3rd = result.data.data
-              wx.setStorageSync('token', session_3rd)
-            }
-          })
-        }
+    let promise = new Promise((resolve, reject) => {
+      let url = this.url
+      this.getUerInfoAPI().then(username => {
+        wx.login({
+          success(res) {
+            wx.request({
+              url: url + 'login',
+              method: 'POST',
+              data: {
+                code: res.code,
+                username: username
+              },
+              success(result) {
+                let session_3rd = result.data.data
+                wx.setStorageSync('token', session_3rd)
+                resolve(result)
+              }
+            })
+          }
+        })
       })
     })
+    return promise
   }
 })

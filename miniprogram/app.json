@@ -23,7 +23,9 @@
     "pages/jjmall/shop/shop",
     "pages/jjmall/commodity/commodity",
     "pages/jjmall/investment/investment",
-    "pages/block_info/block_info"
+    "pages/block_info/block_info",
+    "pages/block_role/block_role",
+    "pages/block_apply/block_apply"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

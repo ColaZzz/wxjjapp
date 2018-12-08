@@ -1,0 +1,25 @@
+<!--miniprogram/pages/block_role/block_role.wxml-->
+<view class="container">
+  <view class="full-width">
+    <van-cell-group>
+      <van-cell title="当前权限" value="{{currentRole}}" border/>
+    </van-cell-group>
+  </view>
+  <view class="full-width title">申请权限</view>
+  <view class="full-width">
+    <van-cell-group>
+      <block wx:for="{{roles}}" wx:for-index="index" wx:key="{{index}}">
+        <van-cell data-item="{{item}}" bindtap="checkDialog" title="{{item.linkage_name}}" is-link />
+      </block>
+    </van-cell-group>
+  </view>
+  <view class="apply-record">
+    <block wx:for="{{roleApplies}}" wx:key="{{index}}">
+      <van-cell-group>
+        <van-cell title="{{item.estate_role.linkage_name}}" value="{{item.stateText}}" label="{{item.created_at}}" />
+      </van-cell-group>
+    </block>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />

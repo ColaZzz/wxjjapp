@@ -59,6 +59,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onShow: function() {
+    api.checkToken()
     this.setData({
       user: null,
       userNumber: null
@@ -67,6 +68,10 @@ Page({
 
   getUserInfo(e) {
     app.loginAPI()
+      .then(res => {
+        // 获取权限信息
+        this.getRoleInfo()
+      })
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -254,6 +259,37 @@ Page({
           key: 'role',
           data: JSON.stringify(res),
         })
+      })
+  },
+
+  /**
+   * 权限申请
+   */
+  roleTap() {
+    wx.navigateTo({
+      url: '../block_role/block_role',
+    })
+  },
+
+  /**
+   * 消息权限确认
+   */
+  applyTap() {
+    wx.showLoading({
+      title: '权限确认中..',
+    })
+    api.oldRequest('checkapplyrole', 'POST', {
+        token: wx.getStorageSync('token')
+      })
+      .then(res => {
+        if (res.code == 1) {
+          wx.navigateTo({
+            url: '../block_apply/block_apply',
+          })
+        } else {
+          Toast('当前用户没有权限进入')
+        }
+        wx.hideLoading()
       })
   }
 })
