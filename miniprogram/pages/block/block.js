@@ -291,5 +291,24 @@ Page({
         }
         wx.hideLoading()
       })
+  },
+
+  followTap() {
+    wx.showLoading({
+      title: '权限确认中..',
+    })
+    api.oldRequest('checkfollowrole', 'POST', {
+        token: wx.getStorageSync('token')
+      })
+      .then(res => {
+        if (res.code == 1) {
+          wx.navigateTo({
+            url: '../block_follow/block_follow',
+          })
+        } else {
+          Toast('当前用户没有权限进入')
+        }
+        wx.hideLoading()
+      })
   }
 })

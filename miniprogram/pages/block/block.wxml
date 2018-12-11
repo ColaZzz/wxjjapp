@@ -36,6 +36,10 @@
         <image class="b-m-b-img" src="../../public/icon/apply.png"></image>
         <view class="b-m-b-title">消息处理</view>
       </view>
+      <view class="b-m-box" bindtap="followTap">
+        <image class="b-m-b-img" src="../../public/icon/follow.png"></image>
+        <view class="b-m-b-title">客户跟进</view>
+      </view>
     </view>
     <view class="getInfo">
       <form bindsubmit="submit">

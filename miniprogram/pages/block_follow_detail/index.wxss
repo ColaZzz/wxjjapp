@@ -1,0 +1,4 @@
+/* miniprogram/pages/block_follow_detail/index.wxss */
+.follow{
+  width: 750rpx;
+}

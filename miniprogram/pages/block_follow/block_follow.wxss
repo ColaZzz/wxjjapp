@@ -1,0 +1,11 @@
+/* miniprogram/pages/block_follow/block_follow.wxss */
+@import "../../style/public.wxss";
+
+.container {
+  background-color: #ffffff;
+  height: 100%;
+}
+
+.dataList{
+  width: 750rpx;
+}

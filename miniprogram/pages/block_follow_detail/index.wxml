@@ -1,0 +1,14 @@
+<!--miniprogram/pages/block_follow_detail/index.wxml-->
+<view class="follow">
+  <block wx:if="{{account}}">
+    <van-cell-group>
+      <van-cell title="姓名" value="{{account.username}}"/>
+      <van-cell title="联系方式" value="{{account.user_number}}"/>
+      <van-cell title="上门时间" value="{{account.visit}}"/>
+      <van-cell title="接待人员" value="{{account.worker}}"/>
+      <van-cell title="是否跟进" value="{{account.follow}}"/>
+      <van-cell title="跟进时间" value="{{account.follow_date}}"/>
+      <van-cell title="跟进人员" value="{{account.follow_date}}"/>
+    </van-cell-group>
+  </block>
+</view>
