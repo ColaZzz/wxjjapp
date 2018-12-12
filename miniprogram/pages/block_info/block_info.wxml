@@ -17,7 +17,10 @@
       <van-cell-group>
         <van-cell title="姓名：" value="{{item.username}}" />
         <van-cell title="联系方式：" value="{{item.user_number}}" />
-        <van-cell title="上门时间：" value="{{item.visit}}" border="{{ false }}" />
+        <van-cell title="上门时间：" value="{{item.visit}}" />
+        <van-cell title="有无跟进：" value="{{item.followText}}" />
+        <van-cell wx:if="{{item.follower}}" title="跟进人员：" value="{{item.follower}}" />
+        <van-cell wx:if="{{item.follow_date}}" title="跟进日期：" value="{{item.follow_date}}" border="{{ false }}" />
       </van-cell-group>
     </block>
   </view>

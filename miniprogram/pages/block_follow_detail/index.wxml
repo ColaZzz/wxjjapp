@@ -2,13 +2,29 @@
 <view class="follow">
   <block wx:if="{{account}}">
     <van-cell-group>
-      <van-cell title="姓名" value="{{account.username}}"/>
-      <van-cell title="联系方式" value="{{account.user_number}}"/>
-      <van-cell title="上门时间" value="{{account.visit}}"/>
-      <van-cell title="接待人员" value="{{account.worker}}"/>
-      <van-cell title="是否跟进" value="{{account.follow}}"/>
-      <van-cell title="跟进时间" value="{{account.follow_date}}"/>
-      <van-cell title="跟进人员" value="{{account.follow_date}}"/>
+      <van-cell title="姓名" value="{{account.username}}" />
+      <van-cell title="联系方式" value="{{account.user_number}}" />
+      <van-cell title="上门时间" value="{{account.visit}}" />
+      <van-cell title="接待人员" value="{{account.worker}}" />
+      <van-cell title="有无跟进" value="{{account.followText}}" />
+      <van-cell title="跟进时间" value="{{account.follow_date}}" />
+      <van-cell title="跟进人员" value="{{account.follower}}" />
     </van-cell-group>
+    <view class="editArea">
+      <view class="follow-title">跟进修改</view>
+      <view class="follow-btn">
+        <van-switch checked="{{ checked }}" bind:change="onChange" />
+      </view>
+      <view wx:if="{{checked}}">
+      <form bindsubmit="submit">
+        <van-field name="worker" required clearable label="跟进人员" placeholder="请输入跟进人员" />
+        <view class="button">
+          <button type="primary" form-type="submit">修改</button>
+        </view>
+      </form>
+      </view>
+    </view>
   </block>
 </view>
+
+<van-toast id="van-toast" />

@@ -286,6 +286,14 @@ Page({
           wx.navigateTo({
             url: '../block_apply/block_apply',
           })
+        } else if (res.code == 2) {
+          app.loginAPI()
+            .then(() => {
+              this.applyTap()
+              wx.showLoading({
+                title: '登录过期，正在重新登录..',
+              })
+            })
         } else {
           Toast('当前用户没有权限进入')
         }
@@ -305,6 +313,14 @@ Page({
           wx.navigateTo({
             url: '../block_follow/block_follow',
           })
+        } else if (res.code == 2) {
+          app.loginAPI()
+            .then(() => {
+              this.followTap()
+              wx.showLoading({
+                title: '登录过期，正在重新登录..',
+              })
+            })
         } else {
           Toast('当前用户没有权限进入')
         }

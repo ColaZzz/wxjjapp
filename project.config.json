@@ -96,6 +96,12 @@
 					"name": "招商",
 					"pathName": "pages/jjmall/investment/investment",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "跟进",
+					"pathName": "pages/block_follow_detail/index",
+					"query": "item={\"id\":1,\"username\":\"x先生\",\"user_number\":\"13794899489\",\"visit\":\"2018-12-05\",\"worker\":null,\"mode\":null,\"created_at\":\"2018-12-05 17:27:46\",\"updated_at\":\"2018-12-05 17:27:46\",\"follow\":\"0\",\"follow_date\":null,\"follower\":null}"
 				}
 			]
 		}
