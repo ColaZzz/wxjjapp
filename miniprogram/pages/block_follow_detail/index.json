@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-cell-group": "/dist/vant-weapp/cell-group/index",
-    "van-cell": "/dist/vant-weapp/cell/index"
+    "van-toast": "/dist/vant-weapp/toast/index",
+    "van-cell": "/dist/vant-weapp/cell/index",
+    "van-switch": "/dist/vant-weapp/switch/index",
+    "van-field": "/dist/vant-weapp/field/index"
   }
 }

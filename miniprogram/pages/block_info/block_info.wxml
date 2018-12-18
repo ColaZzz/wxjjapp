@@ -7,7 +7,8 @@
     <van-cell title="工作人员：" value="{{linkage.worker}}" />
     <van-cell title="联系方式：" value="{{linkage.worker_number}}" />
     <van-cell title="客户姓名：" value="{{linkage.username}}" />
-    <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
+    <van-cell title="联系方式：" value="{{linkage.user_number}}" />
+    <van-cell title="报备时间：" value="{{linkage.created_at}}" border="{{ false }}" />
   </van-cell-group>
   <view wx:if="{{checkLength}}">
     <view class="title">匹配到{{checkLength}}条{{keyWord}}数据</view>
@@ -17,7 +18,10 @@
       <van-cell-group>
         <van-cell title="姓名：" value="{{item.username}}" />
         <van-cell title="联系方式：" value="{{item.user_number}}" />
-        <van-cell title="上门时间：" value="{{item.visit}}" border="{{ false }}" />
+        <van-cell title="上门时间：" value="{{item.visit}}" />
+        <van-cell title="有无跟进：" value="{{item.followText}}" />
+        <van-cell wx:if="{{item.follower}}" title="跟进人员：" value="{{item.follower}}" />
+        <van-cell wx:if="{{item.follow_date}}" title="跟进日期：" value="{{item.follow_date}}" border="{{ false }}" />
       </van-cell-group>
     </block>
   </view>

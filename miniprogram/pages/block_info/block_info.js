@@ -31,6 +31,14 @@ Page({
       keyWord = '可能相关'
       length = data2.length
     }
+    // 数据显示处理
+    for(let i=0;i<dataList.length;i++){
+      if (dataList[i].follow==1){
+        dataList[i].followText = '有'
+      }else{
+        dataList[i].followText = '无'
+      }
+    }
     this.setData({
       linkage: data,
       checkUsers: dataList,

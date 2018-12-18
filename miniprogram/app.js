@@ -6,13 +6,13 @@ App({
   /**
    * 本地开发地址
    */
-  url: 'http://jjapp.test/api/',
-  imgUrl: 'http://jjapp.test/storage/',
+  // url: 'http://jjapp.test/api/',
+  // imgUrl: 'http://jjapp.test/storage/',
   /**
    * 生产地址
    */
-  // url: 'https://togetherwoh.com/api/',
-  // imgUrl: 'https://togetherwoh.com/storage/',
+  url: 'https://togetherwoh.com/api/',
+  imgUrl: 'https://togetherwoh.com/storage/',
   /**
    * 公司局域网
    */

@@ -2,3 +2,23 @@
 .follow{
   width: 750rpx;
 }
+
+.editArea{
+  width: 750rpx;
+  height: 500rpx;
+  border-top: 20rpx solid #f6f6f6;
+}
+
+.follow-title{
+  font-size: 34rpx;
+  padding: 20rpx;
+  font-weight: bold;
+}
+
+.follow-btn{
+  padding: 20rpx;
+}
+
+.button{
+  margin-top: 40rpx;
+}
