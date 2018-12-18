@@ -32,11 +32,11 @@
         <image class="b-m-b-img" src="../../public/icon/role.png"></image>
         <view class="b-m-b-title">权限申请</view>
       </view>
-      <view class="b-m-box" bindtap="applyTap">
+      <view wx:if="{{role.linkage_role >= 2}}" class="b-m-box" bindtap="applyTap">
         <image class="b-m-b-img" src="../../public/icon/apply.png"></image>
         <view class="b-m-b-title">消息处理</view>
       </view>
-      <view class="b-m-box" bindtap="followTap">
+      <view wx:if="{{role.linkage_role >= 2}}" class="b-m-box" bindtap="followTap">
         <image class="b-m-b-img" src="../../public/icon/follow.png"></image>
         <view class="b-m-b-title">客户跟进</view>
       </view>

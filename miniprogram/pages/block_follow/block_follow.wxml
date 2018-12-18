@@ -1,5 +1,5 @@
 <!--miniprogram/pages/block_follow/block_follow.wxml-->
-<wux-search-bar clear show-cancel value="{{ value }}" controlled placeholder="Search" bind:confirm="onConfirm" />
+<wux-search-bar clear show-cancel value="{{ value }}" controlled placeholder="搜索" bind:confirm="onConfirm" />
 <view class="container">
   <view class="dataList">
     <block wx:for="{{dataList}}" wx:key="{{index}}">
