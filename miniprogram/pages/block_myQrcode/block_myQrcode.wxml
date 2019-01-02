@@ -5,11 +5,20 @@
     <wux-filterbar class="filter" items="{{items}}" bind:change="onChange" />
   </view>
   <!-- 列表 -->
-  <view class="card" wx:for="{{linkageList}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="qrcodeTap">
-    <van-card currency="" price="{{item.created_at}}" title="{{item.username}}" thumb="{{'http://qr.liantu.com/api.php?text=' + item.img}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" tag="{{item.stateText}}" />
+  <view class="card" wx:for="{{linkageList}}" wx:key="{{item.id}}">
+    <van-card currency="" price="{{item.created_at}}" title="{{item.username}}" thumb="{{'http://qr.liantu.com/api.php?text=' + item.img}}" desc="{{item.user_number}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" tag="{{item.stateText}}">
+      <view slot="footer">
+        <van-button size="mini" data-item="{{item}}" bindtap="qrcodeTap">查看</van-button>
+        <van-button size="mini" data-item="{{item}}" bindtap="editNumber">修改</van-button>
+      </view>
+    </van-card>
   </view>
   <!-- loadmore -->
   <view style="width: 100%; height:50rpx;">
     <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
   </view>
 </view>
+<van-dialog use-slot async-close show="{{ show }}" show-cancel-button confirm-button-open-type="getUserInfo" bind:close="onClose" bind:getuserinfo="getUserInfo">
+  <van-field value="{{ userNumber }}" label="电话" placeholder="请输入电话" bind:change="numberChange" />
+</van-dialog>
+<van-toast id="van-toast" />

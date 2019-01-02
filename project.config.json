@@ -10,7 +10,7 @@
 	},
 	"appid": "wxa17994c398e1201f",
 	"projectname": "jjapp",
-	"libVersion": "2.2.5",
+	"libVersion": "2.4.3",
 	"compileType": "miniprogram",
 	"condition": {
 		"search": {

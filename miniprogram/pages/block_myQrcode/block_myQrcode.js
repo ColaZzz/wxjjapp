@@ -1,5 +1,7 @@
 // miniprogram/pages/block_myQrcode/block_myQrcode.js
 import api from '../../common/api.js'
+import Toast from '../../dist/vant-weapp/toast/toast';
+
 Page({
 
   /**
@@ -7,30 +9,30 @@ Page({
    */
   data: {
     items: [{
-      type: 'radio',
-      label: '是否扫描',
-      value: 'state',
-      children: [{
-        label: '未扫描',
-        value: '0',
+        type: 'radio',
+        label: '是否扫描',
+        value: 'state',
+        children: [{
+            label: '未扫描',
+            value: '0',
+          },
+          {
+            label: '已扫描',
+            value: '1',
+          },
+          {
+            label: '全部',
+            value: '2',
+          },
+        ],
+        groups: ['001'],
       },
       {
-        label: '已扫描',
-        value: '1',
-      },
-      {
-        label: '全部',
-        value: '2',
-      },
-      ],
-      groups: ['001'],
-    },
-    {
-      type: 'text',
-      label: '重置',
-      value: '重置',
-      groups: ['002'],
-    }
+        type: 'text',
+        label: '重置',
+        value: '重置',
+        groups: ['002'],
+      }
     ],
     mode: 'aspectFill',
     lazyLoad: 'true',
@@ -40,6 +42,9 @@ Page({
     currentPage: 1,
     lastPage: 1,
     state: 2,
+    show: false,
+    userNumber: '',
+    lid: ''
   },
 
   /**
@@ -86,7 +91,7 @@ Page({
         let array = this.stateForText(res.data.data)
         let linkageList = this.data.linkageList
         // 从队尾插入
-        for(let i = 0;i<array.length;i++){
+        for (let i = 0; i < array.length; i++) {
           linkageList.push(array[i])
         }
         // 写入数据
@@ -142,7 +147,7 @@ Page({
           state = item.children[i].value
         }
       }
-    } else if (item.value == '重置'){
+    } else if (item.value == '重置') {
       state = 2
     }
 
@@ -152,5 +157,51 @@ Page({
     })
 
     this.loadLinkages(state, this.data.currentPage)
+  },
+
+  editNumber(e) {
+    let item = e.currentTarget.dataset.item
+    this.setData({
+      show: true,
+      userNumber: item.user_number,
+      lid: item.id
+    })
+  },
+
+  onClose(event) {
+    if (event.detail === 'confirm') {
+      this.editNumberInterface(this.data.lid, this.data.userNumber)
+      // 异步关闭弹窗
+      setTimeout(() => {
+        this.setData({
+          show: false
+        });
+      }, 1000);
+    } else {
+      this.setData({
+        show: false
+      });
+    }
+  },
+
+  editNumberInterface(lid, usernumber) {
+    let token = wx.getStorageSync('token')
+    api.oldRequest('editlinkageusernumber', 'POST', {
+      lid,
+      usernumber,
+      token
+    }).then(res => {
+      if(res.code == 1){
+        Toast('已修改，请重新刷新')
+      }else{
+        Toast('出现了一些问题,code:' + res.code)
+      }
+    })
+  },
+
+  numberChange(e){
+    this.setData({
+      userNumber: e.detail
+    })
   }
 })
