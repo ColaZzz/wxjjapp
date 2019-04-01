@@ -2,7 +2,8 @@
 <view class="container">
   <view class="box relative">
     <view class="qrcode-img">
-      <image class="size-full" src="{{'http://qr.liantu.com/api.php?text=' + code}}"></image>
+      <!-- <image class="size-full" src="{{'http://qr.liantu.com/api.php?text=' + code}}"/> -->
+      <wux-qrcode class="size-full" id="qrcode" wux-class="qrcode" data="{{ code }}" fg-color="{{ fgColor }}" bind:click="previewImage" />
     </view>
     <!-- <view class="qrcode-datetime">提交于：{{datetime}}</view> -->
     <view class="qrcode-title">将此码交由工作人员扫描</view>
