@@ -36,6 +36,7 @@ Page({
     mode: 'aspectFill',
     lazyLoad: 'true',
     articleHidden: false,
+    active: 0
   },
 
   /**
@@ -274,5 +275,26 @@ Page({
     wx.navigateTo({
       url: '../investment/investment',
     })
+  },
+
+  // event.detail 的值为当前选中项的索引
+  onChange(e) {
+    // console.log(e.detail)
+    if (e.detail == 0) {
+      this.setData({
+        mallTab: true,
+        articleTab: false,
+        vipTab: false
+      })
+    } else if (e.detail == 1) {
+      this.setData({
+        mallTab: false,
+        articleTab: true,
+        vipTab: false
+      })
+      if (!this.data.swiperList.length) {
+        this.loadInfo()
+      }
+    }
   }
 })
