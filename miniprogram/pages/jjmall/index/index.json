@@ -11,6 +11,7 @@
     "van-tabs": "/dist/vant-weapp/tabs/index",
     "van-tabbar": "/dist/vant-weapp/tabbar/index",
     "van-tabbar-item": "/dist/vant-weapp/tabbar-item/index",
-    "van-icon": "/dist/vant-weapp/icon/index"
+    "van-icon": "/dist/vant-weapp/icon/index",
+    "i-load-more": "/dist/iview-weapp/load-more/index"
   }
 }

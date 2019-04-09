@@ -37,7 +37,11 @@ Page({
     mode: 'aspectFill',
     lazyLoad: 'true',
     articleHidden: false,
-    active: 0
+    active: 0,
+    current_page: 1,
+    last_page: 0,
+    tip: '',
+    loadMore: false
   },
 
   /**
@@ -82,8 +86,10 @@ Page({
         })
         .then(res => {
           this.setData({
-            businessList: res,
-            container: false
+            businessList: res.data,
+            container: false,
+            current_page: res.current_page,
+            last_page: res.last_page
           })
         })
       // 初始化浮动按钮
@@ -113,7 +119,22 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    if (this.data.current_page == this.data.last_page) {
+      this.setData({
+        tip: '到底啦'
+      })
+      return
+    }
+    let page = this.data.current_page + 1
+    this.setData({
+      loadMore: true,
+      current_page: page
+    })
 
+    this.getData({
+      page: this.data.current_page,
+      business: 1
+    })
   },
 
   /**
@@ -151,8 +172,10 @@ Page({
       })
       .then(res => {
         this.setData({
-          businessList: res,
-          spinning: false
+          businessList: res.data,
+          spinning: false,
+          current_page: res.current_page,
+          last_page: res.last_page
         })
       })
   },
@@ -298,5 +321,29 @@ Page({
         this.loadInfo()
       }
     }
+  },
+
+  // 分页拉取数据
+  getData(params) {
+    this.setData({
+      loadMore: true
+    })
+
+    api.request('mallshops', 'GET', params).then(res => {
+      let listData = this.data.businessList
+      for (let i = 0; i < res.data.length; i++) {
+        listData.push(res.data[i])
+      }
+
+      this.setData({
+        businessList: listData,
+        loadMore: false,
+        current_page: res.current_page,
+        last_page: res.last_page
+      })
+      wx.hideLoading()
+    }).catch(err => {
+      wx.hideLoading()
+    })
   }
 })
