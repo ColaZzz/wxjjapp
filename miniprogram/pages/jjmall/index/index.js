@@ -25,6 +25,7 @@ Page({
     buttons: [],
     spinning: false,
     floorList: [],
+    businessList: [],
     container: false,
     mallTab: true,
     articleTab: false,
@@ -59,14 +60,14 @@ Page({
     // 业态
     let business = api.request('mallbusinesses', 'GET')
 
-    let floorList
+    let businessList
     Promise.all([topshopes, swiperes, floor, business]).then(res => {
       // 为楼层数组添加一个hidden属性
-      for (let i = 0; i < res[2].length; i++) {
-        res[2][i].hidden = true
+      for (let i = 0; i < res[3].length; i++) {
+        res[3][i].hidden = true
       }
-      res[2][0].hidden = false
-      floorList = res[2]
+      res[3][0].hidden = false
+      businessList = res[3]
       this.setData({
         topShopes: res[0],
         swiperes: res[1],
@@ -74,25 +75,26 @@ Page({
         business: res[3]
       })
     }).then(() => {
-      // 默认楼层信息
+      // 默认业态信息
       api.request('mallshops', 'GET', {
-          floor: floorList[0].id
+          floor: '',
+          business: businessList[0].id
         })
         .then(res => {
           this.setData({
-            floorList: res,
+            businessList: res,
             container: false
           })
         })
       // 初始化浮动按钮
       let buttons = []
-      let businessButton = this.data.business
-      for (let i = 0; i < businessButton.length; i++) {
+      let floorButton = this.data.floor
+      for (let i = 0; i < floorButton.length; i++) {
         let buttonRow = {
           label: '',
           icon: ''
         }
-        buttonRow.label = businessButton[i].business_name
+        buttonRow.label = floorButton[i].floor_name
         buttonRow.icon = icon
         buttons.push(buttonRow)
       }
@@ -119,37 +121,37 @@ Page({
    */
   onClick(e) {
     let label = e.detail.value.label
-    let business = this.data.business
-    let row = business.find(row => {
-      return row.business_name == label
+    let floor = this.data.floor
+    let row = floor.find(row => {
+      return row.floor_name == label
     })
     let id = row.id
     wx.navigateTo({
-      url: '../business/business?id=' + id,
+      url: '../floor/floor?id=' + id,
     })
   },
 
   /**
    * 楼层变换功能
    */
-  floorTap(e) {
+  businessTap(e) {
     this.setData({
       spinning: true
     })
-    let floor = this.data.floor
+    let business = this.data.business
     let item = e.currentTarget.dataset.item
-    for (let i = 0; i < floor.length; i++) {
-      floor[i].hidden = (floor[i].id == item.id) ? false : true
+    for (let i = 0; i < business.length; i++) {
+      business[i].hidden = (business[i].id == item.id) ? false : true
     }
     this.setData({
-      floor: floor
+      business: business
     })
     api.request('mallshops', 'GET', {
-        floor: item.id
+        business: item.id
       })
       .then(res => {
         this.setData({
-          floorList: res,
+          businessList: res,
           spinning: false
         })
       })
@@ -271,7 +273,7 @@ Page({
     })
   },
 
-  investTap(){
+  investTap() {
     wx.navigateTo({
       url: '../investment/investment',
     })

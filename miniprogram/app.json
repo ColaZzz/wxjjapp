@@ -27,7 +27,8 @@
     "pages/block_role/block_role",
     "pages/block_apply/block_apply",
     "pages/block_follow/block_follow",
-    "pages/block_follow_detail/index"
+    "pages/block_follow_detail/index",
+    "pages/jjmall/floor/floor"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

@@ -31,15 +31,15 @@
       <view class="head-icon" bindtap="returnHome">
         <image src="/public/icon/home.png" mode="aspectFit"></image>
       </view>
-      <block wx:for="{{floor}}" wx:key="{{item.id}}">
-        <view class="floor" data-item="{{item}}" bindtap="floorTap">
-          <view class="y-bar" hidden="{{item.hidden}}"></view>{{item.floor_name}}
+      <block wx:for="{{business}}" wx:key="{{item.id}}">
+        <view class="floor" data-item="{{item}}" bindtap="businessTap">
+          <view class="y-bar" hidden="{{item.hidden}}"></view>{{item.business_name}}
         </view>
       </block>
     </view>
     <view class="right-content">
       <wux-spin class="loading" nested size="large" spinning="{{ spinning }}"></wux-spin>
-      <block wx:for="{{floorList}}" wx:key="{{item.id}}">
+      <block wx:for="{{businessList}}" wx:key="{{item.id}}">
         <van-card data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.icon_url}}" thumb-mode="aspectFill" />
       </block>
     </view>
