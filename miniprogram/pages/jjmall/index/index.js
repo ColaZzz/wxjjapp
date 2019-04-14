@@ -40,8 +40,9 @@ Page({
     active: 0,
     current_page: 1,
     last_page: 0,
-    tip: '',
-    loadMore: false
+    tip: '点击加载更多',
+    loadMore: false,
+    business_id: null
   },
 
   /**
@@ -56,7 +57,8 @@ Page({
       imgUrl: app.imgUrl
     })
     // 主力店铺
-    let topshopes = api.request('malltopshopes', 'GET')
+    // let topshopes = api.request('malltopshopes', 'GET')
+    let topshopes = api.request('mallbusinesses', 'GET')
     // 轮播图
     let swiperes = api.request('mallswiperes', 'GET')
     // 楼层
@@ -76,7 +78,8 @@ Page({
         topShopes: res[0],
         swiperes: res[1],
         floor: res[2],
-        business: res[3]
+        business: res[3],
+        business_id: businessList[0].id
       })
     }).then(() => {
       // 默认业态信息
@@ -133,7 +136,7 @@ Page({
 
     this.getData({
       page: this.data.current_page,
-      business: 1
+      business: this.data.business_id
     })
   },
 
@@ -157,7 +160,8 @@ Page({
    */
   businessTap(e) {
     this.setData({
-      spinning: true
+      spinning: true,
+      tip: '点击加载更多'
     })
     let business = this.data.business
     let item = e.currentTarget.dataset.item
@@ -175,7 +179,8 @@ Page({
           businessList: res.data,
           spinning: false,
           current_page: res.current_page,
-          last_page: res.last_page
+          last_page: res.last_page,
+          business_id: item.id
         })
       })
   },

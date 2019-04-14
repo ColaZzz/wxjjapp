@@ -62,8 +62,8 @@
 .right-content{
   margin-left: 20rpx;
   width: 600rpx;
-  min-height: 600rpx;
-  max-height: 1000rpx;
+  min-height: 500rpx;
+  max-height: 800rpx;
   background-color: #ffffff;
   position: relative;
   overflow: scroll;

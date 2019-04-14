@@ -4,12 +4,12 @@ App({
     userInfo: null
   },
   // 本地开发地址
-  url: 'http://jjapp.test/api/',
-  imgUrl: 'http://jjapp.test/storage/',
+  // url: 'http://jjapp.test/api/',
+  // imgUrl: 'http://jjapp.test/storage/',
 
   // 生产地址
-  // url: 'https://api.gdjjjt.com:8089/api/',
-  // imgUrl: 'https://api.gdjjjt.com:8089/storage/',
+  url: 'https://api.gdjjjt.com:8089/api/',
+  imgUrl: 'https://api.gdjjjt.com:8089/storage/',
   /**
   /**
    * 程序Load
