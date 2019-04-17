@@ -1,17 +1,6 @@
 {
   "usingComponents": {
-    "wux-floating-button": "/dist/wux-weapp/floating-button/index",
-    "wux-spin": "/dist/wux-weapp/spin/index",
-    "van-card": "/dist/vant-weapp/card/index",
-    "wux-icon": "/dist/wux-weapp/icon/index",
-    "wux-tabbar": "/dist/wux-weapp/tabbar/index",
-    "wux-tabbar-item": "/dist/wux-weapp/tabbar-item/index",
-    "mall":"/pages/mall/mall",
-    "van-tab": "/dist/vant-weapp/tab/index",
-    "van-tabs": "/dist/vant-weapp/tabs/index",
-    "van-tabbar": "/dist/vant-weapp/tabbar/index",
-    "van-tabbar-item": "/dist/vant-weapp/tabbar-item/index",
-    "van-icon": "/dist/vant-weapp/icon/index",
-    "i-load-more": "/dist/iview-weapp/load-more/index"
+    "van-search": "/dist/vant-weapp/search/index",
+    "van-cell": "/dist/vant-weapp/cell/index"
   }
-}
+} 

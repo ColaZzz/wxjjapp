@@ -1,142 +1,56 @@
 <!--miniprogram/pages/jjmall/index/index.wxml-->
 <!-- 主页 -->
-<view class="container" hidden="{{container}}" wx:if="{{mallTab}}">
-  <!-- 主力店铺 -->
-  <!-- <view class="topshop">
-    <scroll-view scroll-x="true" scroll-left="0">
-      <view class="scroll-x">
-        <view wx:for="{{topShopes}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="topTap">
-          <view class="top-cell">
-            <view class="top-img-cell">
-              <image class="size-full" src="{{imgUrl + item.icon_url}}" mode="aspectFill"></image>
-            </view>
-            <view class="top-img-title">{{item.title}}</view>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </view> -->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search">
+    <van-search placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch">
+      <view slot="action" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </view>
   <!-- 轮播图 -->
   <view class="swiper">
-    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
+    <swiper class="" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
       <swiper-item wx:for="{{swiperes}}" wx:key="{{item}}" data-item="{{item}}" bindtap="topTap">
         <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
         <view class="absolute swiper-text shadow">{{item.subtitle}}</view>
       </swiper-item>
     </swiper>
   </view>
-  <!-- 列表 -->
-  <view class="list">
-    <view class="left-tabs">
-      <view class="head-icon" bindtap="returnHome">
-        <image src="/public/icon/home.png" mode="aspectFit"></image>
-      </view>
-      <block wx:for="{{business}}" wx:key="{{item.id}}">
-        <view class="floor" data-item="{{item}}" bindtap="businessTap">
-          <view class="y-bar" hidden="{{item.hidden}}"></view>{{item.business_name}}
+  <!-- 业态 -->
+  <view class="business">
+    <block>
+      <view class="business-box" wx:for="{{ business }}" wx:key="{{item.id}}" data-item="{{item}}">
+        <view class="business-box-img">
+          <image class="size-full" src="{{imgUrl+item.icon_url}}" mode="aspectFit"></image>
         </view>
-      </block>
-    </view>
-    <view class="right-content">
-      <wux-spin class="loading" nested size="large" spinning="{{ spinning }}"></wux-spin>
-      <block wx:for="{{businessList}}" wx:key="{{item.id}}">
-        <van-card data-item="{{item}}" bindtap="topTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.icon_url}}" thumb-mode="aspectFill" />
-      </block>
-      <view style="width: 100%; height:50rpx;" bindtap="onReachBottom">
-        <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
+        <view class="business-box-txt">
+          <span class="">{{item.business_name}}</span>
+        </view>
       </view>
+      <!-- 全部 -->
+      <view class="business-box" hidden="{{all_box}}">
+        <view class="business-box-img">
+          <image class="size-full" src="/public/icon/all.png" mode="aspectFit"></image>
+        </view>
+        <view class="business-box-txt">
+          <span class="">全部</span>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 人气推荐 -->
+  <view class="popular">
+    <!-- header文本 -->
+    <view class="popular-header">
+      <van-cell value="更多" is-link>
+        <view slot="title">
+          <view class="van-cell-text">人气推荐</view>
+        </view>
+      </van-cell>
+    </view>
+    <!-- 内容 -->
+    <view class="popular-row">
+      <view class="popular-box" wx:for="{{3}}" wx:key="{{item.index}}"></view>
     </view>
   </view>
 </view>
-<!-- 资讯 -->
-<view class="container" wx:if="{{articleTab}}" hidden="{{articleHidden}}">
-  <!-- 第一栏 -->
-  <view class="article-header">
-    <view class="article-menu" data-type="" bindtap="articleTap">
-      <view class="article-icon">
-        <image class="size-full" mode="aspectFit" src="/public/icon/mall_top.png"></image>
-      </view>
-      <view class="article-text">热门活动</view>
-    </view>
-    <view class="article-menu" data-type="1" bindtap="articleTap">
-      <view class="article-icon">
-        <image class="size-full" mode="aspectFit" src="/public/icon/mall_active.png"></image>
-      </view>
-      <view class="article-text">最新活动</view>
-    </view>
-    <view class="article-menu" bindtap="investTap">
-      <view class="article-icon">
-        <image class="size-full" mode="aspectFit" src="/public/icon/mall_news.png"></image>
-      </view>
-      <view class="article-text">品牌招商</view>
-    </view>
-    <view class="article-menu" bindtap="navigationTap">
-      <view class="article-icon">
-        <image class="size-full" mode="aspectFit" src="/public/icon/mall_map.png"></image>
-      </view>
-      <view class="article-text">店铺导航</view>
-    </view>
-    <view class="article-menu">
-      <view class="article-icon relative">
-        <button class="absolute article-contact" open-type="contact" plain></button>
-        <image class="size-full" mode="aspectFit" src="/public/icon/mall_talk.png"></image>
-      </view>
-      <view class="article-text">微信客服</view>
-    </view>
-  </view>
-  <!-- 轮播图 -->
-  <view class="swiper">
-    <swiper class="size-full" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
-      <block wx:for="{{swiperList}}" wx:key="{{item}}">
-        <swiper-item>
-          <image data-id="{{item.id}}" bindtap="cellTap" class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
-          <view class="absolute swiper-text shadow">{{item.subtitle}}</view>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-  <!-- tabs -->
-  <view class="tabs">
-    <van-tabs>
-      <van-tab title="热门活动" class="relative">
-        <view class="tab-cell" wx:for="{{topList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
-        </view>
-      </van-tab>
-      <van-tab title="最新活动" class="relative">
-        <view class="tab-cell" wx:for="{{activeList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
-        </view>
-      </van-tab>
-      <!-- <van-tab title="商户资讯">
-        <view class="tab-cell" wx:for="{{newsList}}" wx:key="{{newsList}}" data-id="{{item.id}}" bindtap="cellTap">
-          <van-card currency="" price="{{item.created}}" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" />
-        </view>
-      </van-tab> -->
-    </van-tabs>
-  </view>
-</view>
-<!-- 资讯 -->
-<!-- 浮动按钮 -->
-<wux-floating-button wx:if="{{mallTab}}" position="{{ position }}" action="{{ action }}" theme="{{ theme }}" buttons="{{ buttons }}" bind:click="onClick" />
-<!-- tabbar -->
-<!-- <wux-tabbar default-current="mall" position="bottom" theme="{{theme}}" bindchange="tabChange">
-  <wux-tabbar-item key="mall" title="Mall">
-    <wux-icon wux-class="icon" type="ios-gift" size="22" slot="icon-on" />
-    <wux-icon wux-class="icon" type="ios-gift" size="22" slot="icon-off" />
-  </wux-tabbar-item>
-  <wux-tabbar-item key="article" title="资讯">
-    <wux-icon wux-class="icon" type="ios-aperture" size="22" slot="icon-on" />
-    <wux-icon wux-class="icon" type="ios-aperture" size="22" slot="icon-off" />
-  </wux-tabbar-item>
-  <wux-tabbar-item key="vip" title="会员" disabled>
-    <wux-icon wux-class="icon" type="ios-person" size="22" slot="icon-on" />
-    <wux-icon wux-class="icon" type="ios-person" size="22" slot="icon-off" />
-  </wux-tabbar-item>
-</wux-tabbar> -->
-
-<van-tabbar active="{{ active }}" bind:change="onChange">
-  <van-tabbar-item icon="wap-home">Mall</van-tabbar-item>
-  <van-tabbar-item icon="records">资讯</van-tabbar-item>
-  <!-- <van-tabbar-item icon="contact" disabled>会员</van-tabbar-item> -->
-</van-tabbar>
