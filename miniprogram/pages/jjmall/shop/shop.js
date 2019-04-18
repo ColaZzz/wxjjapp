@@ -18,7 +18,14 @@ Page({
     wx.showLoading({
       title: '加载中..',
     })
-    let id = options.id
+    let {
+      id,
+      title
+    } = options
+    // 设置页面标题
+    wx.setNavigationBarTitle({
+      title: title
+    })
     this.setData({
       imgUrl: app.imgUrl,
       hidden: true

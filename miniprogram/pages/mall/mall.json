@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "JJMall",
-  "usingComponents": {
-    "van-tab": "/dist/vant-weapp/tab/index",
-    "van-tabs": "/dist/vant-weapp/tabs/index",
-    "van-card": "/dist/vant-weapp/card/index"
-  }
-}

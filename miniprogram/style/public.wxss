@@ -139,3 +139,10 @@ page {
   right: 30rpx;
   bottom: 50rpx;
 }
+
+/* 单行文本、超出长度省略号 */
+.single-line-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

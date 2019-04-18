@@ -1,6 +1,6 @@
 <!--miniprogram/pages/jjmall/index/index.wxml-->
 <!-- 主页 -->
-<view class="container">
+<view class="container" hidden="{{all_box}}">
   <!-- 搜索框 -->
   <view class="search">
     <van-search placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch">
@@ -10,7 +10,7 @@
   <!-- 轮播图 -->
   <view class="swiper">
     <swiper class="" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}">
-      <swiper-item wx:for="{{swiperes}}" wx:key="{{item}}" data-item="{{item}}" bindtap="topTap">
+      <swiper-item wx:for="{{swiperes}}" wx:key="{{item}}" data-item="{{item}}" bindtap="shopTap">
         <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill" />
         <view class="absolute swiper-text shadow">{{item.subtitle}}</view>
       </swiper-item>
@@ -18,30 +18,28 @@
   </view>
   <!-- 业态 -->
   <view class="business">
-    <block>
-      <view class="business-box" wx:for="{{ business }}" wx:key="{{item.id}}" data-item="{{item}}">
-        <view class="business-box-img">
-          <image class="size-full" src="{{imgUrl+item.icon_url}}" mode="aspectFit"></image>
-        </view>
-        <view class="business-box-txt">
-          <span class="">{{item.business_name}}</span>
-        </view>
+    <view class="business-box" wx:for="{{ business }}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="businessClick">
+      <view class="business-box-img">
+        <image class="size-full" src="{{imgUrl+item.icon_url}}" mode="aspectFit"></image>
       </view>
-      <!-- 全部 -->
-      <view class="business-box" hidden="{{all_box}}">
-        <view class="business-box-img">
-          <image class="size-full" src="/public/icon/all.png" mode="aspectFit"></image>
-        </view>
-        <view class="business-box-txt">
-          <span class="">全部</span>
-        </view>
+      <view class="business-box-txt">
+        <span class="">{{item.business_name}}</span>
       </view>
-    </block>
+    </view>
+    <!-- 全部 -->
+    <!-- <view class="business-box">
+      <view class="business-box-img">
+        <image class="size-full" src="/public/icon/all.png" mode="aspectFit"></image>
+      </view>
+      <view class="business-box-txt">
+        <span class="">全部</span>
+      </view>
+    </view> -->
   </view>
   <!-- 人气推荐 -->
   <view class="popular">
     <!-- header文本 -->
-    <view class="popular-header">
+    <view class="popular-header" bindtap="popularTap">
       <van-cell value="更多" is-link>
         <view slot="title">
           <view class="van-cell-text">人气推荐</view>
@@ -50,7 +48,46 @@
     </view>
     <!-- 内容 -->
     <view class="popular-row">
-      <view class="popular-box" wx:for="{{3}}" wx:key="{{item.index}}"></view>
+      <view class="popular-box" wx:for="{{popular}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="shopTap">
+        <view class="popular-box-img">
+          <image class="size-full" src="{{imgUrl+item.img_url}}" mode="aspectFill"></image>
+        </view>
+        <view class="popular-box-txt">
+          <view class="popular-box-txt-title single-line-ellipsis">
+            {{item.title}}
+          </view>
+          <view class="popular-box-txt-subtitle single-line-ellipsis">
+            {{item.subtitle}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 最新活动 -->
+  <view class="popular">
+    <!-- header文本 -->
+    <view class="popular-header">
+      <van-cell value="更多" is-link>
+        <view slot="title">
+          <view class="van-cell-text">最新活动</view>
+        </view>
+      </van-cell>
+    </view>
+    <!-- 内容 -->
+    <view class="popular-row">
+      <view class="popular-box" wx:for="{{article}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="articleTap">
+        <view class="popular-box-img">
+          <image class="size-full" src="{{imgUrl+item.img_url}}" mode="aspectFill"></image>
+        </view>
+        <view class="popular-box-txt">
+          <view class="popular-box-txt-title single-line-ellipsis">
+            {{item.title}}
+          </view>
+          <view class="popular-box-txt-subtitle single-line-ellipsis">
+            {{item.subtitle}}
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

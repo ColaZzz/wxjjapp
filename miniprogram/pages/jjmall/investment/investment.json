@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "wux-cell-group": "/dist/wux-weapp/cell-group/index",
-    "wux-cell": "/dist/wux-weapp/cell/index",
-    "wux-input": "/dist/wux-weapp/input/index",
-    "wux-upload": "/dist/wux-weapp/upload/index"
-  }
-}

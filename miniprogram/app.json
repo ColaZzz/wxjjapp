@@ -8,10 +8,6 @@
     "pages/housePage/housePage",
     "pages/map/map",
     "pages/estateMoreInfo/estateMoreInfo",
-    "pages/mall/mall",
-    "pages/mall_article/mall_article",
-    "pages/mall_articleList/mall_articleList",
-    "pages/mall_navigation/mall_navigation",
     "pages/block/block",
     "pages/user/user",
     "pages/test/test",
@@ -20,13 +16,13 @@
     "pages/block_Scan/block_Scan",
     "pages/jjmall/index/index",
     "pages/jjmall/shop/shop",
-    "pages/jjmall/investment/investment",
     "pages/block_info/block_info",
     "pages/block_role/block_role",
     "pages/block_apply/block_apply",
     "pages/block_follow/block_follow",
     "pages/block_follow_detail/index",
-    "pages/jjmall/floor/floor"
+    "pages/jjmall/business/business",
+    "pages/jjmall/article/article"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
@@ -57,5 +53,6 @@
         "selectedIconPath": "public/icon/user-selected.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

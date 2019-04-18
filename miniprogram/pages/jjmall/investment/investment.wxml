@@ -1,4 +1,0 @@
-<!--miniprogram/pages/jjmall/investment/investment.wxml-->
-<view class="container">
-  <web-view src="https://togetherwoh.com/investment"></web-view>
-</view>

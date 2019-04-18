@@ -1,4 +1,4 @@
-<!--miniprogram/pages/mall_article/mall_article.wxml-->
+<!--miniprogram/pages/jjmall/article/article.wxml-->
 <view class="container" hidden="{{hidden}}">
   <view class="header">
     <view class="title">{{article.title}}</view>

@@ -1,5 +1,5 @@
-/* miniprogram/pages/mall_article/mall_article.wxss */
-@import "../../style/public.wxss";
+/* miniprogram/pages/jjmall/article/article.wxss */
+@import "../../../style/public.wxss";
 
 .container {
   background-color: #ffffff;
@@ -72,4 +72,3 @@
   height: 200rpx;
   width: 250rpx;
 }
-

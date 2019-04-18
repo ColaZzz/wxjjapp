@@ -12,6 +12,8 @@
 	"projectname": "jjapp",
 	"libVersion": "2.4.3",
 	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

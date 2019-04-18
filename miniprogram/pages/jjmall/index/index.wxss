@@ -2,7 +2,7 @@
 @import "../../../style/public.wxss";
 
 .container {
-  background-color: #f6f6f6;
+  background-color: #fff;
   height: 100%;
 }
 
@@ -23,6 +23,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 710rpx;
+  background-color: #fff;
 }
 
 .business-box {
@@ -45,6 +46,7 @@
 
 .popular {
   width: 710rpx;
+  background-color: #fff;
 }
 
 .popular-header {
@@ -54,19 +56,39 @@
 .popular-row {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .popular-box {
-  width: 33%;
+  width: 32%;
   height: 300rpx;
-  background-color: #ffec8b;
+  
 }
 
-.van-cell {
-  background-color: #ffec8b;
-}
-
-.van-cell-text{
+.van-cell-text {
   font-size: 32rpx;
+}
+
+.popular-box-img {
+  width: 100%;
+  height: 180rpx;
+}
+
+.popular-box-txt {
+  width: 100%;
+  height: 120rpx;
+  
+}
+
+.popular-box-txt-title {
+  width: 100%;
+  height: 50rpx;
+  font-size: 30rpx;
+}
+
+.popular-box-txt-subtitle {
+  width: 100%;
+  height: 50rpx;
+  font-size: 26rpx;
 }
