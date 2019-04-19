@@ -1,5 +1,10 @@
 <!--miniprogram/pages/jjmall/floor/floor.wxml-->
 <view class="container">
+  <!-- 搜索框 -->
+  <view class="search">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="onSearch">
+    </van-search>
+  </view>
   <!-- 筛选框 -->
   <!-- <view class="filter-view">
     <wux-filterbar class="filter" items="{{ items }}" bind:change="onChange" />

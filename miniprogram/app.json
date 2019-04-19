@@ -21,8 +21,9 @@
     "pages/block_apply/block_apply",
     "pages/block_follow/block_follow",
     "pages/block_follow_detail/index",
-    "pages/jjmall/business/business",
-    "pages/jjmall/article/article"
+    "pages/jjmall/shopList/shopList",
+    "pages/jjmall/article/article",
+    "pages/jjmall/articleList/articleList"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",

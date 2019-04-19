@@ -16,37 +16,50 @@ Page({
     tip: '',
     current_page: null,
     last_page: null,
-    business_id: null
+    business_id: null,
+    word: '',
+    value: ''
   },
 
   onLoad: function(options) {
+    let barTitle
     let {
       id,
-      business_name
+      business_name,
+      word,
+      popular
     } = options
+    // 修改头部导航栏的文本
+    if (business_name) {
+      barTitle = business_name
+      word = ''
+      popular = ''
+    } else if (word) {
+      barTitle = 'JJMALL'
+      id = ''
+      business_name = ''
+      popular = ''
+    } else if (popular) {
+      barTitle = popular
+      word = ''
+      id = ''
+      business_name = ''
+    }
+    // 设置导航栏标题
+    wx.setNavigationBarTitle({
+      title: barTitle
+    })
     this.setData({
       imgUrl: app.imgUrl,
       loadMore: true,
-      business_id: id
+      business_id: id,
+      word: word,
+      value: word
     })
-    // 加载列表
-    let lists = api.request('mallshops', 'GET', {
-      business: id
+    this.getData({
+      business: id,
+      word: word
     })
-    Promise.all([lists])
-      .then(res => {
-        this.setData({
-          List: res[0].data,
-          loadMore: false,
-          current_page: res[0].current_page,
-          last_page: res[0].last_page
-        })
-      }).then(() => {
-        // 设置导航栏标题
-        wx.setNavigationBarTitle({
-          title: business_name
-        })
-      })
   },
 
   /**
@@ -67,7 +80,8 @@ Page({
 
     this.getData({
       page: this.data.current_page,
-      business: this.data.business_id
+      business: this.data.business_id,
+      word: this.data.word
     })
   },
 
@@ -107,9 +121,26 @@ Page({
         current_page: res.current_page,
         last_page: res.last_page
       })
+      if (res.last_page == 1) {
+        this.setData({
+          tip: '到底啦'
+        })
+      }
       wx.hideLoading()
     }).catch(err => {
       wx.hideLoading()
+    })
+  },
+
+  // 搜索功能
+  onSearch(e) {
+    this.setData({
+      List: [],
+      word: e.detail
+    })
+    this.getData({
+      business: this.data.business_id,
+      word: e.detail
     })
   }
 })

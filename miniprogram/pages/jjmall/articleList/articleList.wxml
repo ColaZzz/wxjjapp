@@ -1,0 +1,11 @@
+<!--miniprogram/pages/jjmall/articleList/articleList.wxml-->
+<view class="container">
+  <!-- 列表 -->
+  <view class="tab-cell" wx:for="{{articleList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bindtap="articleTap">
+    <van-card currency=""  desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" tag="{{item.state}}" />
+  </view>
+  <!-- loadmore -->
+  <view style="width: 100%; height:50rpx;">
+    <i-load-more tip="{{tip}}" loading="{{loadMore}}" />
+  </view>
+</view>

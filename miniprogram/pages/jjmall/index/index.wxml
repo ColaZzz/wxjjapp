@@ -3,8 +3,7 @@
 <view class="container" hidden="{{all_box}}">
   <!-- 搜索框 -->
   <view class="search">
-    <van-search placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch">
-      <view slot="action" bind:tap="onSearch">搜索</view>
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="onSearch">
     </van-search>
   </view>
   <!-- 轮播图 -->
@@ -66,7 +65,7 @@
   <!-- 最新活动 -->
   <view class="popular">
     <!-- header文本 -->
-    <view class="popular-header">
+    <view class="popular-header" bindtap="articleListTap">
       <van-cell value="更多" is-link>
         <view slot="title">
           <view class="van-cell-text">最新活动</view>

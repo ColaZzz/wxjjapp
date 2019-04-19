@@ -9,6 +9,7 @@
 .swiper {
   width: 710rpx;
   height: 330rpx;
+  margin-top: 30rpx;
 }
 
 .swiper image {

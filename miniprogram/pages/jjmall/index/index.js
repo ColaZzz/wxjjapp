@@ -19,13 +19,17 @@ Page({
     business: [],
     all_box: true,
     popular: [],
-    article: []
+    article: [],
+    value: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.setNavigationBarTitle({
+      title: 'JJAMLL',
+    })
     wx.showLoading({
       title: '加载中..',
     })
@@ -37,7 +41,7 @@ Page({
     // 业态
     let business = api.request('mallbusinesses', 'GET')
     // 人气推荐
-    let popular = api.request('malltopshopes', 'GET',{
+    let popular = api.request('malltopshopes', 'GET', {
       paginate: 3,
       rank: 'desc'
     })
@@ -65,7 +69,7 @@ Page({
   businessClick(e) {
     let item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../business/business?id=' + item.id + '&business_name=' + item.business_name,
+      url: '../shopList/shopList?id=' + item.id + '&business_name=' + item.business_name,
     })
   },
 
@@ -82,6 +86,28 @@ Page({
     let item = e.currentTarget.dataset.item
     wx.navigateTo({
       url: '../article/article?id=' + item.id,
+    })
+  },
+
+  // 搜索按钮
+  onSearch(e) {
+    let word = e.detail
+    wx.navigateTo({
+      url: '../shopList/shopList?word=' + word,
+    })
+  },
+
+  // 人气推荐
+  popularTap(){
+    wx.navigateTo({
+      url: '../shopList/shopList?popular=人气推荐',
+    })
+  },
+  
+  // 文章列表
+  articleListTap(){
+    wx.navigateTo({
+      url: '../articleList/articleList',
     })
   }
 })
