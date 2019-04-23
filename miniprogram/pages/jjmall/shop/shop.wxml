@@ -25,7 +25,7 @@
     <block wx:if="{{commodities.length}}">
       <scroll-view scroll-x="true" scroll-left="0">
         <view class="scroll-x">
-          <view wx:for="{{commodities}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="comTap">
+          <view wx:for="{{commodities}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="">
             <view class="com-cell">
               <view class="com-img-cell">
                 <image class="size-full" src="{{imgUrl + item.img_url}}" mode="aspectFill"></image>

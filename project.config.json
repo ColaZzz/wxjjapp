@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -82,10 +82,11 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "mall_shop",
 					"pathName": "pages/jjmall/shop/shop",
-					"query": "id=1"
+					"query": "id=1&title=商店",
+					"scene": null
 				},
 				{
 					"id": 18,

@@ -99,7 +99,7 @@ Page({
   shopTap(e) {
     let item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../shop/shop?id=' + item.id,
+      url: '../shop/shop?id=' + item.id + '&title=' + item.title,
     })
   },
 

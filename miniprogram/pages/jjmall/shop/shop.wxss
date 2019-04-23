@@ -13,14 +13,14 @@
 }
 
 .commodity {
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   width: 750rpx;
   height: 230rpx;
   background-color: #fff;
 }
 
 .content {
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   width: 750rpx;
   min-height: 300rpx;
   background-color: #fff;

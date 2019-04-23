@@ -3,19 +3,25 @@ App({
   globalData: {
     userInfo: null
   },
-  // 本地开发地址
-  url: 'http://jjapp.test/api/',
-  imgUrl: 'http://jjapp.test/storage/',
-
-  // 生产地址
-  // url: 'https://api.gdjjjt.com:8089/api/',
-  // imgUrl: 'https://api.gdjjjt.com:8089/storage/',
-  /**
+  // 测试环境：0 生产环境：1
+  currentEnvironment: 0,
+  url: '',
+  imgUrl: '',
   /**
    * 程序Load
    */
   onLaunch: function() {
-    this.loginAPI()
+    if (this.currentEnvironment) {
+      // 生产环境
+        this.url = 'https://api.gdjjjt.com:8089/api/'
+        this.imgUrl = 'https://api.gdjjjt.com:8089/storage/'
+    }else{
+      // 测试环境
+        this.url = 'http://jjapp.test/api/'
+        this.imgUrl = 'http://jjapp.test/storage/'
+    }
+    console.log(this.url)
+    // this.loginAPI()
   },
 
   /**
