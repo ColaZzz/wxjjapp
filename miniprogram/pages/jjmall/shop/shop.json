@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "wux-alert": "/dist/wux-weapp/alert/index"
+    "wux-alert": "/dist/wux-weapp/alert/index",
+    "van-icon": "/dist/vant-weapp/icon/index",
+    "van-cell": "/dist/vant-weapp/cell/index",
+    "van-cell-group": "/dist/vant-weapp/cell-group/index"
   }
 }

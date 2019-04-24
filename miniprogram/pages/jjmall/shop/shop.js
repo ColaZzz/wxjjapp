@@ -60,5 +60,17 @@ Page({
     wx.navigateTo({
       url: '../commodity/commodity?id=' + item.id,
     })
+  },
+
+  /**
+   * 点击地址事件
+   */
+  addressTap(e) {
+    let item = e.currentTarget.dataset.item
+    // let imgUrl = 'https://api.gdjjjt.com:8089/storage/'
+    // console.log(this.data.imgUrl)
+    wx.previewImage({
+      urls: [this.data.imgUrl + item.floor.floor_img_url],
+    })
   }
 })
