@@ -13,7 +13,7 @@
   <view class="cell">
     <block wx:for="{{List}}" wx:key="{{item.id}}">
       <view class="card-cell">
-        <van-card data-item="{{item}}" bindtap="shopTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" tag="{{item.floor.floor_name}}" thumb-mode="aspectFill" currency="" price="人均￥{{item.average_spent}}">
+        <van-card data-item="{{item}}" bindtap="shopTap" desc="{{item.subtitle}}" title="{{item.title}}" thumb="{{imgUrl + item.img_url}}" tag="{{item.floor.floor_name}}" thumb-mode="aspectFill" currency="" >
           <view slot="tags">
             <van-tag wx:if="{{item.customize_type}}" plain type="primary">{{item.customize_type}}</van-tag>
           </view>

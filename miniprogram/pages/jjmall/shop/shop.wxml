@@ -6,8 +6,8 @@
       <view class="row-other-img">
         <image class="size-full" src="/public/icon/zan.png" mode="aspectFit"></image>
       </view>
-      <view class="row-other-txt">人均{{shop.average_spent}}元</view>
-      <view class="row-other-txt">{{shop.customize_type}}</view>
+      <view class="row-other-txt" wx:if="{{shop.average_spent}}">人均{{shop.average_spent}}元</view>
+      <view class="row-other-txt" wx:if="{{shop.customize_type}}">{{shop.customize_type}}</view>
     </view>
 
   </view>

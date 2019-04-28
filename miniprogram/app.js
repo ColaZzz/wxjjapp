@@ -4,7 +4,7 @@ App({
     userInfo: null
   },
   // 测试环境：0 生产环境：1
-  currentEnvironment: 0,
+  currentEnvironment: 1,
   url: '',
   imgUrl: '',
   /**
@@ -20,8 +20,8 @@ App({
         this.url = 'http://jjapp.test/api/'
         this.imgUrl = 'http://jjapp.test/storage/'
     }
-    console.log(this.url)
-    // this.loginAPI()
+
+    this.loginAPI()
   },
 
   /**

@@ -67,10 +67,14 @@ Page({
    */
   addressTap(e) {
     let item = e.currentTarget.dataset.item
-    // let imgUrl = 'https://api.gdjjjt.com:8089/storage/'
-    // console.log(this.data.imgUrl)
-    wx.previewImage({
-      urls: [this.data.imgUrl + item.floor.floor_img_url],
-    })
+    if(item.map_url){
+      wx.previewImage({
+        urls: [this.data.imgUrl + item.map_url],
+      })
+    }else{
+      wx.previewImage({
+        urls: [this.data.imgUrl + item.floor.floor_img_url],
+      })
+    }
   }
 })
