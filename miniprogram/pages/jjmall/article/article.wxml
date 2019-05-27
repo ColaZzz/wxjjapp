@@ -1,16 +1,24 @@
 <!--miniprogram/pages/jjmall/article/article.wxml-->
+<import src="../../../common/wxParse/wxParse.wxml" />
+
 <view class="container" hidden="{{hidden}}">
   <view class="header">
-    <view class="title">{{article.title}}</view>
-    <view class="subtitle">{{article.subtitle}}</view>
-    <view class="state">{{article.state}}</view>
-    <view class="timestamp">{{article.created_at}}</view>
+    <view class="title">{{header.title}}</view>
+    <view class="subtitle">{{header.subtitle}}</view>
+    <view class="state">{{header.state}}</view>
+    <view class="timestamp">{{header.created_at}}</view>
   </view>
+
   <view class="content">
-    <rich-text nodes="{{html}}"></rich-text>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <!-- <rich-text nodes="{{html}}"></rich-text> -->
   </view>
-  <view class="recommend">
-    <view class="scroll-title"><text>更多推荐</text></view>
+  <!-- <view class="recommend">
+    <view class="scroll-title">
+      <text>更多推荐</text>
+    </view>
     <scroll-view scroll-x="true" scroll-left="100">
       <view class="scroll-x">
         <view wx:for="{{scrollItem}}" wx:key="{{item.id}}">
@@ -23,7 +31,7 @@
         </view>
       </view>
     </scroll-view>
-  </view>
-  <view style="width: 95%;height: 50rpx;background-color:#ffffff;">
-  </view>
+  </view> -->
+  <!-- <view style="width: 95%;height: 50rpx;background-color:#ffffff;">
+  </view> -->
 </view>

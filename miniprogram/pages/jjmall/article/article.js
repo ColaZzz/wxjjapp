@@ -1,5 +1,6 @@
 // miniprogram/pages/jjmall/article/article.js
 import api from '../../../common/api.js'
+var WxParse = require('../../../common/wxParse/wxParse.js')
 const app = getApp()
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article: null,
+    header: null,
     html: '',
     scrollItem: null,
     hidden: true,
@@ -18,6 +19,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var article
+
     this.setData({
       imgUrl: app.imgUrl
     })
@@ -39,8 +43,11 @@ Page({
       let date = res[0].created_at
       res[0].created_at = date.split(' ')[0]
 
+      //转换
+      article = res[0].information
+
       this.setData({
-        article: res[0],
+        header: res[0],
         html: res[0].information,
         scrollItem: res[1],
         hidden: false
@@ -50,6 +57,8 @@ Page({
         title: res[0].title,
       })
       wx.hideLoading()
+    }).then(()=>{
+      WxParse.wxParse('article', 'html', article, that, 1)
     })
   },
 
