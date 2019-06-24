@@ -6,6 +6,7 @@
     "wux-filterbar": "/dist/wux-weapp/filterbar/index",
     "van-dialog": "/dist/vant-weapp/dialog/index",
     "van-field": "/dist/vant-weapp/field/index",
+    "van-search": "/dist/vant-weapp/search/index",
     "van-toast": "/dist/vant-weapp/toast/index"
   }
 }

@@ -24,7 +24,7 @@
         <image class="b-m-b-img" src="../../public/icon/linkage-my.png"></image>
         <view class="b-m-b-title">我的推荐</view>
       </view>
-      <view class="b-m-box" bindtap="scanCode">
+      <view class="b-m-box" bindtap="scanCode" bindlongpress="longpress" bindtouchstart="startTap" bindtouchend="endTap">
         <image class="b-m-b-img" src="../../public/icon/scan.png"></image>
         <view class="b-m-b-title">扫码</view>
       </view>
@@ -72,3 +72,8 @@
     <van-cell title="联系方式：" value="{{linkage.user_number}}" border="{{ false }}" />
   </van-cell-group>
 </van-dialog>
+
+<!-- 对话框 -->
+  <van-dialog title="手动确认" use-slot async-close show="{{ showCode }}" show-cancel-button bind:close="codeOnClose">
+    <van-field value="{{qrcode}}" label="验证码" :border="false" placeholder="请输入验证码" bind:change="codeOnChange" />
+  </van-dialog>

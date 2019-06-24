@@ -46,7 +46,7 @@
       </van-cell>
     </view>
     <!-- 内容 -->
-    <view class="popular-row">
+    <view class="popular-warp">
       <view class="popular-box" wx:for="{{popular}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="shopTap">
         <view class="popular-box-img">
           <image class="size-full" src="{{imgUrl+item.img_url}}" mode="aspectFill"></image>
@@ -61,10 +61,10 @@
         </view>
       </view>
     </view>
+
   </view>
   <!-- 最新活动 -->
-  <view class="popular">
-    <!-- header文本 -->
+  <!-- <view class="popular">
     <view class="popular-header" bindtap="articleListTap">
       <van-cell value="更多" is-link>
         <view slot="title">
@@ -72,7 +72,6 @@
         </view>
       </van-cell>
     </view>
-    <!-- 内容 -->
     <view class="popular-row">
       <view class="popular-box" wx:for="{{article}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="articleTap">
         <view class="popular-box-img">
@@ -88,5 +87,5 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 </view>

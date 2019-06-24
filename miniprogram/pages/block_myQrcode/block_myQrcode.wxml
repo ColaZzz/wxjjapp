@@ -1,12 +1,17 @@
 <!--miniprogram/pages/block_myQrcode/block_myQrcode.wxml-->
 <view class="container">
+<!-- 搜索 -->
+  <view class="search">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="onSearch">
+    </van-search>
+  </view>
   <!-- 筛选 -->
   <view class="filter-view">
     <wux-filterbar class="filter" items="{{items}}" bind:change="onChange" />
   </view>
   <!-- 列表 -->
   <view class="card" wx:for="{{linkageList}}" wx:key="{{item.id}}">
-    <van-card currency="" price="{{item.created_at}}" title="{{item.username}}" thumb="{{'http://qr.liantu.com/api.php?text=' + item.img}}" desc="{{item.user_number}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" tag="{{item.stateText}}">
+    <van-card currency="" price="{{item.created_at}}" title="{{item.username}}" thumb="{{'http://qr.liantu.com/api.php?text=' + item.img}}" desc="{{item.user_number}}" thumb-mode="{{mode}}" lazy-load="{{lazyLoad}}" tag="{{item.stateText}}" >
       <view slot="footer">
         <van-button size="mini" data-item="{{item}}" bindtap="qrcodeTap">查看</van-button>
         <van-button size="mini" data-item="{{item}}" bindtap="editNumber">修改</van-button>

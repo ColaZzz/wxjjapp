@@ -20,6 +20,9 @@ Page({
     avatar: null,
     nickName: null,
     role: null,
+    recStartTime: 0,
+    showCode: false,
+    qrcode: null,
   },
 
   /**
@@ -203,6 +206,7 @@ Page({
         token
       })
       .then(res => {
+        wx.hideLoading()
         if (res.code == 1) {
           this.setData({
             linkage: res.data,
@@ -213,23 +217,14 @@ Page({
             this.getLinkageInfo(code, wx.getStorageSync('token'))
           })
         } else if (res.code == 3) {
-          wx.showToast({
-            title: res.msg,
-            image: '../../public/icon/fail.png',
-            duration: 2000
-          })
+          Toast.fail('二维码不存在或过期（7天内有效）')
         } else if (res.code == 4) {
-          wx.showToast({
-            title: res.msg,
-            image: '../../public/icon/fail.png',
-            duration: 2000
-          })
+          Toast.fail(res.msg)
         } else if (res.code == 5) {
           wx.navigateTo({
             url: '../block_info/block_info?data=' + JSON.stringify(res.data) + '&data2=' + JSON.stringify(res.data2),
           })
         }
-        wx.hideLoading()
       })
   },
 
@@ -326,5 +321,57 @@ Page({
         }
         wx.hideLoading()
       })
-  }
+  },
+
+  /**
+   * 长按事件
+   */
+  longpress(e) { },
+
+  /**
+   * 长按事件改造
+   */
+  startTap(e) {
+    this.setData({
+      recStartTime: e.timeStamp
+    })
+  },
+
+  /**
+   * 长按事件改造
+   */
+  endTap(e) {
+    let differ = e.timeStamp - this.data.recStartTime
+    if (differ > 1500) {
+      this.setData({
+        showCode: true
+      })
+    }
+  },
+
+  codeOnClose(event){
+    if (event.detail === 'confirm') {
+      let token = wx.getStorageSync('token')
+      this.getLinkageInfo(this.data.qrcode, token)
+      //异步关闭弹窗
+      setTimeout(() => {
+        this.setData({
+          showCode: false
+        });
+      }, 1000);
+    } else {
+      this.setData({
+        showCode: false
+      });
+    }
+  },
+
+  /**
+   * 获取通行码
+   */
+  codeOnChange(e) {
+    this.setData({
+      qrcode: e.detail
+    })
+  },
 })

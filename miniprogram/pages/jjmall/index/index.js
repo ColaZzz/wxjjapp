@@ -42,7 +42,7 @@ Page({
     let business = api.request('mallbusinesses', 'GET')
     // 人气推荐
     let popular = api.request('malltopshopes', 'GET', {
-      paginate: 3,
+      paginate: 6,
       rank: 'desc'
     })
     // 最新活动

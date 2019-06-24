@@ -76,7 +76,7 @@ Page({
   /**
    * 初始化联动记录
    */
-  loadLinkages(state, page) {
+  loadLinkages(state, page, word) {
     wx.showLoading({
       title: '加载中..',
       mask: true
@@ -85,6 +85,7 @@ Page({
     api.oldRequest('personlinkages', 'POST', {
       token,
       state,
+      word,
       page
     }).then(res => {
       if (res.msg == '获取记录') {
@@ -203,5 +204,14 @@ Page({
     this.setData({
       userNumber: e.detail
     })
+  },
+
+  // 搜索按钮
+  onSearch(e) {
+    this.setData({
+      linkageList: []
+    })
+    let word = e.detail
+    this.loadLinkages(2, this.data.currentPage, word)
   }
 })
